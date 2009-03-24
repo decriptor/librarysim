@@ -13,14 +13,18 @@ current checked out books
 2.1	Organize a file format for input to the program
 
 2.2	Create a simulator for dates
-____________________________________________________________________________
-
+----
 1.4	Allow the addition and removal of books and users to the appropriate
 lists
 
 1.5	Allow the sorting of lists
 
+{{{
 
+
+
+
+}}}
 
 
 = Ice Berg Chart 2 =
@@ -34,9 +38,7 @@ lists
 2.2 Allow checking in/out of books and media
 
 1.2 Show lists of all books, overdue books, and a Patron's books in the interface
-
-__________________________________________________
-
+----
 2.3 Add and Remove book functionality
 
 2.4 Add sorting options
