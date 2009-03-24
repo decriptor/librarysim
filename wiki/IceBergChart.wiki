@@ -1,7 +1,7 @@
 #summary The Ice Berg Chart
 #labels iceberg
 
-= Ice Berg Chart =
+= Ice Berg Chart 1 =
 
 1.1	Create a GUI or CLI
 
@@ -19,3 +19,22 @@ ____________________________________________________________________________
 lists
 
 1.5	Allow the sorting of lists
+
+
+= Ice Berg Chart 2 =
+
+1.1 Create an Interface
+
+2.1 Create Library file for storing all types of data
+
+3.1 Simulate dates
+
+2.2 Allow checking in/out of books and media
+
+1.2 Show lists of all books, overdue books, and a Patron's books in the interface
+
+__________________________________________________
+
+2.3 Add and Remove book functionality
+
+2.4 Add sorting options
