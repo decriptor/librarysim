@@ -20,11 +20,3 @@
 1.4	Allow the addition and removal of books and users
 
 1.5	Add sorting options
-
-
-
-= Ice Berg Chart 2 =
-
-
-
-
