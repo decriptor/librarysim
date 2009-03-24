@@ -1,7 +1,7 @@
 #summary Mission Statement
 #labels missionstatement,priorities
 
-= Introduction =
+= Mission Statement =
 
 Our mission is to create a usable library software that will maintain a
 current list of their books and their state of availability as well as a list of
