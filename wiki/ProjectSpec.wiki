@@ -1,0 +1,41 @@
+= Spec =
+
+This simulates a library.
+
+Patrons may check books out and check them in.
+
+ 
+
+   1. The books are contained in a file. The program reads the file at the beginning of the program (allow the user to select the file name), and writes it out at the end of the program.
+         1. The format of the file is up to the designers, but it must contain the book information as well as the status (is it checked out, if so, by whom)
+         2. If you have time, you may add a feature to add or remove books.
+   2. The books are of the following types (with their loan times):
+         1. Adult (2 weeks)
+         2. Children’s (1 week)
+         3. Media
+               1. DVDs (2 days)
+               2. Videotapes (3 days)
+   3. There are two types of patrons: Adults and Children. Children may only check out children’s books.
+         1. The list of patrons is contained in a file that is read in.
+               1. If you have time, you may add a feature to add or remove patrons.
+         2. Adults may have up to 6 books checked out at a time.
+         3. Children may have up to 3 books checked out at a time.
+   4. Check out, Check in
+         1. Adults and children may check books out and check them back in. If you are using a GUI, you can use various drop down lists to select the patron and the book. If you are using a CLI, you might want to display a numbered list of patrons, let the person select a number, for the patron, and then do something similar for the book to check out.
+         2. Checked out books may not be checked out (duh!)
+         3. Check in/out one book at a time. If you have time, you may add multiple checkout capabilities.
+   5. Lists
+         1. All books and their status
+         2. Overdue books
+         3. A Patron’s books that are checked out
+   6. Date: Since we are simulating time, allow the date to be advanced. You will probably want to build a little date class for this (and for the due dates)
+         1. Pick some date to start with.
+         2. Allow the user to advance the date, one day at a time
+   7. Interface: Either GUI or CLI. If it is a CLI, you will want a little menu with the possible functions. To review, these are the basic functions:
+         1. Check out a book
+         2. Check in a book
+         3. List all books
+         4. List overdue books
+         5. List a patron’s books
+         6. Advance the date
+         7. Quit
