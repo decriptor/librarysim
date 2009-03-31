@@ -1,0 +1,24 @@
+= Database Design =
+
+Some of the columns might not get used, but if there is time it would be cool to add them. 
+
+== Database: librarysim ==
+
+=== Table: Patron ===
+  * Patron ID
+  * First Name
+  * Last Name
+  * Phone Number
+  * Address
+  * Gender
+  * Date of Birth
+
+=== Table: Media ===
+  * Media ID
+  * Patron ID
+  * Media Type
+  * Media Title
+  * Description
+  * Checked In
+  * Checked Out
+  * Reserved
