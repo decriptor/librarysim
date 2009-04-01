@@ -1,0 +1,7 @@
+2009-04-01  Stephen Shaw  <sshaw@decriptor.com>
+
+	* ChangeLog: Initial ChangeLog
+
+	* IDataAccess.cs: Created the IDataAccess file
+	Added some basic patron info
+

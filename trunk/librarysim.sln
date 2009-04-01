@@ -14,6 +14,10 @@ Global
 		{B09371DD-FDA4-43C1-B3A4-51A42841E65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B09371DD-FDA4-43C1-B3A4-51A42841E65D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.1
+		StartupItem = librarysim\librarysim.csproj
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
