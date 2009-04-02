@@ -1,5 +1,5 @@
 #labels testplan
-= Test Case =
+= Test Plan =
 ==Scope==
 
 A test plan for the cs2450 library simulator team.
