@@ -5,19 +5,30 @@ Some of the columns might not get used, but if there is time it would be cool to
 == Database: librarysim ==
 
 === Table: Patron ===
-  * Patron ID
-  * First Name
-  * Last Name
+  * ID
+  * Name
   * Phone Number
   * Address
   * Gender
   * Date of Birth
 
+=== Table: Book ===
+  * ID
+  * Patron ID
+  * Type
+  * Title
+  * Author
+  * Description
+  * Checked In
+  * Checked Out
+  * Reserved
+
 === Table: Media ===
   * Media ID
   * Patron ID
-  * Media Type
-  * Media Title
+  * Type
+  * Title
+  * Rating
   * Description
   * Checked In
   * Checked Out
