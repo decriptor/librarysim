@@ -1,0 +1,37 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.DebuggingService>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService>
+  <MonoDevelop.Ide.Workbench ActiveDocument="librarysim/Interfaces/IDataAccess.cs" ctype="Workbench">
+    <Files>
+      <File FileName="librarysim/app.config" Line="4" Column="1" />
+      <File FileName="librarysim/Program.cs" Line="1" Column="1" />
+      <File FileName="librarysim/Databases/SQLite.cs" Line="101" Column="1" />
+      <File FileName="librarysim/Interfaces/IDataAccess.cs" Line="19" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="librarysim" expanded="True" selected="True">
+            <Node name="Databases" expanded="True" />
+            <Node name="Interfaces" expanded="True" />
+            <Node name="Properties" expanded="True">
+              <Node name="Resources.resx" expanded="True" />
+              <Node name="Settings.settings" expanded="True" />
+            </Node>
+            <Node name="Form1.cs" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State expanded="True" selected="True">
+          <Node name="library simulator" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
