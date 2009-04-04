@@ -1,0 +1,8 @@
+0>2009-04-04  Stephen Shaw  <sshaw@decriptor.com>
+}>
+	 * dlls: Added this directory for any dlls need for both
+	windows and linux
+
+	 * dlls/Mono.Data.SQLite.dll: Added the Mono dll for SQLite.
+	Its cross platform, so it will work just fine with windows
+		 
