@@ -12,7 +12,7 @@ Some of the columns might not get used, but if there is time it would be cool to
   * Gender
   * Date of Birth
 
-=== Table: Book ===
+=== Table: Books ===
   * ID
   * Patron ID
   * Type
@@ -24,7 +24,7 @@ Some of the columns might not get used, but if there is time it would be cool to
   * Reserved
 
 === Table: Media ===
-  * Media ID
+  * ID
   * Patron ID
   * Type
   * Title
