@@ -1,3 +1,8 @@
+2009-04-04  Stephen Shaw  <sshaw@decriptor.com>
+
+	* IDataAccess.cs: Extended out some of the database stuff.
+	  Split the Media table into Books and Media.
+
 2009-04-01  Stephen Shaw  <sshaw@decriptor.com>
 
 	* ChangeLog: Initial ChangeLog

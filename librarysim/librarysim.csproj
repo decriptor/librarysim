@@ -38,8 +38,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Mono.Data.Sqlite" />
-    <Reference Include="Mono.Data.SqliteClient" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -69,8 +72,11 @@
     </Compile>
     <Compile Include="Databases\SQLite.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />
-    <Compile Include="Interfaces\ChangeLog" />
-    <Compile Include="Databases\ChangeLog" />
+    <None Include="Interfaces\ChangeLog" />
+    <None Include="Databases\ChangeLog" />
+    <Compile Include="Databases\DatabaseBuilder.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="DataAccess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

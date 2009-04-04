@@ -1,3 +1,11 @@
+2009-04-04  Stephen Shaw  <sshaw@decriptor.com>
+
+	* DatabaseBuilder.cs: Created this class to build a base setup
+	  for the database. It doesn't autofill yet.
+
+	* SQLite.cs: Extended out some of the database stuff. Split
+	  the Media table into Books and Media.
+
 2009-04-01  Stephen Shaw  <sshaw@decriptor.com>
 
 	* SQLite.cs: Created the SQLite.cs file
