@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using Mono.Data.SqliteClient;
+using Mono.Data.Sqlite;
+using librarysim;
 using librarysim.Interfaces;
 
 namespace librarysim.Databases
@@ -10,22 +11,48 @@ namespace librarysim.Databases
 	class SQLite
 	{
 		#region Variables
-		const string ConnectStringFormat = "URI=file:{0};New={1};Synchronous={2}";
-		static string ConnectString;
+		public static readonly DateTime LocalUnixEpoch = new DateTime(1970, 1, 1).ToLocalTime();
+		static string db;
+		Config c;
 		#endregion
 		
 		#region Constructors
-		static SQLite()
-		{
-			ConnectString = string.Format(ConnectStringFormat, "librarysim.db", "True", "Off");
-		}
 		public SQLite()
 		{
-			
+			c = new Config();
+			db = c.DbLocation;
 		}
 		#endregion
 		
 		#region Patrons
+		/// <summary>
+        /// Retrieve all patrons(null) or one specific patron(patron uid)
+        /// </summary>
+        /// <param name="patronID"></param>
+        /// <returns>patron Data Set</returns>
+        public DataSet PatronRetrieve(int? patronID, string name, string phoneNumber, string address, 
+		                  string gender, int? dob)
+        {
+            DataSet patronDS = new DataSet();
+            try
+            {
+                using (SqliteConnection connection = new SqliteConnection(db))
+                using (SqliteCommand cmd = new SqliteCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+					//if(
+					//string s_sql = "SELECT 
+					SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
+                    DA.Fill(patronDS, "Patrons");
+                }
+            }
+            catch (SqliteException ex)
+            {
+                throw ex;
+            }
+            return patronDS;
+        }
+		
         /// <summary>
         /// Add a new patron
         /// </summary>
@@ -38,7 +65,7 @@ namespace librarysim.Databases
         {
             try
             {
-                using (SqliteConnection conn = new SqliteConnection(ConnectString))
+                using (SqliteConnection conn = new SqliteConnection(db))
                 using (SqliteCommand cmd = new SqliteCommand())
                 {
 					cmd.CommandType = CommandType.Text;
@@ -55,18 +82,18 @@ namespace librarysim.Databases
         }
 
         /// <summary>
-        /// Update an existing user
+        /// Update an existing patron
         /// </summary>
         /// <param name="name"></param>
         /// <param name="phoneNumber"></param>
         /// <param name="address"></param>
         /// <param name="gender"></param>
         /// <param name="dob"></param>
-        public void UserUpdate(int patronID, string name, string phoneNumber, string address, string gender, int dob)
+        public void PatronUpdate(int patronID, string name, string phoneNumber, string address, string gender, int dob)
         {
             try
             {
-                using (SqliteConnection conn = new SqliteConnection(ConnectString))
+                using (SqliteConnection conn = new SqliteConnection(db))
                 using (SqliteCommand cmd = new SqliteCommand())
                 {
                     cmd.CommandType = CommandType.Text;
@@ -81,14 +108,14 @@ namespace librarysim.Databases
         }
 
         /// <summary>
-        /// Delete an user
+        /// Delete a patron
         /// </summary>
-        /// <param name="userID"></param>
-        public void UserDelete(int userID)
+        /// <param name="patronID"></param>
+        public void PatronDelete(int patronID)
         {
             try
             {
-                using (SqliteConnection conn = new SqliteConnection(ConnectString))
+                using (SqliteConnection conn = new SqliteConnection(db))
                 using (SqliteCommand cmd = new SqliteCommand())
                 {
                     cmd.CommandType = CommandType.Text;
@@ -103,5 +130,72 @@ namespace librarysim.Databases
         }
         #endregion
 
+		
+		#region Books
+		public DataSet BookRetrieve(int? bookID)
+		{
+			DataSet bookDS = new DataSet();
+			
+			try
+            {
+                using (SqliteConnection conn = new SqliteConnection(db))
+                using (SqliteCommand cmd = new SqliteCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+					conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqliteExecutionException ex)
+            {
+                throw ex;
+            }
+			
+			return bookDS;
+		}
+				
+        public void BookAdd(string type, string title, string author, string description)
+		{
+			
+		}
+
+        public void BookUpdate(int bookID, int? patron, string type, string title, string author,
+		                string description, DateTime checkedin, DateTime checkedout,
+		                bool reserved)
+		{
+			
+		}
+		
+        public void BookUpdate(int bookID)
+		{
+			
+		}
+        #endregion
+
+		#region Media
+		public DataSet MediaRetrieve(int? media)
+		{
+			DataSet mediaDS = new DataSet();
+			
+			return mediaDS;
+		}
+		
+        public void MediaAdd(string type, string title, string rating, string description)
+		{
+			
+		}
+
+        public void MediaUpdate(int mediaID, int? patron, string type, string title, string rating,
+		                string description, DateTime checkedin, DateTime checkedout,
+		                bool reserved)
+		{
+			
+		}
+		
+        public void MediaDelete(int mediaID)
+		{
+			
+		}
+        #endregion
 	}
 }
