@@ -15,7 +15,7 @@ namespace librarysim
         static void Main()
         {
 			Config c;
-			string configPathBase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"librarysim");
+			string configPathBase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"librarysim");
 			XmlSerializer s = new XmlSerializer( typeof( Config) );
 			//Check if directory exists
 			if(!Directory.Exists(configPathBase))

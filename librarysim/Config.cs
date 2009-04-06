@@ -24,9 +24,10 @@ namespace librarysim
 		#endregion
 		
 		#region Database Settings
+
 		private string dbLocation = "URI=file:" + Path.Combine(
-		                               Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-		                               "librarysim/librarysim.db");
+                                       Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+		                               Path.Combine("librarysim", "librarysim.db"));
 		#endregion
 		
 		#region Properties
@@ -81,7 +82,7 @@ namespace librarysim
 		
 		public Config()
 		{
-			
+
 		}
 		
 		
