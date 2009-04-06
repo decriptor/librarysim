@@ -1,5 +1,10 @@
 2009-04-06  Stephen Shaw  <sshaw@decriptor.com>
 
+	 * Config.cs: Changed ApplicationData to LocalApplicationData.
+	 Now it puts our stuff in {user}/AppData/Local/librarysim
+
+2009-04-06  Stephen Shaw  <sshaw@decriptor.com>
+
 	 * sqlite3.dll: Not needed to compile, however its needed
 	 to run the program.
 
