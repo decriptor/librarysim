@@ -1,3 +1,7 @@
+2009-04-13  Aaron Fairbanks <kafabrith@gmail.com>
+
+	 * Form1.Designer.cs: Added GUI. It still needs work.
+
 2009-04-06  Stephen Shaw  <sshaw@decriptor.com>
 
 	 * Config.cs: Changed ApplicationData to LocalApplicationData.
