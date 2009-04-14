@@ -1,3 +1,8 @@
+2009-04-14  Stephen Shaw  <sshaw@decriptor.com>
+
+	* SQLite.cs: Built out the rest of the methods for the major
+	  functions for each of the tables
+
 2009-04-04  Stephen Shaw  <sshaw@decriptor.com>
 
 	* DatabaseBuilder.cs: Created this class to build a base setup

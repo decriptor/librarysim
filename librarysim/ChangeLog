@@ -1,3 +1,8 @@
+2009-04-14  Stephen Shaw  <sshaw@decriptor.com>
+
+	* DataAccess.cs: updated the methods and parameters to match
+	  changes. Also, added calls to the SQLite class.
+
 2009-04-13  Aaron Fairbanks <kafabrith@gmail.com>
 
 	 * Form1.Designer.cs: Added GUI. It still needs work.
