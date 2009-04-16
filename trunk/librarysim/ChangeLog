@@ -1,5 +1,9 @@
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
+	* librarysim.csproj: 
+
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
 	* Config.cs:
 	* DataAccess.cs: moved
 
