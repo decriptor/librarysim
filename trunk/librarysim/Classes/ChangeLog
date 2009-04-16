@@ -1,0 +1,22 @@
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
+	* DataAccess.cs: Moved DataAccess to Classes
+
+	* Date.cs: Added date class and did some simple stubbing. Not
+	  sure that this will be needed.
+
+	* Books.cs: Added book class and did some simple stubbing
+
+	* Media.cs: Added media class and did some simple stubbing
+
+	* Controller.cs: Added Controller class and did some building
+	  out of it
+
+	* Config.cs: Moved Config to Classes
+
+	* Patrons.cs: Added patron class and did some simple stubbing
+
+	* ChangeLog: Adding ChangeLog to the Classes directory
+
+	* ChangeLog.cs: 
+

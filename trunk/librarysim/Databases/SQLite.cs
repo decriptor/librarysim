@@ -173,7 +173,7 @@ namespace librarysim.Databases
         /// <param name="reserved"></param>
         /// <returns>book Data Set</returns>
 		public DataSet BookRetrieve(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime checkedin, DateTime checkedout, int reserved)
+		                            string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			this.Open();
 			DataSet bookDS = new DataSet();
@@ -181,7 +181,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("select * from Books where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Author = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
-				                             , bookID, patronID, type, title, author, description, checkedin, checkedout, reserved);
+				                             , bookID, patronID, type, title, author, description, checkedin, checkedout, Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(bookDS, "Books");
             }
@@ -212,15 +212,14 @@ namespace librarysim.Databases
 		}
 
         public void BookUpdate(int bookID, int? patronID, string type, string title, string author,
-		                string description, DateTime checkedin, DateTime checkedout,
-		                bool reserved)
+		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			this.Open();
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
                 cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = {1}, Title = {2}, Author = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, author, description, checkedin, checkedout, reserved);
+				                                , patronID, type, title, author, description, checkedin, checkedout, Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -249,7 +248,7 @@ namespace librarysim.Databases
 
 		#region Media
 		public DataSet MediaRetrieve(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, string checkedin, string checkedout, int reserved )
+		                            string rating, DateTime? checkedin, DateTime? checkedout, bool? reserved )
 		{
 			this.Open();
 			DataSet mediaDS = new DataSet();
@@ -257,7 +256,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("select * from Media where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Rating = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
-				                             , mediaID, patronID, type, title, author, rating, checkedin, checkedout, reserved);
+				                             , mediaID, patronID, type, title, author, rating, checkedin, checkedout, Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(mediaDS, "Media");
             }
@@ -287,15 +286,14 @@ namespace librarysim.Databases
 		}
 
         public void MediaUpdate(int mediaID, int? patronID, string type, string title, string rating,
-		                string description, DateTime checkedin, DateTime checkedout,
-		                bool reserved)
+		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			this.Open();
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
                 cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = {1}, Title = {2}, Rating = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, rating, description, checkedin, checkedout, reserved);
+				                                , patronID, type, title, rating, description, checkedin, checkedout, Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)

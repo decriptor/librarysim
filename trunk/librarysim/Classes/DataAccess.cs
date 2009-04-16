@@ -51,7 +51,7 @@ namespace librarysim
 		
 		#region Books
 		public DataSet RetrieveBook(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime checkedin, DateTime checkedout, int reserved)
+		                            string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			return _database.BookRetrieve(bookID, patronID, type, title, author, description, checkedin, checkedout, reserved);
 		}
@@ -62,7 +62,7 @@ namespace librarysim
 		}
 
         public void UpdateBook(int bookID, int? patronID, string type, string title, string author,
-		                string description, DateTime checkedin, DateTime checkedout, bool reserved)
+		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			_database.BookUpdate(bookID, patronID, type, title, author, description, checkedin, checkedout, reserved);
 		}
@@ -75,7 +75,7 @@ namespace librarysim
 
 		#region Media
 		public DataSet RetrieveMedia(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, string checkedin, string checkedout, int reserved)
+		                            string rating, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			return _database.MediaRetrieve( mediaID, patronID, type, title, author, rating, checkedin, checkedout, reserved);
 		}
@@ -86,7 +86,7 @@ namespace librarysim
 		}
 
         public void UpdateMedia(int mediaID, int? patronID, string type, string title, string rating,
-		                string description, DateTime checkedin, DateTime checkedout, bool reserved)
+		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
 		{
 			_database.MediaUpdate(mediaID, patronID, type, title, rating, description, checkedin, checkedout, reserved);
 		}

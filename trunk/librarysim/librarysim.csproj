@@ -37,7 +37,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>3</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -92,9 +92,14 @@
     <None Include="Interfaces\ChangeLog" />
     <None Include="Databases\ChangeLog" />
     <Compile Include="Databases\DatabaseBuilder.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="DataAccess.cs" />
     <Compile Include="Classes\Controller.cs" />
+    <Compile Include="Classes\Books.cs" />
+    <Compile Include="Classes\Patrons.cs" />
+    <Compile Include="Classes\Media.cs" />
+    <Compile Include="Classes\Date.cs" />
+    <Compile Include="Classes\DataAccess.cs" />
+    <Compile Include="Classes\Config.cs" />
+    <Compile Include="Classes\ChangeLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sqlite3.dll">
