@@ -1,5 +1,9 @@
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
+	* ChangeLog.cs: 
+
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
 	* DataAccess.cs: Moved DataAccess to Classes
 
 	* Date.cs: Added date class and did some simple stubbing. Not
