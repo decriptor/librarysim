@@ -19,67 +19,65 @@ namespace librarysim.Classes
     int reserved;
     #endregion
 
-
     #region Properties
     public int MediaID
     {
       get { return mediaID; }
-      set { mediaID = value; }
     }
 
     public int PatronID
     {
       get { return patronID; }
-      set { patronID = value; }
     }
 
     public string Type
     {
       get { return type; }
-      set { type = value; }
     }
 
     public string Title
     {
       get { return title; }
-      set { title = value; }
     }
 
     public string Rating
     {
       get { return rating; }
-      set { rating = value; }
     }
 
     public string Description
     {
       get { return description; }
-      set { description = value; }
     }
 
     public DateTime Checkedin
     {
       get { return checkedin; }
-      set { checkedin = value; }
     }
 
     public DateTime Checkedout
     {
       get { return checkedout; }
-      set { checkedout = value; }
     }
 
     public int Reserved
     {
       get { return reserved; }
-      set { reserved = value; }
     }
     #endregion
     
     public Media( DataRow mediaDR )
 		{
-
-		}
+      mediaID = (int)mediaDR["mediaID"];
+      patronID = (int)mediaDR["patronID"];
+      type = mediaDR["type"].ToString();
+      title = mediaDR["title"].ToString();
+      rating = mediaDR["rating"].ToString();
+      description = mediaDR["description"].ToString();
+      //checkedin = mediaDR["checkedin"].ToString();
+      //checkedout = mediaDR["checkedout"].ToString();
+      reserved = (int)mediaDR["reserved"];
+    }
 	}
 	
 	public class MediaListViewItem : ListViewItem
