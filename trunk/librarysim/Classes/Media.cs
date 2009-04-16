@@ -5,16 +5,27 @@ using System.Windows.Forms;
 namespace librarysim.Classes
 {
 	public class Media
-	{
-    int mediaID;
+  {
 
+    #region Variables
+    int mediaID;
+    int patronID;
+    string type;
+    string title;
+    string rating;
+    string description;
+    DateTime checkedin;
+    DateTime checkedout;
+    int reserved;
+    #endregion
+
+
+    #region Properties
     public int MediaID
     {
       get { return mediaID; }
       set { mediaID = value; }
     }
-
-    int patronID;
 
     public int PatronID
     {
@@ -22,15 +33,11 @@ namespace librarysim.Classes
       set { patronID = value; }
     }
 
-    string type;
-
     public string Type
     {
       get { return type; }
       set { type = value; }
     }
-
-    string title;
 
     public string Title
     {
@@ -38,15 +45,11 @@ namespace librarysim.Classes
       set { title = value; }
     }
 
-    string rating;
-
     public string Rating
     {
       get { return rating; }
       set { rating = value; }
     }
-
-    string description;
 
     public string Description
     {
@@ -54,15 +57,11 @@ namespace librarysim.Classes
       set { description = value; }
     }
 
-    DateTime checkedin;
-
     public DateTime Checkedin
     {
       get { return checkedin; }
       set { checkedin = value; }
     }
-
-    DateTime checkedout;
 
     public DateTime Checkedout
     {
@@ -70,16 +69,16 @@ namespace librarysim.Classes
       set { checkedout = value; }
     }
 
-    bool reserved;
-
-    public bool Reserved
+    public int Reserved
     {
       get { return reserved; }
       set { reserved = value; }
     }
-
-		public Media( DataRow mediaDR )
+    #endregion
+    
+    public Media( DataRow mediaDR )
 		{
+
 		}
 	}
 	
