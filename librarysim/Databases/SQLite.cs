@@ -11,17 +11,14 @@ namespace librarysim.Databases
 	class SQLite
 	{
 		#region Variables
-		public static readonly DateTime LocalUnixEpoch = new DateTime(1970, 1, 1).ToLocalTime();
 		string db;
-		Config c;
 		SqliteConnection connection;
 		#endregion
 		
 		#region Constructors
-		public SQLite()
+		public SQLite( string dbLocation )
 		{
-			c = new Config();
-			db = c.DbLocation;
+			this.db = dbLocation;
 		}
 		#endregion
 		
@@ -66,7 +63,7 @@ namespace librarysim.Databases
         /// <param name="dob"></param>
         /// <returns>patron Data Set</returns>
         public DataSet PatronRetrieve(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, int? dob)
+		                  string gender, DateTime? dob)
         {
 			this.Open();
             DataSet patronDS = new DataSet();
@@ -74,7 +71,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("select * from Patrons where ID = {0} and Name = {1} and PhoneNumber = {2} and Address = {3} and Gender = {4} and DOB = {5}"
-				                             , patronID, name, phoneNumber, address, gender, dob);
+				                             , patronID, name, phoneNumber, address, gender, dob.ToString());
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(patronDS, "Patrons");
             }
@@ -94,14 +91,14 @@ namespace librarysim.Databases
         /// <param name="address"></param>
         /// <param name="gender"></param>
         /// <param name="dob"></param>
-        public void PatronInsert(string name, string phoneNumber, string address, string gender, int dob)
+        public void PatronInsert(string name, string phoneNumber, string address, string gender, DateTime dob)
         {
 			this.Open();
             try
             {
 				SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,DOB) VALUES ({0}, {1}, {2}, {3}, {4})"
-				                             , name, phoneNumber, address, gender, dob);
+				                             , name, phoneNumber, address, gender, dob.ToString());
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -119,14 +116,14 @@ namespace librarysim.Databases
         /// <param name="address"></param>
         /// <param name="gender"></param>
         /// <param name="dob"></param>
-        public void PatronUpdate(int patronID, string name, string phoneNumber, string address, string gender, int dob)
+        public void PatronUpdate(int patronID, string name, string phoneNumber, string address, string gender, DateTime dob)
         {
 			this.Open();
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
                 cmd.CommandText = String.Format("UPDATE Patrons SET Name = {0}, PhoneNumber = {1}, Address = {2}, Gender = {3}, DOB = {4} WHERE (ID = {5})"
-				                                , name, phoneNumber, address, gender, dob, patronID);
+				                                , name, phoneNumber, address, gender, dob.ToString(), patronID);
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -181,7 +178,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("select * from Books where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Author = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
-				                             , bookID, patronID, type, title, author, description, checkedin, checkedout, Convert.ToInt32(reserved));
+				                             , bookID, patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(bookDS, "Books");
             }
@@ -219,7 +216,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
                 cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = {1}, Title = {2}, Author = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, author, description, checkedin, checkedout, Convert.ToInt32(reserved));
+				                                , patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -256,7 +253,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
 				cmd.CommandText = String.Format("select * from Media where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Rating = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
-				                             , mediaID, patronID, type, title, author, rating, checkedin, checkedout, Convert.ToInt32(reserved));
+				                             , mediaID, patronID, type, title, author, rating, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(mediaDS, "Media");
             }
@@ -293,7 +290,7 @@ namespace librarysim.Databases
             {
                 SqliteCommand cmd = new SqliteCommand();
                 cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = {1}, Title = {2}, Rating = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, rating, description, checkedin, checkedout, Convert.ToInt32(reserved));
+				                                , patronID, type, title, rating, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -319,5 +316,6 @@ namespace librarysim.Databases
 			this.Close();
 		}
         #endregion
+		
 	}
 }

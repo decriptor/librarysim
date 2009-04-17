@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Text;
-using System.Collections;
+using System.Xml.Serialization;
 using System.Windows.Forms;
 
 
@@ -11,7 +13,10 @@ namespace librarysim.Classes
 	class Controller
 	{
 		#region Variables
+		XmlSerializer s;
 		DataAccess data;
+		Config conf;
+		string configPathBase;
 		#endregion
 
 		#region Delegates
@@ -27,7 +32,39 @@ namespace librarysim.Classes
 
 		public Controller( )
 		{
-			data = new DataAccess();
+			ConfigLoader( );
+			data = new DataAccess( conf.DbLocation );
+		}
+		
+		private void ConfigLoader( )
+		{
+			configPathBase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"librarysim");
+			s = new XmlSerializer( typeof( Config) );
+			//Check if directory exists
+			if(!Directory.Exists(configPathBase))
+			{
+				Directory.CreateDirectory(configPathBase);
+			}
+			if(File.Exists(Path.Combine(configPathBase,"librarysim.xml")))
+			{
+				// Deserialization + Import configuration
+				TextReader r = new StreamReader( Path.Combine(configPathBase,"librarysim.xml") );
+				conf = (Config)s.Deserialize( r );
+				r.Close();
+			}
+			else
+			{
+				//Create New Config
+				conf = new Config();
+			}
+		}
+		
+		private void ConfigWriter()
+		{
+			// Writing out Config
+			TextWriter w = new StreamWriter(Path.Combine(configPathBase,"librarysim.xml"));
+			s.Serialize(w, conf);
+			w.Close();
 		}
 
 		internal void RefreshPatrons( )

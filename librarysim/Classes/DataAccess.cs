@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Collections;
+using System.IO;
 using Mono.Data.Sqlite;
 
 using librarysim.Databases;
@@ -12,11 +13,18 @@ namespace librarysim
 	{
 		private SQLite _database;
 		
-		public DataAccess()
+		public DataAccess( string dbLocation )
 		{
+			if(!File.Exists(dbLocation))
+			{
+				//Build Initial Database if it doesn't exist
+				Databases.DatabaseBuilder dBuilder = new librarysim.Databases.DatabaseBuilder();
+				dBuilder.BuildDatabase( dbLocation );
+			}
 			try
 			{
-				_database = new SQLite();
+				
+				_database = new SQLite( dbLocation );
 			}
 			catch (SqliteException ex)
 			{
@@ -26,19 +34,19 @@ namespace librarysim
 		
 		#region Patrons
 		public DataSet RetrievePatron(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, int? dob)
+		                  string gender, DateTime? dob)
 		{
 			return _database.PatronRetrieve(patronID, name, phoneNumber, address, gender, dob);
 		}
 		
         public void AddPatron(string name, string phoneNumber, string address, 
-		                  string gender, int dob)
+		                  string gender, DateTime dob)
 		{
 			_database.PatronInsert(name, phoneNumber, address, gender, dob);
 		}
 
         public void UpdatePatron(int patronID, string name, string phoneNumber, 
-		                  string address, string gender, int dob)
+		                  string address, string gender, DateTime dob)
 		{
 			_database.PatronUpdate(patronID, name, phoneNumber, address, gender, dob);
 		}
