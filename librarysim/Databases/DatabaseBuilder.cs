@@ -9,11 +9,18 @@ namespace librarysim.Databases
 	{
 		#region Variables
 		private SqliteConnection connection;
+		private bool generateFakeData = false;
 		#endregion
 		
 		public DatabaseBuilder( )
 		{
 			
+		}
+		
+		public void BuildDatabase( string dbLocation, bool gfd)
+		{
+			this.generateFakeData = gfd;
+			BuildDatabase(dbLocation);
 		}
 		
 		public void BuildDatabase( string dbLocation )
