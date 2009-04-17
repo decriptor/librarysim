@@ -1,5 +1,9 @@
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
+	* Program.cs: Moved all temp/prototype code out
+
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
 	* librarysim.csproj: 
 
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>

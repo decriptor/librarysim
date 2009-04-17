@@ -1,5 +1,11 @@
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
+	* DatabaseBuilder.cs: Minor changes
+
+	* SQLite.cs: Update methods and parameters
+
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
 	* SQLite.cs: Make some updates to the methods and their
 	  parameters. Converts bool to int.
 

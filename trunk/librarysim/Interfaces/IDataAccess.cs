@@ -7,12 +7,12 @@ namespace librarysim.Interfaces
 	{
 		#region Patrons
 		DataSet RetrievePatron(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, int? dob);
+		                  string gender, DateTime? dob);
 		
-        void AddPatron(string name, string phoneNumber, string address, string gender, int dob);
+        void AddPatron(string name, string phoneNumber, string address, string gender, DateTime dob);
 
         void UpdatePatron(int patronID, string name, string phoneNumber, string address, 
-		                  string gender, int dob);
+		                  string gender, DateTime dob);
 
         void DeletePatron(int patronID);
         #endregion

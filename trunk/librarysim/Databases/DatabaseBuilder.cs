@@ -9,7 +9,6 @@ namespace librarysim.Databases
 	{
 		#region Variables
 		private SqliteConnection connection;
-		private Config c;
 		#endregion
 		
 		public DatabaseBuilder( )
@@ -17,13 +16,12 @@ namespace librarysim.Databases
 			
 		}
 		
-		public void BuildDatabase( )
+		public void BuildDatabase( string dbLocation )
 		{
-			c = new Config();
-			Console.WriteLine(c.DbLocation);
+			Console.WriteLine(dbLocation);
 			try
 			{
-				connection = new SqliteConnection(c.DbLocation);
+				connection = new SqliteConnection(dbLocation);
 				connection.Open( );
 				CreateTables( );
 				connection.Close( );
