@@ -12,6 +12,8 @@ namespace librarysim
 {
   public partial class PatronForm : Form
   {
+    int patronID = 0;
+
     public PatronForm()
     {
       InitializeComponent();
@@ -21,6 +23,7 @@ namespace librarysim
     public PatronForm(Patrons p)
     {
       InitializeComponent();
+      patronID = p.PatronID;
       txtName.Text = p.Name;
       txtPhoneNumber.Text = p.PhoneNumber;
       txtAddress.Text = p.Address;
