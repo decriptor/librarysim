@@ -27,5 +27,11 @@ namespace librarysim
           ab.ShowDialog();
         }
 
+        private void mediaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          MediaForm mf = new MediaForm();
+          mf.ShowDialog();
+        }
+
     }
 }

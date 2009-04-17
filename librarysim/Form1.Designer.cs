@@ -146,6 +146,7 @@
           this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
           this.mediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
           this.mediaToolStripMenuItem.Text = "Media";
+          this.mediaToolStripMenuItem.Click += new System.EventHandler(this.mediaToolStripMenuItem_Click);
           // 
           // openToolStripMenuItem
           // 
