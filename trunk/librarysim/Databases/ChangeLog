@@ -1,5 +1,9 @@
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
+	* DatabaseBuilder.cs: Added fake data parameter
+
+2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
+
 	* DatabaseBuilder.cs: Minor changes
 
 	* SQLite.cs: Update methods and parameters
