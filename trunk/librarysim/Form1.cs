@@ -15,5 +15,11 @@ namespace librarysim
             InitializeComponent();
         }
 
+        private void patronToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          PatronForm pf = new PatronForm();
+          pf.ShowDialog();
+        }
+
     }
 }
