@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -126,11 +126,11 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Databases\SQLite.cs" />
+    <Compile Include="Backend\SQLite.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />
     <None Include="Interfaces\ChangeLog" />
-    <None Include="Databases\ChangeLog" />
-    <Compile Include="Databases\DatabaseBuilder.cs" />
+    <None Include="Backend\ChangeLog" />
+    <Compile Include="Backend\DatabaseBuilder.cs" />
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Books.cs" />
     <Compile Include="Classes\Patrons.cs" />
@@ -138,6 +138,7 @@
     <Compile Include="Classes\Date.cs" />
     <Compile Include="Classes\DataAccess.cs" />
     <Compile Include="Classes\Config.cs" />
+    <Compile Include="Backend\Tables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sqlite3.dll">

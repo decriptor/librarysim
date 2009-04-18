@@ -1,5 +1,16 @@
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
+	* Backend: Changed the directory from Databases to Backend. 
+
+	* Databases: Changed to be Backend now
+
+	* MediaForm.cs: Changed to the class required a change here to
+	  make it compile
+
+	* librarysim.csproj: 
+
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
 	* ConfigEditor.cs: 
 	* ConfigEditor.Designer.cs: 
 	* ConfigEditor: Added a dialog for the config file

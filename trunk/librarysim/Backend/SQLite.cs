@@ -6,7 +6,7 @@ using Mono.Data.Sqlite;
 using librarysim;
 using librarysim.Interfaces;
 
-namespace librarysim.Databases
+namespace librarysim.Backend
 {	
 	class SQLite
 	{

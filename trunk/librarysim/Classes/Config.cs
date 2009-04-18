@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace librarysim
+namespace librarysim.Classes
 {	
 	//[XmlRoot("librarysimconfig")]
 	[Serializable]
