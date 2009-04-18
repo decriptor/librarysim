@@ -1,3 +1,13 @@
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
+	* ConfigEditor.cs: 
+	* ConfigEditor.Designer.cs: 
+	* ConfigEditor: Added a dialog for the config file
+	* MainForm: Changed the name of the main form
+		Added some methods to register for events
+		Built out some more main menu stuff and events
+
+
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
 	* Program.cs: Moved all temp/prototype code out
