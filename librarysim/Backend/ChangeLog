@@ -1,3 +1,11 @@
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
+	* SQLite.cs:
+	* DatabaseBuilder.cs: Changed its namespace
+
+	* Tables.cs: Created a static class so that if the database
+	  columns change we only have to change it in one place
+
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
 	* DatabaseBuilder.cs: Added fake data parameter

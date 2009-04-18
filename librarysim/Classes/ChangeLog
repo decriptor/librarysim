@@ -1,3 +1,15 @@
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
+	* Config.cs:
+	* DataAccess.cs: Changed the namespace
+
+	* Media.cs:
+	* Books.cs:
+	* Patrons.cs: Built out most of the rest of the class as well
+	  as changed the datarow stuff to use the new Tables class
+
+	* Date.cs: Changed to namespace
+
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
 	* DataAccess.cs: Update methods and parameters

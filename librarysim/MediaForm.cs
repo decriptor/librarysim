@@ -20,7 +20,7 @@ namespace librarysim
       cmbType.SelectedIndex = 0;
     }
 
-    public MediaForm(Media m)
+    public MediaForm( Media m )
     {
       InitializeComponent();
       mediaID = m.MediaID;
@@ -31,7 +31,7 @@ namespace librarysim
       txtDescription.Text = m.Description;
       dtpCheckedIn.Value = new DateTime(); // todo
       dtpCheckedOut.Value = new DateTime(); // todo
-      cbReserved.Checked = (m.Reserved == 1) ? true : false;
+      cbReserved.Checked = m.Reserved;
     }
 
     private void btnCancel_Click(object sender, EventArgs e)

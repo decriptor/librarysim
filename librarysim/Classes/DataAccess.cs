@@ -4,10 +4,10 @@ using System.Collections;
 using System.IO;
 using Mono.Data.Sqlite;
 
-using librarysim.Databases;
+using librarysim.Backend;
 using librarysim.Interfaces;
 
-namespace librarysim
+namespace librarysim.Classes
 {	
 	public sealed class DataAccess : IDataAccess
 	{
@@ -18,7 +18,7 @@ namespace librarysim
 			if(!File.Exists(dbLocation))
 			{
 				//Build Initial Database if it doesn't exist
-				Databases.DatabaseBuilder dBuilder = new librarysim.Databases.DatabaseBuilder();
+				Backend.DatabaseBuilder dBuilder = new librarysim.Backend.DatabaseBuilder();
 				dBuilder.BuildDatabase( dbLocation );
 			}
 			try

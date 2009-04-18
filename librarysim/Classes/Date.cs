@@ -1,6 +1,6 @@
 using System;
 
-namespace librarysim
+namespace librarysim.Classes
 {
 	
 	
