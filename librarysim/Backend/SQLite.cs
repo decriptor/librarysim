@@ -63,15 +63,15 @@ namespace librarysim.Backend
         /// <param name="dob"></param>
         /// <returns>patron Data Set</returns>
         public DataSet PatronRetrieve(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, DateTime? dob)
+		                  string gender, string age)
         {
 			this.Open();
             DataSet patronDS = new DataSet();
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Patrons where ID = {0} and Name = {1} and PhoneNumber = {2} and Address = {3} and Gender = {4} and DOB = {5}"
-				                             , patronID, name, phoneNumber, address, gender, dob.ToString());
+				cmd.CommandText = String.Format("select * from Patrons where ID = {0} and Name = \"{1}\" and PhoneNumber = \"{2}\" and Address = \"{3}\" and Gender = \"{4}\" and Age = \"{5}\""
+				                             , patronID, name, phoneNumber, address, gender, age);
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(patronDS, "Patrons");
             }
@@ -91,14 +91,14 @@ namespace librarysim.Backend
         /// <param name="address"></param>
         /// <param name="gender"></param>
         /// <param name="dob"></param>
-        public void PatronInsert(string name, string phoneNumber, string address, string gender, DateTime dob)
+        public void PatronInsert(string name, string phoneNumber, string address, string gender, string age)
         {
 			this.Open();
             try
             {
 				SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,DOB) VALUES ({0}, {1}, {2}, {3}, {4})"
-				                             , name, phoneNumber, address, gender, dob.ToString());
+				cmd.CommandText = String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,Age) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")"
+				                             , name, phoneNumber, address, gender, age);
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -116,14 +116,14 @@ namespace librarysim.Backend
         /// <param name="address"></param>
         /// <param name="gender"></param>
         /// <param name="dob"></param>
-        public void PatronUpdate(int patronID, string name, string phoneNumber, string address, string gender, DateTime dob)
+        public void PatronUpdate(int patronID, string name, string phoneNumber, string address, string gender, string age)
         {
 			this.Open();
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
-                cmd.CommandText = String.Format("UPDATE Patrons SET Name = {0}, PhoneNumber = {1}, Address = {2}, Gender = {3}, DOB = {4} WHERE (ID = {5})"
-				                                , name, phoneNumber, address, gender, dob.ToString(), patronID);
+                cmd.CommandText = String.Format("UPDATE Patrons SET Name = \"{0}\", PhoneNumber = \"{1}\", Address = \"{2}\", Gender = \"{3}\", Age = \"{4}\" WHERE (ID = {5})"
+				                                , name, phoneNumber, address, gender, age, patronID);
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -177,7 +177,7 @@ namespace librarysim.Backend
 			try
             {
                 SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Books where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Author = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
+				cmd.CommandText = String.Format("select * from Books where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Author = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
 				                             , bookID, patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(bookDS, "Books");
@@ -197,7 +197,7 @@ namespace librarysim.Backend
             try
             {
 				SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("insert into Books (Type,Title,Author,Description) VALUES ({0}, {1}, {2}, {3})"
+				cmd.CommandText = String.Format("insert into Books (Type,Title,Author,Description) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\")"
 				                             , type, title, author, description);
 				cmd.ExecuteNonQuery();
             }
@@ -215,7 +215,7 @@ namespace librarysim.Backend
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
-                cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = {1}, Title = {2}, Author = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
+                cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Author = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
 				                                , patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }
@@ -252,7 +252,7 @@ namespace librarysim.Backend
 			try
             {
                 SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Media where ID = {0} and Patron = {1} and Type = {2} and Title = {3} and Rating = {4} and description = {5} and Checkedin = {6} and Checkedout = {7} and Reserved = {8}"
+				cmd.CommandText = String.Format("select * from Media where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Rating = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
 				                             , mediaID, patronID, type, title, author, rating, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(mediaDS, "Media");
@@ -271,7 +271,7 @@ namespace librarysim.Backend
             try
             {
 				SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("insert into Media (Type,Title,Rating,Description) VALUES ({0}, {1}, {2}, {3})"
+				cmd.CommandText = String.Format("insert into Media (Type,Title,Rating,Description) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\")"
 				                             , type, title, rating, description);
 				cmd.ExecuteNonQuery();
             }
@@ -289,7 +289,7 @@ namespace librarysim.Backend
             try
             {
                 SqliteCommand cmd = new SqliteCommand();
-                cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = {1}, Title = {2}, Rating = {3}, Description = {4}, Checkedin = {5}, Checkedout = {6}, Reserved = {7} WHERE (ID = {8})"
+                cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Rating = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
 				                                , patronID, type, title, rating, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
             }

@@ -139,6 +139,7 @@
     <Compile Include="Classes\DataAccess.cs" />
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Backend\Tables.cs" />
+    <Compile Include="Classes\LibrarySimRandom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sqlite3.dll">

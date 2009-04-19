@@ -1,5 +1,14 @@
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
+	* DatabaseBuilder.cs: Added a lot of Fake data building stuff
+
+	* SQLite.cs: Fixed an issue with strings in sqlite
+	Changed DateTime? dob to be string age (adult/child)
+
+	* Tables.cs: Changed dob to age
+
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
 	* SQLite.cs:
 	* DatabaseBuilder.cs: Changed its namespace
 

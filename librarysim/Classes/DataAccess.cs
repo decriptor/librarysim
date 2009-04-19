@@ -19,7 +19,7 @@ namespace librarysim.Classes
 			{
 				//Build Initial Database if it doesn't exist
 				Backend.DatabaseBuilder dBuilder = new librarysim.Backend.DatabaseBuilder();
-				dBuilder.BuildDatabase( dbLocation );
+				dBuilder.BuildDatabase( dbLocation, true );
 			}
 			try
 			{
@@ -34,21 +34,21 @@ namespace librarysim.Classes
 		
 		#region Patrons
 		public DataSet RetrievePatron(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, DateTime? dob)
+		                  string gender, string age)
 		{
-			return _database.PatronRetrieve(patronID, name, phoneNumber, address, gender, dob);
+			return _database.PatronRetrieve(patronID, name, phoneNumber, address, gender, age);
 		}
 		
         public void AddPatron(string name, string phoneNumber, string address, 
-		                  string gender, DateTime dob)
+		                  string gender, string age)
 		{
-			_database.PatronInsert(name, phoneNumber, address, gender, dob);
+			_database.PatronInsert(name, phoneNumber, address, gender, age);
 		}
 
         public void UpdatePatron(int patronID, string name, string phoneNumber, 
-		                  string address, string gender, DateTime dob)
+		                  string address, string gender, string age )
 		{
-			_database.PatronUpdate(patronID, name, phoneNumber, address, gender, dob);
+			_database.PatronUpdate(patronID, name, phoneNumber, address, gender, age);
 		}
 
         public void DeletePatron(int patronID)

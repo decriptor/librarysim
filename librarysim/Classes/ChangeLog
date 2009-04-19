@@ -1,5 +1,15 @@
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
+	* DataAccess.cs: Changed dob to age
+	defaults to creating the fake data now
+
+	* LibrarySimRandom.cs: Added this class so that we can house
+	  all random generating stuff in one place (fake data)
+
+	* Patrons.cs: Changed dob to age
+
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
 	* Config.cs:
 	* DataAccess.cs: Changed the namespace
 

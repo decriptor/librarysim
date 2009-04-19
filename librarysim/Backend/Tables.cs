@@ -10,7 +10,7 @@ namespace librarysim.Backend
 		public static string patronPhoneNumber ="PhoneNumber";
 		public static string patronAddress = 	"Address";
 		public static string patronGender = 	"Gender";
-		public static string patronDateOfBirth ="DOB";
+		public static string patronAge =		"Age";
 		#endregion
 		
 		#region Books Table Columns

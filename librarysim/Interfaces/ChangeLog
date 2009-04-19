@@ -1,3 +1,7 @@
+2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
+
+	* IDataAccess.cs: Changed from dob to age
+
 2009-04-16  Stephen Shaw  <sshaw@decriptor.com>
 
 	* IDataAccess.cs: Update parameters
