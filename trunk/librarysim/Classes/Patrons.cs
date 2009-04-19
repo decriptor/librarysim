@@ -14,7 +14,7 @@ namespace librarysim.Classes
     	string phoneNumber;
     	string address;
     	string gender;
-    	string dob;
+    	string age;
     	#endregion
 
     	#region Properties
@@ -43,9 +43,9 @@ namespace librarysim.Classes
 			get { return gender; }
 		}
 		
-		public string Dob
+		public string Age
 		{
-			get { return dob; }
+			get { return age; }
 		}
 		#endregion
 		
@@ -57,7 +57,7 @@ namespace librarysim.Classes
 			phoneNumber = patronDR[Tables.patronPhoneNumber].ToString();
 			address = patronDR[Tables.patronAddress].ToString();
 			gender = patronDR[Tables.patronGender].ToString();
-			dob = patronDR[Tables.patronDateOfBirth].ToString();
+			age = patronDR[Tables.patronAge].ToString();
 		}
 	}
 	
@@ -69,7 +69,7 @@ namespace librarysim.Classes
     	string phoneNumber;
     	string address;
     	string gender;
-    	string dob;
+    	string age;
     	#endregion
 
     	#region Properties
@@ -78,7 +78,7 @@ namespace librarysim.Classes
 			get { return patronID; }
     	}
 
-    	public string Name
+    	public string PatronName
     	{
 			get { return name; }
     	}
@@ -98,9 +98,9 @@ namespace librarysim.Classes
 			get { return gender; }
 		}
 		
-		public string Dob
+		public string Age
 		{
-			get { return dob; }
+			get { return age; }
 		}
 		#endregion
 		
@@ -112,7 +112,7 @@ namespace librarysim.Classes
 			phoneNumber = patronDR[Tables.patronPhoneNumber].ToString();
 			address = patronDR[Tables.patronAddress].ToString();
 			gender = patronDR[Tables.patronGender].ToString();
-			dob = patronDR[Tables.patronDateOfBirth].ToString();
+			age = patronDR[Tables.patronAge].ToString();
 		}
 
 	}
