@@ -1,3 +1,7 @@
+2009-04-19  Stephen Shaw  <sshaw@decriptor.com>
+
+	* librarysim: Revamped the gui a bit 
+
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
 	* librarysim.csproj: 
