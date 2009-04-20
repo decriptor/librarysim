@@ -1,5 +1,9 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* MainForm: Added Name Search to the main form
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* Interfaces: Removed the DataAccess interface
 
 	* librarysim.csproj: 

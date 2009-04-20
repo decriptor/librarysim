@@ -73,14 +73,24 @@ namespace librarysim.Classes
 			w.Close();
 		}
 
-		internal void RefreshPatrons( )
+        internal void RefreshPatrons( )
+        {
+            RefreshPatrons( string.Empty );
+        }
+
+		internal void RefreshPatrons( string nameSearch )
 		{
 			List<PatronsListViewItem> patrons = new List<PatronsListViewItem>();
 			DataSet ds;
 			try
 			{
-                ds = data.RetrievePatron(null, null);
-				if ((ds.Tables.Count > 0) && (ds.Tables["Patrons"].Rows.Count > 0))
+                if (nameSearch != string.Empty){
+                    ds = data.PatronNameSearch(nameSearch);
+                }else{
+                    ds = data.RetrievePatron(null, null);
+                }
+                
+                if ((ds.Tables.Count > 0) && (ds.Tables["Patrons"].Rows.Count > 0))
 				{
 					for (int i = 0; i < ds.Tables["Patrons"].Rows.Count; i++)
 					{
@@ -299,22 +309,27 @@ namespace librarysim.Classes
 
         internal void CheckOutBook(int bookID, int patronID, DateTime selectedDate)
         {
-            data.UpdateBook(bookID, patronID, null, null, null, null, selectedDate);
+            data.CheckOutBook(bookID, patronID, selectedDate);
         }
 
         internal void CheckOutMedia(int mediaID, int patronID, DateTime selectedDate)
         {
-            data.UpdateBook(mediaID, patronID, null, null, null, null, selectedDate);
+            data.CheckOutMedia(mediaID, patronID, selectedDate);
         }
 
-        internal void CheckInBook(int bookID, int patronID)
+        internal void CheckInBook(int bookID)
         {
-            data.UpdateBook(bookID, patronID, null, null, null, null, null);
+            data.CheckInBook(bookID);
         }
 
-        internal void CheckItMedia(int mediaID, int patronID)
+        internal void CheckItMedia(int mediaID)
         {
-            data.UpdateBook(mediaID, patronID, null, null, null, null, null);
+            data.CheckInMedia(mediaID);
+        }
+
+        internal void PatronNameSearch(string name)
+        {
+            RefreshPatrons(name);
         }
     }
 }
