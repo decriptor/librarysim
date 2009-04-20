@@ -164,6 +164,7 @@
       this.Controls.Add(this.lblName);
       this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.btnSave);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.Name = "PatronForm";
       this.Text = "Patron Form";
       this.ResumeLayout(false);
