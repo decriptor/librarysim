@@ -149,6 +149,9 @@ namespace librarysim.Backend
 					command = String.Format(command + " Patron = {0}", patronID);
 				}
 			}
+      //if (bookID == null && patronID == null) 
+      //  command = String.Format(command + " where Patron = 0");
+
 			return ExecuteScalar(command, "Books");
 		}
 		

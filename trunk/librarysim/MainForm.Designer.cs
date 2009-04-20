@@ -145,39 +145,39 @@
             this.bookToolStripMenuItem,
             this.mediaToolStripMenuItem});
           this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-          this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
           this.newToolStripMenuItem.Text = "New";
           // 
           // patronToolStripMenuItem
           // 
           this.patronToolStripMenuItem.Name = "patronToolStripMenuItem";
-          this.patronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.patronToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
           this.patronToolStripMenuItem.Text = "Patron";
           this.patronToolStripMenuItem.Click += new System.EventHandler(this.patronToolStripMenuItem_Click);
           // 
           // bookToolStripMenuItem
           // 
           this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
-          this.bookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.bookToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
           this.bookToolStripMenuItem.Text = "Book";
           this.bookToolStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
           // 
           // mediaToolStripMenuItem
           // 
           this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
-          this.mediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.mediaToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
           this.mediaToolStripMenuItem.Text = "Media";
           this.mediaToolStripMenuItem.Click += new System.EventHandler(this.mediaToolStripMenuItem_Click);
           // 
           // toolStripSeparator1
           // 
           this.toolStripSeparator1.Name = "toolStripSeparator1";
-          this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+          this.toolStripSeparator1.Size = new System.Drawing.Size(95, 6);
           // 
           // exitToolStripMenuItem
           // 
           this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-          this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
           this.exitToolStripMenuItem.Text = "E&xit";
           this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
           // 
@@ -470,25 +470,27 @@
             this.viewDetailsToolStripMenuItem,
             this.deletePatronToolStripMenuItem});
           this.cms_Patron.Name = "cms_Patron";
-          this.cms_Patron.Size = new System.Drawing.Size(146, 70);
+          this.cms_Patron.Size = new System.Drawing.Size(153, 92);
           // 
           // editPatronToolStripMenuItem
           // 
           this.editPatronToolStripMenuItem.Name = "editPatronToolStripMenuItem";
-          this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+          this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
           this.editPatronToolStripMenuItem.Text = "Edit Patron";
+          this.editPatronToolStripMenuItem.Click += new System.EventHandler(this.editPatronToolStripMenuItem_Click);
           // 
           // viewDetailsToolStripMenuItem
           // 
           this.viewDetailsToolStripMenuItem.Name = "viewDetailsToolStripMenuItem";
-          this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+          this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
           this.viewDetailsToolStripMenuItem.Text = "View Details";
           // 
           // deletePatronToolStripMenuItem
           // 
           this.deletePatronToolStripMenuItem.Name = "deletePatronToolStripMenuItem";
-          this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+          this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
           this.deletePatronToolStripMenuItem.Text = "Delete Patron";
+          this.deletePatronToolStripMenuItem.Click += new System.EventHandler(this.deletePatronToolStripMenuItem_Click);
           // 
           // gb_filteringfields
           // 

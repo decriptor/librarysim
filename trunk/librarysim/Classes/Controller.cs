@@ -300,11 +300,11 @@ namespace librarysim.Classes
 
 		internal void EditPatron( int patronID )
 		{
-			//Form_PatronEditor FPE = new Form_PatronEditor();
-			//if (FPE.ShowDialog() == DialogResult.OK)
-			//{
+      PatronForm FPE = new PatronForm();
+			if (FPE.ShowDialog() == DialogResult.OK)
+			{
 				//Update Patron's Information
-			//}
+			}
 		}
 
         internal void CheckOutBook(int bookID, int patronID, DateTime selectedDate)
@@ -331,5 +331,11 @@ namespace librarysim.Classes
         {
             RefreshPatrons(name);
         }
-    }
+        
+        internal void PatronDelete(int id)
+        {
+          data.DeletePatron(id);
+          RefreshPatrons();
+        }
+  }
 }

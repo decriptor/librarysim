@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using librarysim.Classes;
+using librarysim.Backend;
 
 namespace librarysim
 {
@@ -220,6 +221,18 @@ namespace librarysim
         {
           BookForm bf = new BookForm();
           bf.ShowDialog();
+        }
+
+        private void editPatronToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
+          MC.EditPatron(_selectedPatron);
+        }
+
+        private void deletePatronToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
+          MC.PatronDelete(_selectedPatron);
         }
     
 	}
