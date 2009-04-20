@@ -186,7 +186,7 @@ namespace librarysim
                     {
                         foreach (BooksListViewItem item in items)
                         {
-                            MC.CheckInBook((item as BooksListViewItem).BooksID, _selectedPatron);
+                            MC.CheckInBook((item as BooksListViewItem).BooksID);
                             MC.RefreshPatronCheckedOut(_selectedPatron);
                         }
                     }
@@ -194,11 +194,19 @@ namespace librarysim
                     {
                         foreach (MediaListViewItem item in items)
                         {
-                            MC.CheckItMedia((item as MediaListViewItem).MediaID, _selectedPatron);
+                            MC.CheckItMedia((item as MediaListViewItem).MediaID);
                             MC.RefreshPatronCheckedOut(_selectedPatron);
                         }
                     }
                 }
+            }
+        }
+
+        private void tb_Name_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_FirstName.Text.Length >= 2 || tb_LastName.Text.Length >= 2)
+            {
+                MC.PatronNameSearch(string.Format("%" + tb_FirstName.Text.Trim() + "% %" + tb_LastName.Text.Trim() + "%"));
             }
         }
     

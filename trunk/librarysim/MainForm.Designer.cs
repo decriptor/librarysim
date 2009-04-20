@@ -401,6 +401,7 @@
             this.tb_LastName.Name = "tb_LastName";
             this.tb_LastName.Size = new System.Drawing.Size(100, 20);
             this.tb_LastName.TabIndex = 13;
+            this.tb_LastName.TextChanged += new System.EventHandler(this.tb_Name_TextChanged);
             // 
             // lbl_LastName
             // 
@@ -426,6 +427,7 @@
             this.tb_FirstName.Name = "tb_FirstName";
             this.tb_FirstName.Size = new System.Drawing.Size(100, 20);
             this.tb_FirstName.TabIndex = 10;
+            this.tb_FirstName.TextChanged += new System.EventHandler(this.tb_Name_TextChanged);
             // 
             // lsv_Patron
             // 
