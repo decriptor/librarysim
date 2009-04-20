@@ -1,5 +1,9 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* SQLite.cs: Removed the DataAccess interface
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* DatabaseBuilder.cs: Fixed some minor issues
 
 	* SQLite.cs: Temp fix for an issue with sql.
