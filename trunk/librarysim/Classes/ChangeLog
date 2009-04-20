@@ -1,5 +1,9 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* DataAccess.cs: Removed the DataAccess interface
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* Media.cs:
 	* Books.cs: Commented out some stuff so that it would load in
 	  the gui.

@@ -127,8 +127,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Backend\SQLite.cs" />
-    <Compile Include="Interfaces\IDataAccess.cs" />
-    <None Include="Interfaces\ChangeLog" />
     <None Include="Backend\ChangeLog" />
     <Compile Include="Backend\DatabaseBuilder.cs" />
     <Compile Include="Classes\Controller.cs" />

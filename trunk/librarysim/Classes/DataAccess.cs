@@ -5,11 +5,10 @@ using System.IO;
 using Mono.Data.Sqlite;
 
 using librarysim.Backend;
-using librarysim.Interfaces;
 
 namespace librarysim.Classes
 {	
-	public sealed class DataAccess : IDataAccess
+	public sealed class DataAccess
 	{
 		private SQLite _database;
 		
