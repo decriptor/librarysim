@@ -51,7 +51,6 @@
             this.chBook_author = new System.Windows.Forms.ColumnHeader();
             this.chBook_description = new System.Windows.Forms.ColumnHeader();
             this.chBook_dueDate = new System.Windows.Forms.ColumnHeader();
-            this.chBook_reserved = new System.Windows.Forms.ColumnHeader();
             this.chBook_checkedOut = new System.Windows.Forms.ColumnHeader();
             this.btn_CheckIn = new System.Windows.Forms.Button();
             this.lsv_CheckedOutByPatron = new System.Windows.Forms.ListView();
@@ -61,7 +60,6 @@
             this.chBookByPatron_Author = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_Description = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_DueDate = new System.Windows.Forms.ColumnHeader();
-            this.chBookByPatron_Reserved = new System.Windows.Forms.ColumnHeader();
             this.btn_checkInOut = new System.Windows.Forms.Button();
             this.gb_Patrons = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -81,8 +79,8 @@
             this.lbl_Type = new System.Windows.Forms.Label();
             this.lbl_TargetAudience = new System.Windows.Forms.Label();
             this.cb_TargetAudience = new System.Windows.Forms.ComboBox();
-            this.cb_Media = new System.Windows.Forms.CheckBox();
-            this.cb_Books = new System.Windows.Forms.CheckBox();
+            this.cb_FilterMedia = new System.Windows.Forms.CheckBox();
+            this.cb_FilterBooks = new System.Windows.Forms.CheckBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -116,6 +114,7 @@
             this.dtp_DateSelector.Name = "dtp_DateSelector";
             this.dtp_DateSelector.Size = new System.Drawing.Size(200, 20);
             this.dtp_DateSelector.TabIndex = 0;
+            this.dtp_DateSelector.ValueChanged += new System.EventHandler(this.dtp_DateSelector_ValueChanged);
             // 
             // menuStrip1
             // 
@@ -237,7 +236,6 @@
             this.chBook_author,
             this.chBook_description,
             this.chBook_dueDate,
-            this.chBook_reserved,
             this.chBook_checkedOut});
             this.lsv_AllBooksMedia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsv_AllBooksMedia.FullRowSelect = true;
@@ -280,15 +278,8 @@
             // 
             // chBook_dueDate
             // 
-            this.chBook_dueDate.DisplayIndex = 6;
             this.chBook_dueDate.Text = "Due Date";
             this.chBook_dueDate.Width = 82;
-            // 
-            // chBook_reserved
-            // 
-            this.chBook_reserved.DisplayIndex = 5;
-            this.chBook_reserved.Text = "Reserved";
-            this.chBook_reserved.Width = 58;
             // 
             // chBook_checkedOut
             // 
@@ -304,6 +295,7 @@
             this.btn_CheckIn.TabIndex = 13;
             this.btn_CheckIn.Text = "Check In";
             this.btn_CheckIn.UseVisualStyleBackColor = true;
+            this.btn_CheckIn.Click += new System.EventHandler(this.btn_CheckIn_Click);
             // 
             // lsv_CheckedOutByPatron
             // 
@@ -314,8 +306,7 @@
             this.chBookByPatron_Title,
             this.chBookByPatron_Author,
             this.chBookByPatron_Description,
-            this.chBookByPatron_DueDate,
-            this.chBookByPatron_Reserved});
+            this.chBookByPatron_DueDate});
             this.lsv_CheckedOutByPatron.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsv_CheckedOutByPatron.FullRowSelect = true;
             this.lsv_CheckedOutByPatron.GridLines = true;
@@ -357,14 +348,8 @@
             // 
             // chBookByPatron_DueDate
             // 
-            this.chBookByPatron_DueDate.DisplayIndex = 6;
             this.chBookByPatron_DueDate.Text = "Due Date";
             this.chBookByPatron_DueDate.Width = 80;
-            // 
-            // chBookByPatron_Reserved
-            // 
-            this.chBookByPatron_Reserved.DisplayIndex = 5;
-            this.chBookByPatron_Reserved.Text = "Reserved";
             // 
             // btn_checkInOut
             // 
@@ -375,6 +360,7 @@
             this.btn_checkInOut.TabIndex = 21;
             this.btn_checkInOut.Text = "Check Out";
             this.btn_checkInOut.UseVisualStyleBackColor = true;
+            this.btn_checkInOut.Click += new System.EventHandler(this.btn_checkInOut_Click);
             // 
             // gb_Patrons
             // 
@@ -508,8 +494,8 @@
             this.gb_filteringfields.Controls.Add(this.lbl_TargetAudience);
             this.gb_filteringfields.Controls.Add(this.btn_checkInOut);
             this.gb_filteringfields.Controls.Add(this.cb_TargetAudience);
-            this.gb_filteringfields.Controls.Add(this.cb_Media);
-            this.gb_filteringfields.Controls.Add(this.cb_Books);
+            this.gb_filteringfields.Controls.Add(this.cb_FilterMedia);
+            this.gb_filteringfields.Controls.Add(this.cb_FilterBooks);
             this.gb_filteringfields.Controls.Add(this.dtp_DateSelector);
             this.gb_filteringfields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_filteringfields.Location = new System.Drawing.Point(0, 0);
@@ -528,6 +514,7 @@
             this.btn_filter.TabIndex = 22;
             this.btn_filter.Text = "Filter";
             this.btn_filter.UseVisualStyleBackColor = true;
+            this.btn_filter.Click += new System.EventHandler(this.btn_filter_Click);
             // 
             // lbl_Type
             // 
@@ -555,25 +542,25 @@
             this.cb_TargetAudience.Size = new System.Drawing.Size(121, 21);
             this.cb_TargetAudience.TabIndex = 5;
             // 
-            // cb_Media
+            // cb_FilterMedia
             // 
-            this.cb_Media.AutoSize = true;
-            this.cb_Media.Location = new System.Drawing.Point(209, 37);
-            this.cb_Media.Name = "cb_Media";
-            this.cb_Media.Size = new System.Drawing.Size(55, 17);
-            this.cb_Media.TabIndex = 4;
-            this.cb_Media.Text = "Media";
-            this.cb_Media.UseVisualStyleBackColor = true;
+            this.cb_FilterMedia.AutoSize = true;
+            this.cb_FilterMedia.Location = new System.Drawing.Point(209, 37);
+            this.cb_FilterMedia.Name = "cb_FilterMedia";
+            this.cb_FilterMedia.Size = new System.Drawing.Size(55, 17);
+            this.cb_FilterMedia.TabIndex = 4;
+            this.cb_FilterMedia.Text = "Media";
+            this.cb_FilterMedia.UseVisualStyleBackColor = true;
             // 
-            // cb_Books
+            // cb_FilterBooks
             // 
-            this.cb_Books.AutoSize = true;
-            this.cb_Books.Location = new System.Drawing.Point(147, 37);
-            this.cb_Books.Name = "cb_Books";
-            this.cb_Books.Size = new System.Drawing.Size(56, 17);
-            this.cb_Books.TabIndex = 3;
-            this.cb_Books.Text = "Books";
-            this.cb_Books.UseVisualStyleBackColor = true;
+            this.cb_FilterBooks.AutoSize = true;
+            this.cb_FilterBooks.Location = new System.Drawing.Point(147, 37);
+            this.cb_FilterBooks.Name = "cb_FilterBooks";
+            this.cb_FilterBooks.Size = new System.Drawing.Size(56, 17);
+            this.cb_FilterBooks.TabIndex = 3;
+            this.cb_FilterBooks.Text = "Books";
+            this.cb_FilterBooks.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
             // 
@@ -706,7 +693,6 @@
         private System.Windows.Forms.ColumnHeader chBook_author;
         private System.Windows.Forms.ColumnHeader chBook_description;
         private System.Windows.Forms.ColumnHeader chBook_checkedOut;
-        private System.Windows.Forms.ColumnHeader chBook_reserved;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
@@ -720,7 +706,6 @@
         private System.Windows.Forms.ColumnHeader chBookByPatron_Author;
         private System.Windows.Forms.ColumnHeader chBookByPatron_Description;
         private System.Windows.Forms.ColumnHeader chBookByPatron_DueDate;
-        private System.Windows.Forms.ColumnHeader chBookByPatron_Reserved;
         private System.Windows.Forms.Button btn_checkInOut;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmi_about;
@@ -738,8 +723,8 @@
         private System.Windows.Forms.ListView lsv_Patron;
         private System.Windows.Forms.ColumnHeader chPatron_name;
         private System.Windows.Forms.ColumnHeader chPatron_age;
-        private System.Windows.Forms.CheckBox cb_Media;
-        private System.Windows.Forms.CheckBox cb_Books;
+        private System.Windows.Forms.CheckBox cb_FilterMedia;
+        private System.Windows.Forms.CheckBox cb_FilterBooks;
         private System.Windows.Forms.Label lbl_TargetAudience;
         private System.Windows.Forms.ComboBox cb_TargetAudience;
         private System.Windows.Forms.SplitContainer splitContainer2;

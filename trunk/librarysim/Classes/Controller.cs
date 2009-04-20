@@ -32,9 +32,6 @@ namespace librarysim.Classes
 		public delegate void AllBooksMediaRefreshHandler(BooksListViewItem[] books, MediaListViewItem[] media);
 		public event AllBooksMediaRefreshHandler AllBooksMediaRefresh;
 		
-		public delegate void DateRefreshHandler();
-		public event DateRefreshHandler DateRefresh;
-
         public delegate void PatronCheckedOutRefreshHandler(BooksListViewItem[] books, MediaListViewItem[] media);
         public event PatronCheckedOutRefreshHandler PatronCheckedOutRefresh;
 		#endregion
@@ -108,7 +105,7 @@ namespace librarysim.Classes
 			DataSet booksDS;
 			try
 			{
-				booksDS = data.RetrieveBook(null, null, null, null, null, null, null, null, null);
+				booksDS = data.RetrieveBook(null, null, null, null, null, null, null);
 				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
 				{
 					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -134,7 +131,7 @@ namespace librarysim.Classes
 			DataSet mediaDS;
 			try
 			{
-				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null, null, null);
+				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null);
 				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
 				{
 					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -162,7 +159,7 @@ namespace librarysim.Classes
 			DataSet mediaDS;
 			try
 			{
-				booksDS = data.RetrieveBook(null, null, null, null, null, null, null, null, null);
+				booksDS = data.RetrieveBook(null, null, null, null, null, null, null);
 				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
 				{
 					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -171,7 +168,7 @@ namespace librarysim.Classes
 						books.Add(new BooksListViewItem(bookDR));
 					}
 				}
-				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null, null, null);
+				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null);
 				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
 				{
 					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -199,7 +196,7 @@ namespace librarysim.Classes
             DataSet mediaDS;
             try
             {
-                booksDS = data.RetrieveBook(null, patronID, null, null, null, null, null, null, null);
+                booksDS = data.RetrieveBook(null, patronID, null, null, null, null, null);
                 if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
                 {
                     for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -208,7 +205,7 @@ namespace librarysim.Classes
                         books.Add(new BooksListViewItem(bookDR));
                     }
                 }
-                mediaDS = data.RetrieveMedia(null, patronID, null, null, null, null, null, null, null);
+                mediaDS = data.RetrieveMedia(null, patronID, null, null, null, null, null);
                 if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
                 {
                     for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -228,61 +225,36 @@ namespace librarysim.Classes
             }
         }
 
-		internal void LoadBookDetails(int bookID)
+		internal void LoadPatronDetails(int patronID)
 		{
-			List<Books> BK = new List<Books>();
-			DataSet booksDS;
+			DataSet patronsDS;
+            Patrons p;
 			try
 			{
-				booksDS = data.RetrieveBook( bookID, null, null, null, null, null, null, null, null);
-				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
+                patronsDS = data.RetrievePatron(patronID, null, null, null, null, null);
+                if ((patronsDS.Tables.Count > 0) && (patronsDS.Tables["Patrons"].Rows.Count > 0))
 				{
-					DataRow bookDR = booksDS.Tables["Books"].Rows[0];
-					BK.Add(new Books(bookDR));
+                    DataRow patronDR = patronsDS.Tables["Patrons"].Rows[0];
+                    p = new Patrons(patronDR);
+                    LaunchPatronsDialog(p);
 				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-			//if (BookDetails != null)
-			//{
-			//	BookDetails(BK.ToArray());
-			//}		
 		}
 		
-		internal void LoadMediaDetails(int mediaID)
+		internal void LaunchPatronsDialog(Patrons p)
 		{
-			List<Media> MD = new List<Media>();
-			DataSet mediaDS;
-			try
-			{
-				mediaDS = data.RetrieveBook( mediaID, null, null, null, null, null, null, null, null);
-				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
-				{
-					DataRow mediaDR = mediaDS.Tables["Media"].Rows[0];
-					MD.Add(new Media(mediaDR));
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-			//if (MediaDetails != null)
-			//{
-			//	MediaDetails(MD.ToArray());
-			//}		
-		}
-		
-		internal void LaunchPatronsDialog()
-		{
+            throw new NotImplementedException();
 			//Form_PatronsDialog PD =  new Form_PatronsDialog();
 			//if (PD.ShowDialog() == DialogResult.OK)
 			//{
 				//Update Patrons View  //RefreshPatrons();
 			//}
 		}
-		        
+  
 		internal void LaunchPatronCreateDialog()
 		{
 			//Form_PatronCreate FPC = new Form_PatronCreate();
@@ -316,40 +288,6 @@ namespace librarysim.Classes
 			//FHV.ShowDialog();
 		}
 
-		internal bool CheckBookAvailability(int bookID)
-		{
-			DataSet booksDS = data.RetrieveBook( bookID, null, null, null, null, null, null, null, null);
-			if (booksDS != null)
-			{
-				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
-				{
-					DataRow bookDR = booksDS.Tables["Books"].Rows[0];
-					if (bookDR["checkouted"].ToString() == "")
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-		
-		internal bool CheckMediaAvailability(int mediaID)
-		{
-			DataSet mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null, null, null);
-			if (mediaDS != null)
-			{
-				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
-				{
-					DataRow mediaDR = mediaDS.Tables["Media"].Rows[0];
-					if (mediaDR["checkouted"].ToString() == "")
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-
 		internal void EditPatron( int patronID )
 		{
 			//Form_PatronEditor FPE = new Form_PatronEditor();
@@ -358,5 +296,25 @@ namespace librarysim.Classes
 				//Update Patron's Information
 			//}
 		}
-	}
+
+        internal void CheckOutBook(int bookID, int patronID, DateTime selectedDate)
+        {
+            data.UpdateBook(bookID, patronID, null, null, null, null, selectedDate);
+        }
+
+        internal void CheckOutMedia(int mediaID, int patronID, DateTime selectedDate)
+        {
+            data.UpdateBook(mediaID, patronID, null, null, null, null, selectedDate);
+        }
+
+        internal void CheckInBook(int bookID, int patronID)
+        {
+            data.UpdateBook(bookID, patronID, null, null, null, null, null);
+        }
+
+        internal void CheckItMedia(int mediaID, int patronID)
+        {
+            data.UpdateBook(mediaID, patronID, null, null, null, null, null);
+        }
+    }
 }

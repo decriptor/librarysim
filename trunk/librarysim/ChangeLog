@@ -1,5 +1,12 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* Entire App:  Changed tons of stuff.  The database
+		schema doesn't have checkedin or reserved now
+	* MainForm: Added lots of events and frontend to backend
+		ties
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* MainForm: Added a selected Item event to the
 		Patron ListView so that when its clicked
 		the patron checked out ListView update

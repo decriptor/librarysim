@@ -15,9 +15,7 @@ namespace librarysim.Classes
 		string title;
 		string author;
 		string description;
-		DateTime checkedin;
 		DateTime checkedout;
-		bool reserved;
 		#endregion
 		
 		#region Properties
@@ -51,20 +49,11 @@ namespace librarysim.Classes
 			get { return description; }
 		}
 		
-		public DateTime Checkedin
-		{
-			get { return checkedin; }
-		}
-		
 		public DateTime Checkedout
 		{
 			get { return checkedout; }
 		}
-		
-		public bool Reserved
-		{
-			get { return reserved; }
-		}
+
 		#endregion
 		
 		public Books( DataRow booksDR )
@@ -75,9 +64,7 @@ namespace librarysim.Classes
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
-			checkedin = Convert.ToDateTime(booksDR[Tables.bookCheckedIn]);
 			checkedout = Convert.ToDateTime(booksDR[Tables.bookCheckedOut]);
-			reserved = Convert.ToBoolean(booksDR[Tables.bookReserved]);
 		}
 	}
 	
@@ -90,9 +77,7 @@ namespace librarysim.Classes
 		string title;
 		string author;
 		string description;
-		DateTime checkedin;
 		DateTime checkedout;
-		bool reserved;
 		#endregion
 		
 		#region Properties
@@ -126,19 +111,9 @@ namespace librarysim.Classes
 			get { return description; }
 		}
 		
-		public DateTime Checkedin
-		{
-			get { return checkedin; }
-		}
-		
 		public DateTime Checkedout
 		{
 			get { return checkedout; }
-		}
-		
-		public bool Reserved
-		{
-			get { return reserved; }
 		}
 		#endregion
 		
@@ -150,9 +125,7 @@ namespace librarysim.Classes
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
-			//checkedin = DateTime.Parse(booksDR[Tables.bookCheckedIn].ToString());
 			//checkedout = DateTime.Parse(booksDR[Tables.bookCheckedOut].ToString());
-			//reserved = Convert.ToBoolean(booksDR[Tables.bookReserved]);SetOption();
 			SetOption();
 			BuildSubItems();
 		}
@@ -163,7 +136,6 @@ namespace librarysim.Classes
 			this.SubItems.Add(title);
 			this.SubItems.Add(description);
 			this.SubItems.Add(author);
-			this.SubItems.Add(reserved.ToString());
 		}
 		
 		private void SetOption()

@@ -15,14 +15,17 @@ namespace librarysim
         #region Variables
         Controller MC;
         int _selectedPatron = 0;
-
+        DateTime _currentDate;
         #endregion
+
+
         public MainForm()
         {
 			MC = new Controller();
             InitializeComponent();
             RegisterEvents();
 			FillListViews();
+            BuildGUIComponents();
         }
 
         private void RegisterEvents()
@@ -37,8 +40,17 @@ namespace librarysim
 		void FillListViews()
 		{
 			MC.RefreshPatrons();
+            cb_FilterBooks.Checked = true;
+            cb_FilterMedia.Checked = true;
 			MC.RefreshAllBooksMedia();
 		}
+
+        private void BuildGUIComponents()
+        {
+            cb_TargetAudience.Items.Add("all");
+            cb_TargetAudience.Items.Add("adult");
+            cb_TargetAudience.Items.Add("child");
+        }
 
 		#region Events
         void MC_PatronsRefresh(PatronsListViewItem[] projects)
@@ -50,8 +62,14 @@ namespace librarysim
 		void MC_AllBooksMediaRefresh( BooksListViewItem[] books, MediaListViewItem[] media )
 		{
 			lsv_AllBooksMedia.Items.Clear();
-			lsv_AllBooksMedia.Items.AddRange(books);
-			lsv_AllBooksMedia.Items.AddRange(media);
+            if (cb_FilterBooks.Checked)
+            {
+                lsv_AllBooksMedia.Items.AddRange(books);
+            }
+            if (cb_FilterMedia.Checked)
+            {
+                lsv_AllBooksMedia.Items.AddRange(media);
+            }
 		}
 
         void MC_PatronCheckedOutRefresh(BooksListViewItem[] books, MediaListViewItem[] media)
@@ -112,6 +130,74 @@ namespace librarysim
                     _selectedPatron = (patron as PatronsListViewItem).PatronID;
                     gb_PatronCheckedOut.Text = "Books and Media Checked Out by " + (patron as PatronsListViewItem).PatronName;
                     MC.RefreshPatronCheckedOut(_selectedPatron);                    
+                }
+            }
+        }
+
+        private void btn_filter_Click(object sender, EventArgs e)
+        {
+            MC.RefreshAllBooksMedia();
+        }
+
+        private void btn_checkInOut_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection items = lsv_AllBooksMedia.SelectedItems;
+            if ((items != null) && (items.Count >= 1))
+            {
+                for (int i = 0; i < items.Count; ++i)
+                {
+                    ListViewItem Selected = items[i];
+                    if (Selected is BooksListViewItem)
+                    {
+                        foreach (BooksListViewItem item in items)
+                        {
+                            MC.CheckOutBook((item as BooksListViewItem).BooksID, _selectedPatron, _currentDate);
+                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                        }
+                    }
+                    if (Selected is MediaListViewItem)
+                    {
+                        foreach (MediaListViewItem item in items)
+                        {
+                            MC.CheckOutMedia((item as MediaListViewItem).MediaID, _selectedPatron, _currentDate);
+                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dtp_DateSelector_ValueChanged(object sender, EventArgs e)
+        {
+            _currentDate = (sender as DateTimePicker).Value;
+            MC.RefreshAllBooksMedia();
+            MC.RefreshPatronCheckedOut(_selectedPatron);
+        }
+
+        private void btn_CheckIn_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection items = lsv_AllBooksMedia.SelectedItems;
+            if ((items != null) && (items.Count >= 1))
+            {
+                for (int i = 0; i < items.Count; ++i)
+                {
+                    ListViewItem Selected = items[i];
+                    if (Selected is BooksListViewItem)
+                    {
+                        foreach (BooksListViewItem item in items)
+                        {
+                            MC.CheckInBook((item as BooksListViewItem).BooksID, _selectedPatron);
+                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                        }
+                    }
+                    if (Selected is MediaListViewItem)
+                    {
+                        foreach (MediaListViewItem item in items)
+                        {
+                            MC.CheckItMedia((item as MediaListViewItem).MediaID, _selectedPatron);
+                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                        }
+                    }
                 }
             }
         }

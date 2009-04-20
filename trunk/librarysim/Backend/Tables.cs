@@ -20,9 +20,7 @@ namespace librarysim.Backend
 		public static string bookTitle = 		"Title";
 		public static string bookAuthor = 		"Author";
 		public static string bookDescription = 	"Description";
-		public static string bookCheckedIn =	"Checkedin";
 		public static string bookCheckedOut =	"Checkedout";
-		public static string bookReserved =		"Reserved";
 		#endregion
 		
 		#region Media Table Columns
@@ -32,9 +30,7 @@ namespace librarysim.Backend
 		public static string mediaTitle = 		"Title";
 		public static string mediaRating = 		"Rating";
 		public static string mediaDescription = "Description";
-		public static string mediaCheckedIn =	"Checkedin";
 		public static string mediaCheckedOut =	"Checkedout";
-		public static string mediaReserved =	"Reserved";
 		#endregion
 
 	}

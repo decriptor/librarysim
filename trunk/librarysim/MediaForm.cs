@@ -29,9 +29,7 @@ namespace librarysim
       cmbType.SelectedIndex = (m.Type == "DVD") ? 1 : 0; // todo
       txtTitle.Text = m.Title;
       txtDescription.Text = m.Description;
-      dtpCheckedIn.Value = new DateTime(); // todo
       dtpCheckedOut.Value = new DateTime(); // todo
-      cbReserved.Checked = m.Reserved;
     }
 
     private void btnCancel_Click(object sender, EventArgs e)

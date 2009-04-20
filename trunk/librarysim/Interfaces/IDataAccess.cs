@@ -19,25 +19,24 @@ namespace librarysim.Interfaces
 		
 		#region Books
 		DataSet RetrieveBook(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime? checkedin, DateTime? checkedout, bool? reserved);
+		                            string description, DateTime? checkedout);
 		
         void AddBook(string type, string title, string author, string description);
 
         void UpdateBook(int bookID, int? patronID, string type, string title, string author,
-		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved);
+		                string description, DateTime? checkedout);
 		
         void DeleteBook(int bookID);
         #endregion
 
 		#region Media
 		DataSet RetrieveMedia(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, DateTime? checkedin, DateTime? checkedout, bool? reserved);
+		                            string rating, DateTime? checkedout);
 		
         void AddMedia(string type, string title, string rating, string description);
 
         void UpdateMedia(int mediaID, int? patronID, string type, string title, string rating,
-		                string description, DateTime? checkedin, DateTime? checkedout,
-		                bool? reserved);
+		                string description, DateTime? checkedout);
 		
         void DeleteMedia(int mediaID);
         #endregion

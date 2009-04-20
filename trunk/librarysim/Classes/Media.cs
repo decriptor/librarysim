@@ -15,9 +15,7 @@ namespace librarysim.Classes
 		string title;
 		string rating;
 		string description;
-		DateTime checkedin;
 		DateTime checkedout;
-		bool reserved;
 		#endregion
 		
 		#region Properties
@@ -50,21 +48,12 @@ namespace librarysim.Classes
 		{
 			get { return description; }
 		}
-		
-		public DateTime Checkedin
-		{
-			get { return checkedin; }
-		}
-		
+
 		public DateTime Checkedout
 		{
 			get { return checkedout; }
 		}
-		
-		public bool Reserved
-		{
-			get { return reserved; }
-		}
+
 		#endregion
 		
 		public Media( DataRow mediaDR )
@@ -75,9 +64,7 @@ namespace librarysim.Classes
 			title = mediaDR[Tables.mediaTitle].ToString();
 			rating = mediaDR[Tables.mediaRating].ToString();
 			description = mediaDR[Tables.mediaDescription].ToString();
-			checkedin = Convert.ToDateTime(mediaDR[Tables.mediaCheckedIn]);
 			checkedout = Convert.ToDateTime(mediaDR[Tables.mediaCheckedOut]);
-			reserved = Convert.ToBoolean(mediaDR[Tables.mediaReserved]);
 		}
 	}
 	
@@ -90,9 +77,7 @@ namespace librarysim.Classes
 		string title;
 		string rating;
 		string description;
-		DateTime checkedin;
 		DateTime checkedout;
-		bool reserved;
 		#endregion
 		
 		#region Properties
@@ -126,19 +111,9 @@ namespace librarysim.Classes
 			get { return description; }
 		}
 		
-		public DateTime Checkedin
-		{
-			get { return checkedin; }
-		}
-		
 		public DateTime Checkedout
 		{
 			get { return checkedout; }
-		}
-		
-		public bool Reserved
-		{
-			get { return reserved; }
 		}
 		#endregion
 		
@@ -150,9 +125,7 @@ namespace librarysim.Classes
 			title = mediaDR[Tables.mediaTitle].ToString();
 			rating = mediaDR[Tables.mediaRating].ToString();
 			description = mediaDR[Tables.mediaDescription].ToString();
-			//checkedin = DateTime.Parse(mediaDR[Tables.mediaCheckedIn].ToString());
 			//checkedout = DateTime.Parse(mediaDR[Tables.mediaCheckedOut].ToString());
-			//reserved = Convert.ToBoolean(mediaDR[Tables.mediaReserved]);
 			SetOption();
 			BuildSubItems();
 		}
@@ -163,7 +136,6 @@ namespace librarysim.Classes
 			this.SubItems.Add(title);
 			this.SubItems.Add(description);
 			this.SubItems.Add(rating);
-			this.SubItems.Add(reserved.ToString());
 		}
 		
 		private void SetOption()
