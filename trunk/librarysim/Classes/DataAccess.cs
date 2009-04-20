@@ -32,10 +32,14 @@ namespace librarysim.Classes
 		}
 		
 		#region Patrons
-		public DataSet RetrievePatron(int? patronID, string name, string phoneNumber, string address, 
-		                  string gender, string age)
+		public DataSet RetrievePatron(int? patronID, string age)
 		{
-			return _database.PatronRetrieve(patronID, name, phoneNumber, address, gender, age);
+			return _database.PatronRetrieve(patronID, age);
+		}
+		
+		public DataSet PatronNameSearch(string name)
+		{
+			return _database.PatronNameSearch(name);
 		}
 		
         public void AddPatron(string name, string phoneNumber, string address, 
@@ -57,10 +61,9 @@ namespace librarysim.Classes
         #endregion
 		
 		#region Books
-		public DataSet RetrieveBook(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime? checkedout)
+		public DataSet RetrieveBook(int? bookID, int? patronID)
 		{
-			return _database.BookRetrieve(bookID, patronID, type, title, author, description, checkedout);
+			return _database.BookRetrieve(bookID, patronID);
 		}
 		
         public void AddBook(string type, string title, string author, string description)
@@ -74,6 +77,16 @@ namespace librarysim.Classes
 			_database.BookUpdate(bookID, patronID, type, title, author, description, checkedout);
 		}
 		
+		public void CheckOutBook(int bookID, int patronID, DateTime checkedout)
+		{
+			_database.BookCheckOut(bookID, patronID, checkedout);
+		}
+		
+		public void CheckInBook(int bookID)
+		{
+			_database.BookCheckIn(bookID);
+		}
+		
         public void DeleteBook(int bookID)
 		{
 			_database.BookDelete(bookID);
@@ -81,10 +94,9 @@ namespace librarysim.Classes
         #endregion
 
 		#region Media
-		public DataSet RetrieveMedia(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, DateTime? checkedout)
+		public DataSet RetrieveMedia(int? mediaID, int? patronID)
 		{
-			return _database.MediaRetrieve( mediaID, patronID, type, title, author, rating, checkedout);
+			return _database.MediaRetrieve( mediaID, patronID);
 		}
 		
         public void AddMedia(string type, string title, string rating, string description)
@@ -97,7 +109,16 @@ namespace librarysim.Classes
 		{
 			_database.MediaUpdate(mediaID, patronID, type, title, rating, description, checkedout);
 		}
+
+		public void CheckOutMedia(int mediaID, int patronID, DateTime checkedout)
+		{
+			_database.MediaCheckOut(mediaID, patronID, checkedout);
+		}
 		
+		public void CheckInMedia(int mediaID)
+		{
+			_database.MediaCheckIn(mediaID);
+		}
         public void DeleteMedia(int mediaID)
 		{
 			_database.MediaDelete(mediaID);
