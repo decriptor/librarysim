@@ -215,6 +215,12 @@ namespace librarysim
                 MC.PatronNameSearch(string.Format(tb_FirstName.Text.Trim() + "% " + tb_LastName.Text.Trim() + "%"));
             }
         }
+
+        private void bookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          BookForm bf = new BookForm();
+          bf.ShowDialog();
+        }
     
 	}
 }
