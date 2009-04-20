@@ -79,7 +79,7 @@ namespace librarysim.Classes
 			DataSet ds;
 			try
 			{
-                ds = data.RetrievePatron(null, null, null, null, null, null);
+                ds = data.RetrievePatron(null, null);
 				if ((ds.Tables.Count > 0) && (ds.Tables["Patrons"].Rows.Count > 0))
 				{
 					for (int i = 0; i < ds.Tables["Patrons"].Rows.Count; i++)
@@ -105,7 +105,7 @@ namespace librarysim.Classes
 			DataSet booksDS;
 			try
 			{
-				booksDS = data.RetrieveBook(null, null, null, null, null, null, null);
+				booksDS = data.RetrieveBook(null, null);
 				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
 				{
 					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -131,7 +131,7 @@ namespace librarysim.Classes
 			DataSet mediaDS;
 			try
 			{
-				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null);
+				mediaDS = data.RetrieveMedia(null, null);
 				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
 				{
 					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -159,7 +159,7 @@ namespace librarysim.Classes
 			DataSet mediaDS;
 			try
 			{
-				booksDS = data.RetrieveBook(null, null, null, null, null, null, null);
+				booksDS = data.RetrieveBook(null, null);
 				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
 				{
 					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -168,7 +168,7 @@ namespace librarysim.Classes
 						books.Add(new BooksListViewItem(bookDR));
 					}
 				}
-				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null);
+				mediaDS = data.RetrieveMedia(null, null);
 				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
 				{
 					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -196,7 +196,7 @@ namespace librarysim.Classes
             DataSet mediaDS;
             try
             {
-                booksDS = data.RetrieveBook(null, patronID, null, null, null, null, null);
+                booksDS = data.RetrieveBook(null, patronID);
                 if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
                 {
                     for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
@@ -205,7 +205,7 @@ namespace librarysim.Classes
                         books.Add(new BooksListViewItem(bookDR));
                     }
                 }
-                mediaDS = data.RetrieveMedia(null, patronID, null, null, null, null, null);
+                mediaDS = data.RetrieveMedia(null, patronID);
                 if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
                 {
                     for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
@@ -231,7 +231,7 @@ namespace librarysim.Classes
             Patrons p;
 			try
 			{
-                patronsDS = data.RetrievePatron(patronID, null, null, null, null, null);
+                patronsDS = data.RetrievePatron(patronID, null);
                 if ((patronsDS.Tables.Count > 0) && (patronsDS.Tables["Patrons"].Rows.Count > 0))
 				{
                     DataRow patronDR = patronsDS.Tables["Patrons"].Rows[0];
