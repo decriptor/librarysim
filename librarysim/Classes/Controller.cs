@@ -34,6 +34,9 @@ namespace librarysim.Classes
 		
 		public delegate void DateRefreshHandler();
 		public event DateRefreshHandler DateRefresh;
+
+        public delegate void PatronCheckedOutRefreshHandler(BooksListViewItem[] books, MediaListViewItem[] media);
+        public event PatronCheckedOutRefreshHandler PatronCheckedOutRefresh;
 		#endregion
 
 		public Controller( )
@@ -187,7 +190,44 @@ namespace librarysim.Classes
 				AllBooksMediaRefresh(books.ToArray(), media.ToArray());
 			}
 		}
-		
+
+        internal void RefreshPatronCheckedOut(int patronID)
+        {
+            List<BooksListViewItem> books = new List<BooksListViewItem>();
+            DataSet booksDS;
+            List<MediaListViewItem> media = new List<MediaListViewItem>();
+            DataSet mediaDS;
+            try
+            {
+                booksDS = data.RetrieveBook(null, patronID, null, null, null, null, null, null, null);
+                if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
+                {
+                    for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
+                    {
+                        DataRow bookDR = booksDS.Tables["Books"].Rows[i];
+                        books.Add(new BooksListViewItem(bookDR));
+                    }
+                }
+                mediaDS = data.RetrieveMedia(null, patronID, null, null, null, null, null, null, null);
+                if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
+                {
+                    for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
+                    {
+                        DataRow mediaDR = mediaDS.Tables["Media"].Rows[i];
+                        media.Add(new MediaListViewItem(mediaDR));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (BooksRefresh != null)
+            {
+                PatronCheckedOutRefresh(books.ToArray(), media.ToArray());
+            }
+        }
+
 		internal void LoadBookDetails(int bookID)
 		{
 			List<Books> BK = new List<Books>();

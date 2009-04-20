@@ -14,6 +14,7 @@ namespace librarysim
     {
         #region Variables
         Controller MC;
+        int _selectedPatron = 0;
 
         #endregion
         public MainForm()
@@ -30,14 +31,14 @@ namespace librarysim
             MC.BooksRefresh += new Controller.BooksRefreshHandler(MC_BooksRefresh);
             MC.MediaRefresh += new Controller.MediaRefreshHandler(MC_MediaRefresh);
 			MC.AllBooksMediaRefresh += new Controller.AllBooksMediaRefreshHandler(MC_AllBooksMediaRefresh);
+            MC.PatronCheckedOutRefresh += new Controller.PatronCheckedOutRefreshHandler(MC_PatronCheckedOutRefresh);
         }
-		
+
 		void FillListViews()
 		{
 			MC.RefreshPatrons();
 			MC.RefreshAllBooksMedia();
 		}
-
 
 		#region Events
         void MC_PatronsRefresh(PatronsListViewItem[] projects)
@@ -52,6 +53,13 @@ namespace librarysim
 			lsv_AllBooksMedia.Items.AddRange(books);
 			lsv_AllBooksMedia.Items.AddRange(media);
 		}
+
+        void MC_PatronCheckedOutRefresh(BooksListViewItem[] books, MediaListViewItem[] media)
+        {
+            lsv_CheckedOutByPatron.Items.Clear();
+            lsv_CheckedOutByPatron.Items.AddRange(books);
+            lsv_CheckedOutByPatron.Items.AddRange(media);
+        }
 
         void MC_BooksRefresh(BooksListViewItem[] books)
         {
@@ -92,6 +100,21 @@ namespace librarysim
             this.Close();
         }
 		#endregion
+
+        private void lsv_Patron_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection patrons = lsv_Patron.SelectedItems;
+
+            if ((patrons != null) && (patrons.Count == 1))
+            {
+                foreach (PatronsListViewItem patron in patrons)
+                {
+                    _selectedPatron = (patron as PatronsListViewItem).PatronID;
+                    gb_PatronCheckedOut.Text = "Books and Media Checked Out by " + (patron as PatronsListViewItem).PatronName;
+                    MC.RefreshPatronCheckedOut(_selectedPatron);                    
+                }
+            }
+        }
     
 	}
 }
