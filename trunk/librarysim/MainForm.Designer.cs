@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,8 +36,7 @@
             this.patronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,17 +44,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbl_Patron = new System.Windows.Forms.Label();
-            this.lsv_Patron = new System.Windows.Forms.ListView();
-            this.chPatron_ID = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_name = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_phoneNumber = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_address = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_gender = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_dob = new System.Windows.Forms.ColumnHeader();
-            this.chPatron_Type = new System.Windows.Forms.ColumnHeader();
-            this.lsv_Book = new System.Windows.Forms.ListView();
-            this.chBook_ID = new System.Windows.Forms.ColumnHeader();
+            this.lsv_AllBooksMedia = new System.Windows.Forms.ListView();
             this.chBook_patronID = new System.Windows.Forms.ColumnHeader();
             this.chBook_type = new System.Windows.Forms.ColumnHeader();
             this.chBook_title = new System.Windows.Forms.ColumnHeader();
@@ -63,11 +53,8 @@
             this.chBook_dueDate = new System.Windows.Forms.ColumnHeader();
             this.chBook_reserved = new System.Windows.Forms.ColumnHeader();
             this.chBook_checkedOut = new System.Windows.Forms.ColumnHeader();
-            this.lbl_Book = new System.Windows.Forms.Label();
-            this.btn_checkOut = new System.Windows.Forms.Button();
-            this.btn_checkInByPatron = new System.Windows.Forms.Button();
-            this.lsv_BookByPatron = new System.Windows.Forms.ListView();
-            this.chBookByPatron_ID = new System.Windows.Forms.ColumnHeader();
+            this.btn_CheckIn = new System.Windows.Forms.Button();
+            this.lsv_CheckedOutByPatron = new System.Windows.Forms.ListView();
             this.chBookByPatron_PatronID = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_Type = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_Title = new System.Windows.Forms.ColumnHeader();
@@ -75,28 +62,54 @@
             this.chBookByPatron_Description = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_DueDate = new System.Windows.Forms.ColumnHeader();
             this.chBookByPatron_Reserved = new System.Windows.Forms.ColumnHeader();
-            this.lbl_BookByPatron = new System.Windows.Forms.Label();
-            this.lbl_selectedPatron = new System.Windows.Forms.Label();
-            this.lsv_Overdue = new System.Windows.Forms.ListView();
-            this.chOverdue_ID = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_PatronID = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_Type = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_Title = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_Author = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_Description = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_DueDate = new System.Windows.Forms.ColumnHeader();
-            this.chOverdue_Reserved = new System.Windows.Forms.ColumnHeader();
-            this.lbl_OverdueBooks = new System.Windows.Forms.Label();
-            this.btn_checkInByOverdue = new System.Windows.Forms.Button();
-            this.btn_checkInByAll = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_checkInOut = new System.Windows.Forms.Button();
+            this.gb_Patrons = new System.Windows.Forms.GroupBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tb_LastName = new System.Windows.Forms.TextBox();
+            this.lbl_LastName = new System.Windows.Forms.Label();
+            this.lbl_FirstName = new System.Windows.Forms.Label();
+            this.tb_FirstName = new System.Windows.Forms.TextBox();
+            this.lsv_Patron = new System.Windows.Forms.ListView();
+            this.chPatron_name = new System.Windows.Forms.ColumnHeader();
+            this.chPatron_age = new System.Windows.Forms.ColumnHeader();
+            this.gb_filteringfields = new System.Windows.Forms.GroupBox();
+            this.lbl_TargetAudience = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_Media = new System.Windows.Forms.CheckBox();
+            this.cb_Books = new System.Windows.Forms.CheckBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.lbl_Type = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.gb_PatronCheckedOut = new System.Windows.Forms.GroupBox();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.cms_Patron = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.gb_Patrons.SuspendLayout();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.gb_filteringfields.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.gb_PatronCheckedOut.SuspendLayout();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.cms_Patron.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(738, 27);
+            this.dateTimePicker1.Location = new System.Drawing.Point(543, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 0;
@@ -109,7 +122,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(950, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,8 +130,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -132,40 +143,33 @@
             this.bookToolStripMenuItem,
             this.mediaToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // patronToolStripMenuItem
             // 
             this.patronToolStripMenuItem.Name = "patronToolStripMenuItem";
-            this.patronToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.patronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.patronToolStripMenuItem.Text = "Patron";
             this.patronToolStripMenuItem.Click += new System.EventHandler(this.patronToolStripMenuItem_Click);
             // 
             // bookToolStripMenuItem
             // 
             this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
-            this.bookToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.bookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bookToolStripMenuItem.Text = "Book";
             // 
             // mediaToolStripMenuItem
             // 
             this.mediaToolStripMenuItem.Name = "mediaToolStripMenuItem";
-            this.mediaToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.mediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mediaToolStripMenuItem.Text = "Media";
             this.mediaToolStripMenuItem.Click += new System.EventHandler(this.mediaToolStripMenuItem_Click);
             // 
-            // openToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -208,9 +212,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 687);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 730);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(950, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1000, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -220,84 +224,10 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(24, 17);
             this.toolStripStatusLabel1.Text = "tsl_";
             // 
-            // lbl_Patron
+            // lsv_AllBooksMedia
             // 
-            this.lbl_Patron.AutoSize = true;
-            this.lbl_Patron.Location = new System.Drawing.Point(-3, 38);
-            this.lbl_Patron.Name = "lbl_Patron";
-            this.lbl_Patron.Size = new System.Drawing.Size(38, 13);
-            this.lbl_Patron.TabIndex = 4;
-            this.lbl_Patron.Text = "Patron";
-            // 
-            // lsv_Patron
-            // 
-            this.lsv_Patron.AllowColumnReorder = true;
-            this.lsv_Patron.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chPatron_ID,
-            this.chPatron_name,
-            this.chPatron_phoneNumber,
-            this.chPatron_address,
-            this.chPatron_gender,
-            this.chPatron_dob,
-            this.chPatron_Type});
-            this.lsv_Patron.FullRowSelect = true;
-            this.lsv_Patron.GridLines = true;
-            this.lsv_Patron.HideSelection = false;
-            this.lsv_Patron.LabelWrap = false;
-            this.lsv_Patron.Location = new System.Drawing.Point(0, 53);
-            this.lsv_Patron.MultiSelect = false;
-            this.lsv_Patron.Name = "lsv_Patron";
-            this.lsv_Patron.ShowItemToolTips = true;
-            this.lsv_Patron.Size = new System.Drawing.Size(257, 629);
-            this.lsv_Patron.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lsv_Patron.TabIndex = 5;
-            this.lsv_Patron.UseCompatibleStateImageBehavior = false;
-            this.lsv_Patron.View = System.Windows.Forms.View.Details;
-            // 
-            // chPatron_ID
-            // 
-            this.chPatron_ID.Text = "ID";
-            this.chPatron_ID.Width = 27;
-            // 
-            // chPatron_name
-            // 
-            this.chPatron_name.Text = "Name";
-            this.chPatron_name.Width = 141;
-            // 
-            // chPatron_phoneNumber
-            // 
-            this.chPatron_phoneNumber.DisplayIndex = 3;
-            this.chPatron_phoneNumber.Text = "Phone Number";
-            this.chPatron_phoneNumber.Width = 88;
-            // 
-            // chPatron_address
-            // 
-            this.chPatron_address.DisplayIndex = 4;
-            this.chPatron_address.Text = "Address";
-            this.chPatron_address.Width = 102;
-            // 
-            // chPatron_gender
-            // 
-            this.chPatron_gender.DisplayIndex = 5;
-            this.chPatron_gender.Text = "Gender";
-            this.chPatron_gender.Width = 47;
-            // 
-            // chPatron_dob
-            // 
-            this.chPatron_dob.DisplayIndex = 6;
-            this.chPatron_dob.Text = "Date of Birth";
-            this.chPatron_dob.Width = 71;
-            // 
-            // chPatron_Type
-            // 
-            this.chPatron_Type.DisplayIndex = 2;
-            this.chPatron_Type.Text = "Type";
-            // 
-            // lsv_Book
-            // 
-            this.lsv_Book.AllowColumnReorder = true;
-            this.lsv_Book.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chBook_ID,
+            this.lsv_AllBooksMedia.AllowColumnReorder = true;
+            this.lsv_AllBooksMedia.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chBook_patronID,
             this.chBook_type,
             this.chBook_title,
@@ -306,29 +236,25 @@
             this.chBook_dueDate,
             this.chBook_reserved,
             this.chBook_checkedOut});
-            this.lsv_Book.FullRowSelect = true;
-            this.lsv_Book.GridLines = true;
-            this.lsv_Book.HideSelection = false;
-            this.lsv_Book.LabelWrap = false;
-            this.lsv_Book.Location = new System.Drawing.Point(263, 53);
-            this.lsv_Book.MultiSelect = false;
-            this.lsv_Book.Name = "lsv_Book";
-            this.lsv_Book.ShowItemToolTips = true;
-            this.lsv_Book.Size = new System.Drawing.Size(592, 318);
-            this.lsv_Book.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lsv_Book.TabIndex = 6;
-            this.lsv_Book.UseCompatibleStateImageBehavior = false;
-            this.lsv_Book.View = System.Windows.Forms.View.Details;
-            // 
-            // chBook_ID
-            // 
-            this.chBook_ID.Text = "ID";
-            this.chBook_ID.Width = 26;
+            this.lsv_AllBooksMedia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsv_AllBooksMedia.FullRowSelect = true;
+            this.lsv_AllBooksMedia.GridLines = true;
+            this.lsv_AllBooksMedia.HideSelection = false;
+            this.lsv_AllBooksMedia.LabelWrap = false;
+            this.lsv_AllBooksMedia.Location = new System.Drawing.Point(0, 0);
+            this.lsv_AllBooksMedia.MultiSelect = false;
+            this.lsv_AllBooksMedia.Name = "lsv_AllBooksMedia";
+            this.lsv_AllBooksMedia.ShowItemToolTips = true;
+            this.lsv_AllBooksMedia.Size = new System.Drawing.Size(746, 264);
+            this.lsv_AllBooksMedia.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lsv_AllBooksMedia.TabIndex = 6;
+            this.lsv_AllBooksMedia.UseCompatibleStateImageBehavior = false;
+            this.lsv_AllBooksMedia.View = System.Windows.Forms.View.Details;
             // 
             // chBook_patronID
             // 
-            this.chBook_patronID.Text = "Patron ID";
-            this.chBook_patronID.Width = 57;
+            this.chBook_patronID.Text = "Patron";
+            this.chBook_patronID.Width = 99;
             // 
             // chBook_type
             // 
@@ -351,13 +277,13 @@
             // 
             // chBook_dueDate
             // 
-            this.chBook_dueDate.DisplayIndex = 7;
+            this.chBook_dueDate.DisplayIndex = 6;
             this.chBook_dueDate.Text = "Due Date";
             this.chBook_dueDate.Width = 82;
             // 
             // chBook_reserved
             // 
-            this.chBook_reserved.DisplayIndex = 6;
+            this.chBook_reserved.DisplayIndex = 5;
             this.chBook_reserved.Text = "Reserved";
             this.chBook_reserved.Width = 58;
             // 
@@ -366,38 +292,19 @@
             this.chBook_checkedOut.Text = "Checked Out";
             this.chBook_checkedOut.Width = 76;
             // 
-            // lbl_Book
+            // btn_CheckIn
             // 
-            this.lbl_Book.AutoSize = true;
-            this.lbl_Book.Location = new System.Drawing.Point(263, 38);
-            this.lbl_Book.Name = "lbl_Book";
-            this.lbl_Book.Size = new System.Drawing.Size(104, 13);
-            this.lbl_Book.TabIndex = 7;
-            this.lbl_Book.Text = "All Books and Media";
+            this.btn_CheckIn.Location = new System.Drawing.Point(663, 3);
+            this.btn_CheckIn.Name = "btn_CheckIn";
+            this.btn_CheckIn.Size = new System.Drawing.Size(77, 23);
+            this.btn_CheckIn.TabIndex = 13;
+            this.btn_CheckIn.Text = "Check In";
+            this.btn_CheckIn.UseVisualStyleBackColor = true;
             // 
-            // btn_checkOut
+            // lsv_CheckedOutByPatron
             // 
-            this.btn_checkOut.Location = new System.Drawing.Point(861, 53);
-            this.btn_checkOut.Name = "btn_checkOut";
-            this.btn_checkOut.Size = new System.Drawing.Size(77, 23);
-            this.btn_checkOut.TabIndex = 12;
-            this.btn_checkOut.Text = "Check Out";
-            this.btn_checkOut.UseVisualStyleBackColor = true;
-            // 
-            // btn_checkInByPatron
-            // 
-            this.btn_checkInByPatron.Location = new System.Drawing.Point(861, 391);
-            this.btn_checkInByPatron.Name = "btn_checkInByPatron";
-            this.btn_checkInByPatron.Size = new System.Drawing.Size(77, 23);
-            this.btn_checkInByPatron.TabIndex = 13;
-            this.btn_checkInByPatron.Text = "Check In";
-            this.btn_checkInByPatron.UseVisualStyleBackColor = true;
-            // 
-            // lsv_BookByPatron
-            // 
-            this.lsv_BookByPatron.AllowColumnReorder = true;
-            this.lsv_BookByPatron.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chBookByPatron_ID,
+            this.lsv_CheckedOutByPatron.AllowColumnReorder = true;
+            this.lsv_CheckedOutByPatron.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chBookByPatron_PatronID,
             this.chBookByPatron_Type,
             this.chBookByPatron_Title,
@@ -405,28 +312,24 @@
             this.chBookByPatron_Description,
             this.chBookByPatron_DueDate,
             this.chBookByPatron_Reserved});
-            this.lsv_BookByPatron.FullRowSelect = true;
-            this.lsv_BookByPatron.GridLines = true;
-            this.lsv_BookByPatron.HideSelection = false;
-            this.lsv_BookByPatron.LabelWrap = false;
-            this.lsv_BookByPatron.Location = new System.Drawing.Point(263, 391);
-            this.lsv_BookByPatron.MultiSelect = false;
-            this.lsv_BookByPatron.Name = "lsv_BookByPatron";
-            this.lsv_BookByPatron.ShowItemToolTips = true;
-            this.lsv_BookByPatron.Size = new System.Drawing.Size(592, 131);
-            this.lsv_BookByPatron.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lsv_BookByPatron.TabIndex = 14;
-            this.lsv_BookByPatron.UseCompatibleStateImageBehavior = false;
-            this.lsv_BookByPatron.View = System.Windows.Forms.View.Details;
-            // 
-            // chBookByPatron_ID
-            // 
-            this.chBookByPatron_ID.Text = "ID";
-            this.chBookByPatron_ID.Width = 26;
+            this.lsv_CheckedOutByPatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsv_CheckedOutByPatron.FullRowSelect = true;
+            this.lsv_CheckedOutByPatron.GridLines = true;
+            this.lsv_CheckedOutByPatron.HideSelection = false;
+            this.lsv_CheckedOutByPatron.LabelWrap = false;
+            this.lsv_CheckedOutByPatron.Location = new System.Drawing.Point(3, 16);
+            this.lsv_CheckedOutByPatron.MultiSelect = false;
+            this.lsv_CheckedOutByPatron.Name = "lsv_CheckedOutByPatron";
+            this.lsv_CheckedOutByPatron.ShowItemToolTips = true;
+            this.lsv_CheckedOutByPatron.Size = new System.Drawing.Size(740, 308);
+            this.lsv_CheckedOutByPatron.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lsv_CheckedOutByPatron.TabIndex = 14;
+            this.lsv_CheckedOutByPatron.UseCompatibleStateImageBehavior = false;
+            this.lsv_CheckedOutByPatron.View = System.Windows.Forms.View.Details;
             // 
             // chBookByPatron_PatronID
             // 
-            this.chBookByPatron_PatronID.Text = "Patron ID";
+            this.chBookByPatron_PatronID.Text = "Patron";
             this.chBookByPatron_PatronID.Width = 57;
             // 
             // chBookByPatron_Type
@@ -450,151 +353,288 @@
             // 
             // chBookByPatron_DueDate
             // 
-            this.chBookByPatron_DueDate.DisplayIndex = 7;
+            this.chBookByPatron_DueDate.DisplayIndex = 6;
             this.chBookByPatron_DueDate.Text = "Due Date";
             this.chBookByPatron_DueDate.Width = 80;
             // 
             // chBookByPatron_Reserved
             // 
-            this.chBookByPatron_Reserved.DisplayIndex = 6;
+            this.chBookByPatron_Reserved.DisplayIndex = 5;
             this.chBookByPatron_Reserved.Text = "Reserved";
             // 
-            // lbl_BookByPatron
+            // btn_checkInOut
             // 
-            this.lbl_BookByPatron.AutoSize = true;
-            this.lbl_BookByPatron.Location = new System.Drawing.Point(260, 375);
-            this.lbl_BookByPatron.Name = "lbl_BookByPatron";
-            this.lbl_BookByPatron.Size = new System.Drawing.Size(207, 13);
-            this.lbl_BookByPatron.TabIndex = 15;
-            this.lbl_BookByPatron.Text = "Books and Media Checked Out by Patron:";
+            this.btn_checkInOut.Location = new System.Drawing.Point(663, 38);
+            this.btn_checkInOut.Name = "btn_checkInOut";
+            this.btn_checkInOut.Size = new System.Drawing.Size(77, 23);
+            this.btn_checkInOut.TabIndex = 21;
+            this.btn_checkInOut.Text = "Check Out";
+            this.btn_checkInOut.UseVisualStyleBackColor = true;
             // 
-            // lbl_selectedPatron
+            // gb_Patrons
             // 
-            this.lbl_selectedPatron.AutoSize = true;
-            this.lbl_selectedPatron.Location = new System.Drawing.Point(462, 375);
-            this.lbl_selectedPatron.Name = "lbl_selectedPatron";
-            this.lbl_selectedPatron.Size = new System.Drawing.Size(115, 13);
-            this.lbl_selectedPatron.TabIndex = 16;
-            this.lbl_selectedPatron.Text = "(Selected Patron Here)";
+            this.gb_Patrons.Controls.Add(this.splitContainer1);
+            this.gb_Patrons.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gb_Patrons.Location = new System.Drawing.Point(0, 24);
+            this.gb_Patrons.Name = "gb_Patrons";
+            this.gb_Patrons.Size = new System.Drawing.Size(254, 706);
+            this.gb_Patrons.TabIndex = 22;
+            this.gb_Patrons.TabStop = false;
+            this.gb_Patrons.Text = "Patrons";
             // 
-            // lsv_Overdue
+            // splitContainer1
             // 
-            this.lsv_Overdue.AllowColumnReorder = true;
-            this.lsv_Overdue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chOverdue_ID,
-            this.chOverdue_PatronID,
-            this.chOverdue_Type,
-            this.chOverdue_Title,
-            this.chOverdue_Author,
-            this.chOverdue_Description,
-            this.chOverdue_DueDate,
-            this.chOverdue_Reserved});
-            this.lsv_Overdue.FullRowSelect = true;
-            this.lsv_Overdue.GridLines = true;
-            this.lsv_Overdue.HideSelection = false;
-            this.lsv_Overdue.LabelWrap = false;
-            this.lsv_Overdue.Location = new System.Drawing.Point(263, 541);
-            this.lsv_Overdue.MultiSelect = false;
-            this.lsv_Overdue.Name = "lsv_Overdue";
-            this.lsv_Overdue.ShowItemToolTips = true;
-            this.lsv_Overdue.Size = new System.Drawing.Size(592, 141);
-            this.lsv_Overdue.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lsv_Overdue.TabIndex = 17;
-            this.lsv_Overdue.UseCompatibleStateImageBehavior = false;
-            this.lsv_Overdue.View = System.Windows.Forms.View.Details;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 16);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // chOverdue_ID
+            // splitContainer1.Panel1
             // 
-            this.chOverdue_ID.Text = "ID";
-            this.chOverdue_ID.Width = 26;
+            this.splitContainer1.Panel1.Controls.Add(this.tb_LastName);
+            this.splitContainer1.Panel1.Controls.Add(this.lbl_LastName);
+            this.splitContainer1.Panel1.Controls.Add(this.lbl_FirstName);
+            this.splitContainer1.Panel1.Controls.Add(this.tb_FirstName);
             // 
-            // chOverdue_PatronID
+            // splitContainer1.Panel2
             // 
-            this.chOverdue_PatronID.Text = "Patron ID";
-            this.chOverdue_PatronID.Width = 57;
+            this.splitContainer1.Panel2.Controls.Add(this.lsv_Patron);
+            this.splitContainer1.Size = new System.Drawing.Size(248, 687);
+            this.splitContainer1.SplitterDistance = 52;
+            this.splitContainer1.TabIndex = 6;
             // 
-            // chOverdue_Type
+            // tb_LastName
             // 
-            this.chOverdue_Type.Text = "Type";
+            this.tb_LastName.Location = new System.Drawing.Point(115, 22);
+            this.tb_LastName.Name = "tb_LastName";
+            this.tb_LastName.Size = new System.Drawing.Size(100, 20);
+            this.tb_LastName.TabIndex = 13;
             // 
-            // chOverdue_Title
+            // lbl_LastName
             // 
-            this.chOverdue_Title.Text = "Title";
-            this.chOverdue_Title.Width = 141;
+            this.lbl_LastName.AutoSize = true;
+            this.lbl_LastName.Location = new System.Drawing.Point(112, 6);
+            this.lbl_LastName.Name = "lbl_LastName";
+            this.lbl_LastName.Size = new System.Drawing.Size(58, 13);
+            this.lbl_LastName.TabIndex = 12;
+            this.lbl_LastName.Text = "Last Name";
             // 
-            // chOverdue_Author
+            // lbl_FirstName
             // 
-            this.chOverdue_Author.Text = "Author";
-            this.chOverdue_Author.Width = 79;
+            this.lbl_FirstName.AutoSize = true;
+            this.lbl_FirstName.Location = new System.Drawing.Point(6, 6);
+            this.lbl_FirstName.Name = "lbl_FirstName";
+            this.lbl_FirstName.Size = new System.Drawing.Size(57, 13);
+            this.lbl_FirstName.TabIndex = 11;
+            this.lbl_FirstName.Text = "First Name";
             // 
-            // chOverdue_Description
+            // tb_FirstName
             // 
-            this.chOverdue_Description.Text = "Description";
-            this.chOverdue_Description.Width = 84;
+            this.tb_FirstName.Location = new System.Drawing.Point(9, 22);
+            this.tb_FirstName.Name = "tb_FirstName";
+            this.tb_FirstName.Size = new System.Drawing.Size(100, 20);
+            this.tb_FirstName.TabIndex = 10;
             // 
-            // chOverdue_DueDate
+            // lsv_Patron
             // 
-            this.chOverdue_DueDate.DisplayIndex = 7;
-            this.chOverdue_DueDate.Text = "Due Date";
-            this.chOverdue_DueDate.Width = 80;
+            this.lsv_Patron.AllowColumnReorder = true;
+            this.lsv_Patron.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chPatron_name,
+            this.chPatron_age});
+            this.lsv_Patron.ContextMenuStrip = this.cms_Patron;
+            this.lsv_Patron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsv_Patron.FullRowSelect = true;
+            this.lsv_Patron.GridLines = true;
+            this.lsv_Patron.HideSelection = false;
+            this.lsv_Patron.LabelWrap = false;
+            this.lsv_Patron.Location = new System.Drawing.Point(0, 0);
+            this.lsv_Patron.MultiSelect = false;
+            this.lsv_Patron.Name = "lsv_Patron";
+            this.lsv_Patron.ShowItemToolTips = true;
+            this.lsv_Patron.Size = new System.Drawing.Size(248, 631);
+            this.lsv_Patron.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lsv_Patron.TabIndex = 6;
+            this.lsv_Patron.UseCompatibleStateImageBehavior = false;
+            this.lsv_Patron.View = System.Windows.Forms.View.Details;
             // 
-            // chOverdue_Reserved
+            // chPatron_name
             // 
-            this.chOverdue_Reserved.DisplayIndex = 6;
-            this.chOverdue_Reserved.Text = "Reserved";
+            this.chPatron_name.Text = "Name";
+            this.chPatron_name.Width = 178;
             // 
-            // lbl_OverdueBooks
+            // chPatron_age
             // 
-            this.lbl_OverdueBooks.AutoSize = true;
-            this.lbl_OverdueBooks.Location = new System.Drawing.Point(260, 525);
-            this.lbl_OverdueBooks.Name = "lbl_OverdueBooks";
-            this.lbl_OverdueBooks.Size = new System.Drawing.Size(134, 13);
-            this.lbl_OverdueBooks.TabIndex = 18;
-            this.lbl_OverdueBooks.Text = "Overdue Books and Media";
+            this.chPatron_age.Text = "Age";
+            this.chPatron_age.Width = 71;
             // 
-            // btn_checkInByOverdue
+            // gb_filteringfields
             // 
-            this.btn_checkInByOverdue.Location = new System.Drawing.Point(861, 541);
-            this.btn_checkInByOverdue.Name = "btn_checkInByOverdue";
-            this.btn_checkInByOverdue.Size = new System.Drawing.Size(77, 23);
-            this.btn_checkInByOverdue.TabIndex = 20;
-            this.btn_checkInByOverdue.Text = "Check In";
-            this.btn_checkInByOverdue.UseVisualStyleBackColor = true;
+            this.gb_filteringfields.Controls.Add(this.lbl_Type);
+            this.gb_filteringfields.Controls.Add(this.lbl_TargetAudience);
+            this.gb_filteringfields.Controls.Add(this.btn_checkInOut);
+            this.gb_filteringfields.Controls.Add(this.comboBox1);
+            this.gb_filteringfields.Controls.Add(this.cb_Media);
+            this.gb_filteringfields.Controls.Add(this.cb_Books);
+            this.gb_filteringfields.Controls.Add(this.dateTimePicker1);
+            this.gb_filteringfields.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_filteringfields.Location = new System.Drawing.Point(0, 0);
+            this.gb_filteringfields.Name = "gb_filteringfields";
+            this.gb_filteringfields.Size = new System.Drawing.Size(746, 68);
+            this.gb_filteringfields.TabIndex = 23;
+            this.gb_filteringfields.TabStop = false;
+            this.gb_filteringfields.Text = "Filtering Fields";
             // 
-            // btn_checkInByAll
+            // lbl_TargetAudience
             // 
-            this.btn_checkInByAll.Location = new System.Drawing.Point(861, 82);
-            this.btn_checkInByAll.Name = "btn_checkInByAll";
-            this.btn_checkInByAll.Size = new System.Drawing.Size(77, 23);
-            this.btn_checkInByAll.TabIndex = 21;
-            this.btn_checkInByAll.Text = "Check In";
-            this.btn_checkInByAll.UseVisualStyleBackColor = true;
+            this.lbl_TargetAudience.AutoSize = true;
+            this.lbl_TargetAudience.Location = new System.Drawing.Point(6, 21);
+            this.lbl_TargetAudience.Name = "lbl_TargetAudience";
+            this.lbl_TargetAudience.Size = new System.Drawing.Size(86, 13);
+            this.lbl_TargetAudience.TabIndex = 6;
+            this.lbl_TargetAudience.Text = "Target Audience";
             // 
-            // toolStripSeparator1
+            // comboBox1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(9, 37);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // cb_Media
+            // 
+            this.cb_Media.AutoSize = true;
+            this.cb_Media.Location = new System.Drawing.Point(209, 37);
+            this.cb_Media.Name = "cb_Media";
+            this.cb_Media.Size = new System.Drawing.Size(55, 17);
+            this.cb_Media.TabIndex = 4;
+            this.cb_Media.Text = "Media";
+            this.cb_Media.UseVisualStyleBackColor = true;
+            // 
+            // cb_Books
+            // 
+            this.cb_Books.AutoSize = true;
+            this.cb_Books.Location = new System.Drawing.Point(147, 37);
+            this.cb_Books.Name = "cb_Books";
+            this.cb_Books.Size = new System.Drawing.Size(56, 17);
+            this.cb_Books.TabIndex = 3;
+            this.cb_Books.Text = "Books";
+            this.cb_Books.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.gb_filteringfields);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.lsv_AllBooksMedia);
+            this.splitContainer2.Size = new System.Drawing.Size(746, 336);
+            this.splitContainer2.SplitterDistance = 68;
+            this.splitContainer2.TabIndex = 24;
+            // 
+            // lbl_Type
+            // 
+            this.lbl_Type.AutoSize = true;
+            this.lbl_Type.Location = new System.Drawing.Point(144, 21);
+            this.lbl_Type.Name = "lbl_Type";
+            this.lbl_Type.Size = new System.Drawing.Size(31, 13);
+            this.lbl_Type.TabIndex = 7;
+            this.lbl_Type.Text = "Type";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.splitContainer3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(746, 366);
+            this.panel1.TabIndex = 25;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.gb_PatronCheckedOut);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.btn_CheckIn);
+            this.splitContainer3.Size = new System.Drawing.Size(746, 366);
+            this.splitContainer3.SplitterDistance = 327;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // gb_PatronCheckedOut
+            // 
+            this.gb_PatronCheckedOut.Controls.Add(this.lsv_CheckedOutByPatron);
+            this.gb_PatronCheckedOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_PatronCheckedOut.Location = new System.Drawing.Point(0, 0);
+            this.gb_PatronCheckedOut.Name = "gb_PatronCheckedOut";
+            this.gb_PatronCheckedOut.Size = new System.Drawing.Size(746, 327);
+            this.gb_PatronCheckedOut.TabIndex = 0;
+            this.gb_PatronCheckedOut.TabStop = false;
+            this.gb_PatronCheckedOut.Text = "Books and Media Checked Out by ";
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(254, 24);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.panel1);
+            this.splitContainer4.Size = new System.Drawing.Size(746, 706);
+            this.splitContainer4.SplitterDistance = 336;
+            this.splitContainer4.TabIndex = 26;
+            // 
+            // cms_Patron
+            // 
+            this.cms_Patron.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editPatronToolStripMenuItem,
+            this.deletePatronToolStripMenuItem});
+            this.cms_Patron.Name = "cms_Patron";
+            this.cms_Patron.Size = new System.Drawing.Size(146, 48);
+            // 
+            // editPatronToolStripMenuItem
+            // 
+            this.editPatronToolStripMenuItem.Name = "editPatronToolStripMenuItem";
+            this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.editPatronToolStripMenuItem.Text = "Edit Patron";
+            // 
+            // deletePatronToolStripMenuItem
+            // 
+            this.deletePatronToolStripMenuItem.Name = "deletePatronToolStripMenuItem";
+            this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.deletePatronToolStripMenuItem.Text = "Delete Patron";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 709);
-            this.Controls.Add(this.btn_checkInByAll);
-            this.Controls.Add(this.btn_checkInByOverdue);
-            this.Controls.Add(this.lbl_OverdueBooks);
-            this.Controls.Add(this.lsv_Overdue);
-            this.Controls.Add(this.lbl_selectedPatron);
-            this.Controls.Add(this.lbl_BookByPatron);
-            this.Controls.Add(this.lsv_BookByPatron);
-            this.Controls.Add(this.btn_checkInByPatron);
-            this.Controls.Add(this.btn_checkOut);
-            this.Controls.Add(this.lbl_Book);
-            this.Controls.Add(this.lsv_Book);
-            this.Controls.Add(this.lsv_Patron);
-            this.Controls.Add(this.lbl_Patron);
+            this.ClientSize = new System.Drawing.Size(1000, 752);
+            this.Controls.Add(this.splitContainer4);
+            this.Controls.Add(this.gb_Patrons);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -603,6 +643,25 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.gb_Patrons.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.ResumeLayout(false);
+            this.gb_filteringfields.ResumeLayout(false);
+            this.gb_filteringfields.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.ResumeLayout(false);
+            this.gb_PatronCheckedOut.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.ResumeLayout(false);
+            this.cms_Patron.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,38 +672,23 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Label lbl_Patron;
-        private System.Windows.Forms.ListView lsv_Patron;
-        private System.Windows.Forms.ColumnHeader chPatron_ID;
-        private System.Windows.Forms.ColumnHeader chPatron_name;
-        private System.Windows.Forms.ColumnHeader chPatron_phoneNumber;
-        private System.Windows.Forms.ColumnHeader chPatron_address;
-        private System.Windows.Forms.ColumnHeader chPatron_gender;
-        private System.Windows.Forms.ColumnHeader chPatron_dob;
-        private System.Windows.Forms.ListView lsv_Book;
-        private System.Windows.Forms.ColumnHeader chBook_ID;
+        private System.Windows.Forms.ListView lsv_AllBooksMedia;
         private System.Windows.Forms.ColumnHeader chBook_title;
         private System.Windows.Forms.ColumnHeader chBook_patronID;
         private System.Windows.Forms.ColumnHeader chBook_type;
         private System.Windows.Forms.ColumnHeader chBook_author;
         private System.Windows.Forms.ColumnHeader chBook_description;
-        private System.Windows.Forms.Label lbl_Book;
         private System.Windows.Forms.ColumnHeader chBook_checkedOut;
         private System.Windows.Forms.ColumnHeader chBook_reserved;
-        private System.Windows.Forms.ColumnHeader chPatron_Type;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mediaToolStripMenuItem;
-        private System.Windows.Forms.Button btn_checkOut;
-        private System.Windows.Forms.Button btn_checkInByPatron;
+        private System.Windows.Forms.Button btn_CheckIn;
         private System.Windows.Forms.ColumnHeader chBook_dueDate;
-        private System.Windows.Forms.ListView lsv_BookByPatron;
-        private System.Windows.Forms.ColumnHeader chBookByPatron_ID;
+        private System.Windows.Forms.ListView lsv_CheckedOutByPatron;
         private System.Windows.Forms.ColumnHeader chBookByPatron_PatronID;
         private System.Windows.Forms.ColumnHeader chBookByPatron_Type;
         private System.Windows.Forms.ColumnHeader chBookByPatron_Title;
@@ -652,26 +696,36 @@
         private System.Windows.Forms.ColumnHeader chBookByPatron_Description;
         private System.Windows.Forms.ColumnHeader chBookByPatron_DueDate;
         private System.Windows.Forms.ColumnHeader chBookByPatron_Reserved;
-        private System.Windows.Forms.Label lbl_BookByPatron;
-        private System.Windows.Forms.Label lbl_selectedPatron;
-        private System.Windows.Forms.ListView lsv_Overdue;
-        private System.Windows.Forms.ColumnHeader chOverdue_ID;
-        private System.Windows.Forms.ColumnHeader chOverdue_PatronID;
-        private System.Windows.Forms.ColumnHeader chOverdue_Type;
-        private System.Windows.Forms.ColumnHeader chOverdue_Title;
-        private System.Windows.Forms.ColumnHeader chOverdue_Author;
-        private System.Windows.Forms.ColumnHeader chOverdue_Description;
-        private System.Windows.Forms.ColumnHeader chOverdue_DueDate;
-        private System.Windows.Forms.ColumnHeader chOverdue_Reserved;
-        private System.Windows.Forms.Label lbl_OverdueBooks;
-        private System.Windows.Forms.Button btn_checkInByOverdue;
-        private System.Windows.Forms.Button btn_checkInByAll;
+        private System.Windows.Forms.Button btn_checkInOut;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.GroupBox gb_Patrons;
+        private System.Windows.Forms.GroupBox gb_filteringfields;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox tb_LastName;
+        private System.Windows.Forms.Label lbl_LastName;
+        private System.Windows.Forms.Label lbl_FirstName;
+        private System.Windows.Forms.TextBox tb_FirstName;
+        private System.Windows.Forms.ListView lsv_Patron;
+        private System.Windows.Forms.ColumnHeader chPatron_name;
+        private System.Windows.Forms.ColumnHeader chPatron_age;
+        private System.Windows.Forms.CheckBox cb_Media;
+        private System.Windows.Forms.CheckBox cb_Books;
+        private System.Windows.Forms.Label lbl_TargetAudience;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Label lbl_Type;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.GroupBox gb_PatronCheckedOut;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.ContextMenuStrip cms_Patron;
+        private System.Windows.Forms.ToolStripMenuItem editPatronToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePatronToolStripMenuItem;
     }
 }
 
