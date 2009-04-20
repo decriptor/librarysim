@@ -1,5 +1,14 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* MainForm: Added a selected Item event to the
+		Patron ListView so that when its clicked
+		the patron checked out ListView update
+		both list and text
+	* Events: Added an event to handle the patron
+		selected is changed
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* MediaForm.cs: Minor change
 
 	* MainForm.cs: Built out some event stuff
