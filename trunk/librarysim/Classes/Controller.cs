@@ -322,7 +322,7 @@ namespace librarysim.Classes
             data.CheckInBook(bookID);
         }
 
-        internal void CheckItMedia(int mediaID)
+        internal void CheckInMedia(int mediaID)
         {
             data.CheckInMedia(mediaID);
         }
