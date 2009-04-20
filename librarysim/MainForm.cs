@@ -47,6 +47,7 @@ namespace librarysim
 
         private void BuildGUIComponents()
         {
+			dtp_DateSelector.Value = DateTime.Now;
             cb_TargetAudience.Items.Add("all");
             cb_TargetAudience.Items.Add("adult");
             cb_TargetAudience.Items.Add("child");
@@ -176,7 +177,8 @@ namespace librarysim
 
         private void btn_CheckIn_Click(object sender, EventArgs e)
         {
-            ListView.SelectedListViewItemCollection items = lsv_AllBooksMedia.SelectedItems;
+			
+            ListView.SelectedListViewItemCollection items = lsv_CheckedOutByPatron.SelectedItems;
             if ((items != null) && (items.Count >= 1))
             {
                 for (int i = 0; i < items.Count; ++i)
@@ -194,7 +196,7 @@ namespace librarysim
                     {
                         foreach (MediaListViewItem item in items)
                         {
-                            MC.CheckItMedia((item as MediaListViewItem).MediaID);
+                            MC.CheckInMedia((item as MediaListViewItem).MediaID);
                             MC.RefreshPatronCheckedOut(_selectedPatron);
                         }
                     }
@@ -204,9 +206,13 @@ namespace librarysim
 
         private void tb_Name_TextChanged(object sender, EventArgs e)
         {
+			if (tb_FirstName.Text.Length == 0 && tb_LastName.Text.Length == 0)
+            {
+                MC.RefreshPatrons( );
+            }
             if (tb_FirstName.Text.Length >= 2 || tb_LastName.Text.Length >= 2)
             {
-                MC.PatronNameSearch(string.Format("%" + tb_FirstName.Text.Trim() + "% %" + tb_LastName.Text.Trim() + "%"));
+                MC.PatronNameSearch(string.Format(tb_FirstName.Text.Trim() + "% " + tb_LastName.Text.Trim() + "%"));
             }
         }
     

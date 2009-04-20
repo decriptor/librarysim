@@ -173,7 +173,7 @@ namespace librarysim.Backend
 		
 		public void BookCheckIn(int bookID)
 		{
-			ExecuteNonQuery(String.Format("UPDATE Books SET Patron = {0}, Checkedout = \"{1}\" WHERE ID = {2}" , null, null, bookID));
+			ExecuteNonQuery(String.Format("UPDATE Books SET Patron = null, Checkedout = null WHERE ID = {0}" , bookID));
 		}
 		
         public void BookDelete(int bookID)
@@ -224,7 +224,7 @@ namespace librarysim.Backend
 		
 		public void MediaCheckIn(int mediaID)
 		{
-			ExecuteNonQuery(String.Format("UPDATE Media SET Patron = {0}, Checkedout = \"{1}\" WHERE ID = {2}" , null, null, mediaID));
+			ExecuteNonQuery(String.Format("UPDATE Media SET Patron = null, Checkedout = null WHERE ID = {0}" , mediaID));
 		}
 		
         public void MediaDelete(int mediaID)
