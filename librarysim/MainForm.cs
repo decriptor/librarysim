@@ -18,9 +18,10 @@ namespace librarysim
         #endregion
         public MainForm()
         {
-            MC = new Controller();
+			MC = new Controller();
             InitializeComponent();
             RegisterEvents();
+			FillListViews();
         }
 
         private void RegisterEvents()
@@ -28,17 +29,33 @@ namespace librarysim
             MC.PatronsRefresh += new Controller.PatronsRefreshHandler(MC_PatronsRefresh);
             MC.BooksRefresh += new Controller.BooksRefreshHandler(MC_BooksRefresh);
             MC.MediaRefresh += new Controller.MediaRefreshHandler(MC_MediaRefresh);
+			MC.AllBooksMediaRefresh += new Controller.AllBooksMediaRefreshHandler(MC_AllBooksMediaRefresh);
         }
+		
+		void FillListViews()
+		{
+			MC.RefreshPatrons();
+			MC.RefreshAllBooksMedia();
+		}
 
+
+		#region Events
         void MC_PatronsRefresh(PatronsListViewItem[] projects)
         {
             lsv_Patron.Items.Clear();
             lsv_Patron.Items.AddRange(projects);
         }
+		
+		void MC_AllBooksMediaRefresh( BooksListViewItem[] books, MediaListViewItem[] media )
+		{
+			lsv_AllBooksMedia.Items.Clear();
+			lsv_AllBooksMedia.Items.AddRange(books);
+			lsv_AllBooksMedia.Items.AddRange(media);
+		}
 
         void MC_BooksRefresh(BooksListViewItem[] books)
         {
-            throw new NotImplementedException();
+			throw new NotImplementedException();
         }
 
         void MC_MediaRefresh(MediaListViewItem[] media)
@@ -74,6 +91,7 @@ namespace librarysim
         {
             this.Close();
         }
-
-    }
+		#endregion
+    
+	}
 }

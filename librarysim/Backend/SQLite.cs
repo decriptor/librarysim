@@ -47,7 +47,7 @@ namespace librarysim.Backend
 			{
 				throw ex;
 			}
-		}		
+		}
 		
 		#region Patrons
 		
@@ -69,9 +69,11 @@ namespace librarysim.Backend
             DataSet patronDS = new DataSet();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Patrons where ID = {0} and Name = \"{1}\" and PhoneNumber = \"{2}\" and Address = \"{3}\" and Gender = \"{4}\" and Age = \"{5}\""
-				                             , patronID, name, phoneNumber, address, gender, age);
+                SqliteCommand cmd = connection.CreateCommand();
+				string command = String.Format("select * from Patrons");
+				//command = String.Format(command + "where ID = {0} and Name = \"{1}\" and PhoneNumber = \"{2}\" and Address = \"{3}\" and Gender = \"{4}\" and Age = \"{5}\""
+				 //                            , patronID, name, phoneNumber, address, gender, age);
+				cmd.CommandText = command;
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(patronDS, "Patrons");
             }
@@ -96,7 +98,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-				SqliteCommand cmd = new SqliteCommand();
+				SqliteCommand cmd = connection.CreateCommand();
 				cmd.CommandText = String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,Age) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")"
 				                             , name, phoneNumber, address, gender, age);
 				cmd.ExecuteNonQuery();
@@ -121,7 +123,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("UPDATE Patrons SET Name = \"{0}\", PhoneNumber = \"{1}\", Address = \"{2}\", Gender = \"{3}\", Age = \"{4}\" WHERE (ID = {5})"
 				                                , name, phoneNumber, address, gender, age, patronID);
 				cmd.ExecuteNonQuery();
@@ -142,7 +144,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("DELETE FROM Patrons WHERE ID = {0}", patronID);
 				cmd.ExecuteNonQuery();
             }
@@ -176,9 +178,9 @@ namespace librarysim.Backend
 			DataSet bookDS = new DataSet();
 			try
             {
-                SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Books where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Author = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
-				                             , bookID, patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+                SqliteCommand cmd = connection.CreateCommand();
+				cmd.CommandText = String.Format("select * from Books");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Author = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
+				                           //  , bookID, patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(bookDS, "Books");
             }
@@ -196,7 +198,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-				SqliteCommand cmd = new SqliteCommand();
+				SqliteCommand cmd = connection.CreateCommand();
 				cmd.CommandText = String.Format("insert into Books (Type,Title,Author,Description) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\")"
 				                             , type, title, author, description);
 				cmd.ExecuteNonQuery();
@@ -214,7 +216,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Author = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
 				                                , patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
@@ -231,7 +233,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("DELETE FROM Books WHERE ID = {0}", bookID);
 				cmd.ExecuteNonQuery();
             }
@@ -251,9 +253,9 @@ namespace librarysim.Backend
 			DataSet mediaDS = new DataSet();
 			try
             {
-                SqliteCommand cmd = new SqliteCommand();
-				cmd.CommandText = String.Format("select * from Media where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Rating = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
-				                             , mediaID, patronID, type, title, author, rating, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+                SqliteCommand cmd = connection.CreateCommand();
+				cmd.CommandText = String.Format("select * from Media");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Rating = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
+				                            // , mediaID, patronID, type, title, author, rating, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(mediaDS, "Media");
             }
@@ -270,7 +272,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-				SqliteCommand cmd = new SqliteCommand();
+				SqliteCommand cmd = connection.CreateCommand();
 				cmd.CommandText = String.Format("insert into Media (Type,Title,Rating,Description) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\")"
 				                             , type, title, rating, description);
 				cmd.ExecuteNonQuery();
@@ -288,7 +290,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Rating = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
 				                                , patronID, type, title, rating, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
 				cmd.ExecuteNonQuery();
@@ -305,7 +307,7 @@ namespace librarysim.Backend
 			this.Open();
             try
             {
-                SqliteCommand cmd = new SqliteCommand();
+                SqliteCommand cmd = connection.CreateCommand();
                 cmd.CommandText = String.Format("DELETE FROM Media WHERE ID = {0}", mediaID);
 				cmd.ExecuteNonQuery();
             }

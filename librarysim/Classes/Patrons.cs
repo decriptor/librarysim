@@ -71,7 +71,7 @@ namespace librarysim.Classes
     	string gender;
     	string age;
     	#endregion
-
+		
     	#region Properties
     	public int PatronID
     	{
@@ -107,12 +107,29 @@ namespace librarysim.Classes
 		
 		public PatronsListViewItem( DataRow patronDR )
 		{
-			patronID = Convert.ToInt32(patronDR[Tables.patronID]);
-			name = patronDR[Tables.patronName].ToString();
-			phoneNumber = patronDR[Tables.patronPhoneNumber].ToString();
-			address = patronDR[Tables.patronAddress].ToString();
-			gender = patronDR[Tables.patronGender].ToString();
-			age = patronDR[Tables.patronAge].ToString();
+			if( patronDR != null )
+			{
+				patronID = Convert.ToInt32(patronDR[Tables.patronID]);
+				name = patronDR[Tables.patronName].ToString();
+				phoneNumber = patronDR[Tables.patronPhoneNumber].ToString();
+				address = patronDR[Tables.patronAddress].ToString();
+				gender = patronDR[Tables.patronGender].ToString();
+				age = patronDR[Tables.patronAge].ToString();
+				
+				SetOption();
+				BuildSubItems();
+			}
+		}
+		
+		private void BuildSubItems()
+		{
+			//this.SubItems.Add(name);
+			this.SubItems.Add(age);
+		}
+		
+		private void SetOption()
+		{
+			this.Text = name;
 		}
 
 	}

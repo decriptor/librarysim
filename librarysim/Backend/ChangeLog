@@ -1,3 +1,13 @@
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
+	* DatabaseBuilder.cs: Fixed some minor issues
+
+	* SQLite.cs: Temp fix for an issue with sql.
+	Changed SqliteCommand cmd = new SqliteCommand(); to
+	  SqliteCommand cmd = connection.CreateCommand(); so that we
+	  have an open connection.
+
+
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
 	* DatabaseBuilder.cs: Added a lot of Fake data building stuff
