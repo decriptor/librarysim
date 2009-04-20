@@ -1,3 +1,9 @@
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
+	* MediaForm.cs: Minor change
+
+	* MainForm.cs: Built out some event stuff
+
 2009-04-19  Stephen Shaw  <sshaw@decriptor.com>
 
 	* librarysim: Fixed some resizing issues

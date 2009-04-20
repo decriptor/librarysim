@@ -145,14 +145,30 @@ namespace librarysim.Classes
 		public BooksListViewItem( DataRow booksDR )
 		{
 			booksID = Convert.ToInt32(booksDR[Tables.bookID]);
-			patronID = Convert.ToInt32(booksDR[Tables.bookPatronID]);
+			//patronID = Convert.ToInt32(booksDR[Tables.bookPatronID]);
 			type = booksDR[Tables.bookType].ToString();
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
-			checkedin = DateTime.Parse(booksDR[Tables.bookCheckedIn].ToString());
-			checkedout = DateTime.Parse(booksDR[Tables.bookCheckedOut].ToString());
-			reserved = Convert.ToBoolean(booksDR[Tables.bookReserved]);
+			//checkedin = DateTime.Parse(booksDR[Tables.bookCheckedIn].ToString());
+			//checkedout = DateTime.Parse(booksDR[Tables.bookCheckedOut].ToString());
+			//reserved = Convert.ToBoolean(booksDR[Tables.bookReserved]);SetOption();
+			SetOption();
+			BuildSubItems();
+		}
+		
+		private void BuildSubItems()
+		{
+			this.SubItems.Add(type);
+			this.SubItems.Add(title);
+			this.SubItems.Add(description);
+			this.SubItems.Add(author);
+			this.SubItems.Add(reserved.ToString());
+		}
+		
+		private void SetOption()
+		{
+			this.Text = patronID.ToString();
 		}
 	}
 }

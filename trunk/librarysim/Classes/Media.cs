@@ -145,14 +145,30 @@ namespace librarysim.Classes
 		public MediaListViewItem( DataRow mediaDR )
 		{
 			mediaID = Convert.ToInt32(mediaDR[Tables.mediaID]);
-			patronID = Convert.ToInt32(mediaDR[Tables.mediaPatronID]);
+			//patronID = Convert.ToInt32(mediaDR[Tables.mediaPatronID]);
 			type = mediaDR[Tables.mediaType].ToString();
 			title = mediaDR[Tables.mediaTitle].ToString();
 			rating = mediaDR[Tables.mediaRating].ToString();
 			description = mediaDR[Tables.mediaDescription].ToString();
-			checkedin = DateTime.Parse(mediaDR[Tables.mediaCheckedIn].ToString());
-			checkedout = DateTime.Parse(mediaDR[Tables.mediaCheckedOut].ToString());
-			reserved = Convert.ToBoolean(mediaDR[Tables.mediaReserved]);
+			//checkedin = DateTime.Parse(mediaDR[Tables.mediaCheckedIn].ToString());
+			//checkedout = DateTime.Parse(mediaDR[Tables.mediaCheckedOut].ToString());
+			//reserved = Convert.ToBoolean(mediaDR[Tables.mediaReserved]);
+			SetOption();
+			BuildSubItems();
+		}
+		
+		private void BuildSubItems()
+		{
+			this.SubItems.Add(type);
+			this.SubItems.Add(title);
+			this.SubItems.Add(description);
+			this.SubItems.Add(rating);
+			this.SubItems.Add(reserved.ToString());
+		}
+		
+		private void SetOption()
+		{
+			this.Text = patronID.ToString();
 		}
 	}
 }

@@ -1,3 +1,15 @@
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
+	* Media.cs:
+	* Books.cs: Commented out some stuff so that it would load in
+	  the gui.
+	Added ListView Specific items
+
+	* Controller.cs: Added some new events and methods for
+	  refreshing all the books and media list view
+
+	* Patrons.cs: Added ListView Specific items
+
 2009-04-18  Stephen Shaw  <sshaw@decriptor.com>
 
 	* DataAccess.cs: Changed dob to age

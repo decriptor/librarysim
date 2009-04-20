@@ -28,6 +28,12 @@ namespace librarysim.Classes
 		
 		public delegate void MediaRefreshHandler(MediaListViewItem[] media);
 		public event MediaRefreshHandler MediaRefresh;
+		
+		public delegate void AllBooksMediaRefreshHandler(BooksListViewItem[] books, MediaListViewItem[] media);
+		public event AllBooksMediaRefreshHandler AllBooksMediaRefresh;
+		
+		public delegate void DateRefreshHandler();
+		public event DateRefreshHandler DateRefresh;
 		#endregion
 
 		public Controller( )
@@ -95,17 +101,16 @@ namespace librarysim.Classes
 
 		internal void RefreshBooks( )
 		{
-
 			List<BooksListViewItem> books = new List<BooksListViewItem>();
-			DataSet ds;
+			DataSet booksDS;
 			try
 			{
-				ds = data.RetrieveBook(null, null, null, null, null, null, null, null, null);
-				if ((ds.Tables.Count > 0) && (ds.Tables["Books"].Rows.Count > 0))
+				booksDS = data.RetrieveBook(null, null, null, null, null, null, null, null, null);
+				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
 				{
-					for (int i = 0; i < ds.Tables["Books"].Rows.Count; i++)
+					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
 					{
-						DataRow bookDR = ds.Tables["Books"].Rows[i];
+						DataRow bookDR = booksDS.Tables["Books"].Rows[i];
 						books.Add(new BooksListViewItem(bookDR));
 					}
 				}
@@ -132,10 +137,7 @@ namespace librarysim.Classes
 					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
 					{
 						DataRow mediaDR = mediaDS.Tables["Media"].Rows[i];
-						if (mediaDR["checkout"].ToString() == "")
-						{
-							media.Add(new MediaListViewItem(mediaDR));
-						}
+						media.Add(new MediaListViewItem(mediaDR));
 					}
 				}
 			}
@@ -149,6 +151,43 @@ namespace librarysim.Classes
 			}
 		}
 
+		internal void RefreshAllBooksMedia( )
+		{
+			List<BooksListViewItem> books = new List<BooksListViewItem>();
+			DataSet booksDS;
+			List<MediaListViewItem> media = new List<MediaListViewItem>();
+			DataSet mediaDS;
+			try
+			{
+				booksDS = data.RetrieveBook(null, null, null, null, null, null, null, null, null);
+				if ((booksDS.Tables.Count > 0) && (booksDS.Tables["Books"].Rows.Count > 0))
+				{
+					for (int i = 0; i < booksDS.Tables["Books"].Rows.Count; i++)
+					{
+						DataRow bookDR = booksDS.Tables["Books"].Rows[i];
+						books.Add(new BooksListViewItem(bookDR));
+					}
+				}
+				mediaDS = data.RetrieveMedia(null, null, null, null, null, null, null, null, null);
+				if ((mediaDS.Tables.Count > 0) && (mediaDS.Tables["Media"].Rows.Count > 0))
+				{
+					for (int i = 0; i < mediaDS.Tables["Media"].Rows.Count; i++)
+					{
+						DataRow mediaDR = mediaDS.Tables["Media"].Rows[i];
+						media.Add(new MediaListViewItem(mediaDR));
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			if (BooksRefresh != null)
+			{
+				AllBooksMediaRefresh(books.ToArray(), media.ToArray());
+			}
+		}
+		
 		internal void LoadBookDetails(int bookID)
 		{
 			List<Books> BK = new List<Books>();

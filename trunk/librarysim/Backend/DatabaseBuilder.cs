@@ -145,7 +145,7 @@ namespace librarysim.Backend
 					ExecuteNonQuery(String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,Age) VALUES (\"{0}\", {1}, \"{2}\", \"{3}\", \"{4}\")", 
 					              lsr.RandomMalePerson(), lsr.RandomPhoneNumber(), lsr.RandomAddress(), gender, lsr.RandomAge()));
 				}else{
-					ExecuteNonQuery(String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,Age) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\")", 
+					ExecuteNonQuery(String.Format("insert into Patrons (Name,PhoneNumber,Address,Gender,Age) VALUES (\"{0}\", {1}, \"{2}\", \"{3}\", \"{4}\")", 
 					              lsr.RandomFemalePerson(), lsr.RandomPhoneNumber(), lsr.RandomAddress(), gender, lsr.RandomAge()));
 
 				}
@@ -208,8 +208,8 @@ namespace librarysim.Backend
 		
 		private void CreateMedia( int count )
 		{
-			String.Format("insert into Media (Type,Title,Rating,Description) VALUES ({0}, {1}, {2}, {3})"
-				                             , lsr.RandomAge(), "The Matrix", "R", "Fake Description");
+			ExecuteNonQuery(String.Format("insert into Media (Type,Title,Rating,Description) VALUES (\"{0}\", \"{1}\", \"{2}\", \"{3}\")"
+				                             , "adult", "The Matrix", "R", "Fake Description"));
 			
 		}
 		
