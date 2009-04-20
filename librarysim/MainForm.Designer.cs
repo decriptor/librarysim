@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_DateSelector = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_about = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lsv_AllBooksMedia = new System.Windows.Forms.ListView();
@@ -72,26 +72,29 @@
             this.lsv_Patron = new System.Windows.Forms.ListView();
             this.chPatron_name = new System.Windows.Forms.ColumnHeader();
             this.chPatron_age = new System.Windows.Forms.ColumnHeader();
+            this.cms_Patron = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_filteringfields = new System.Windows.Forms.GroupBox();
+            this.lbl_Type = new System.Windows.Forms.Label();
             this.lbl_TargetAudience = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_TargetAudience = new System.Windows.Forms.ComboBox();
             this.cb_Media = new System.Windows.Forms.CheckBox();
             this.cb_Books = new System.Windows.Forms.CheckBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.lbl_Type = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.gb_PatronCheckedOut = new System.Windows.Forms.GroupBox();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.cms_Patron = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editPatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletePatronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_filter = new System.Windows.Forms.Button();
+            this.viewDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.gb_Patrons.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.cms_Patron.SuspendLayout();
             this.gb_filteringfields.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -104,15 +107,15 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
-            this.cms_Patron.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtp_DateSelector
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(543, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtp_DateSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_DateSelector.Location = new System.Drawing.Point(543, 14);
+            this.dtp_DateSelector.Name = "dtp_DateSelector";
+            this.dtp_DateSelector.Size = new System.Drawing.Size(200, 20);
+            this.dtp_DateSelector.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -189,24 +192,24 @@
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.configToolStripMenuItem.Text = "Config";
             this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.tsmi_about});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // aboutToolStripMenuItem
+            // tsmi_about
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "&About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.tsmi_about.Name = "tsmi_about";
+            this.tsmi_about.Size = new System.Drawing.Size(152, 22);
+            this.tsmi_about.Text = "&About";
+            this.tsmi_about.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -254,7 +257,7 @@
             // chBook_patronID
             // 
             this.chBook_patronID.Text = "Patron";
-            this.chBook_patronID.Width = 99;
+            this.chBook_patronID.Width = 76;
             // 
             // chBook_type
             // 
@@ -263,7 +266,7 @@
             // chBook_title
             // 
             this.chBook_title.Text = "Title";
-            this.chBook_title.Width = 141;
+            this.chBook_title.Width = 154;
             // 
             // chBook_author
             // 
@@ -294,6 +297,7 @@
             // 
             // btn_CheckIn
             // 
+            this.btn_CheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_CheckIn.Location = new System.Drawing.Point(663, 3);
             this.btn_CheckIn.Name = "btn_CheckIn";
             this.btn_CheckIn.Size = new System.Drawing.Size(77, 23);
@@ -364,6 +368,7 @@
             // 
             // btn_checkInOut
             // 
+            this.btn_checkInOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_checkInOut.Location = new System.Drawing.Point(663, 38);
             this.btn_checkInOut.Name = "btn_checkInOut";
             this.btn_checkInOut.Size = new System.Drawing.Size(77, 23);
@@ -385,6 +390,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(3, 16);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -467,15 +473,37 @@
             this.chPatron_age.Text = "Age";
             this.chPatron_age.Width = 71;
             // 
+            // cms_Patron
+            // 
+            this.cms_Patron.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editPatronToolStripMenuItem,
+            this.viewDetailsToolStripMenuItem,
+            this.deletePatronToolStripMenuItem});
+            this.cms_Patron.Name = "cms_Patron";
+            this.cms_Patron.Size = new System.Drawing.Size(146, 70);
+            // 
+            // editPatronToolStripMenuItem
+            // 
+            this.editPatronToolStripMenuItem.Name = "editPatronToolStripMenuItem";
+            this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.editPatronToolStripMenuItem.Text = "Edit Patron";
+            // 
+            // deletePatronToolStripMenuItem
+            // 
+            this.deletePatronToolStripMenuItem.Name = "deletePatronToolStripMenuItem";
+            this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.deletePatronToolStripMenuItem.Text = "Delete Patron";
+            // 
             // gb_filteringfields
             // 
+            this.gb_filteringfields.Controls.Add(this.btn_filter);
             this.gb_filteringfields.Controls.Add(this.lbl_Type);
             this.gb_filteringfields.Controls.Add(this.lbl_TargetAudience);
             this.gb_filteringfields.Controls.Add(this.btn_checkInOut);
-            this.gb_filteringfields.Controls.Add(this.comboBox1);
+            this.gb_filteringfields.Controls.Add(this.cb_TargetAudience);
             this.gb_filteringfields.Controls.Add(this.cb_Media);
             this.gb_filteringfields.Controls.Add(this.cb_Books);
-            this.gb_filteringfields.Controls.Add(this.dateTimePicker1);
+            this.gb_filteringfields.Controls.Add(this.dtp_DateSelector);
             this.gb_filteringfields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_filteringfields.Location = new System.Drawing.Point(0, 0);
             this.gb_filteringfields.Name = "gb_filteringfields";
@@ -483,6 +511,15 @@
             this.gb_filteringfields.TabIndex = 23;
             this.gb_filteringfields.TabStop = false;
             this.gb_filteringfields.Text = "Filtering Fields";
+            // 
+            // lbl_Type
+            // 
+            this.lbl_Type.AutoSize = true;
+            this.lbl_Type.Location = new System.Drawing.Point(144, 21);
+            this.lbl_Type.Name = "lbl_Type";
+            this.lbl_Type.Size = new System.Drawing.Size(31, 13);
+            this.lbl_Type.TabIndex = 7;
+            this.lbl_Type.Text = "Type";
             // 
             // lbl_TargetAudience
             // 
@@ -493,13 +530,13 @@
             this.lbl_TargetAudience.TabIndex = 6;
             this.lbl_TargetAudience.Text = "Target Audience";
             // 
-            // comboBox1
+            // cb_TargetAudience
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cb_TargetAudience.FormattingEnabled = true;
+            this.cb_TargetAudience.Location = new System.Drawing.Point(9, 37);
+            this.cb_TargetAudience.Name = "cb_TargetAudience";
+            this.cb_TargetAudience.Size = new System.Drawing.Size(121, 21);
+            this.cb_TargetAudience.TabIndex = 5;
             // 
             // cb_Media
             // 
@@ -540,15 +577,6 @@
             this.splitContainer2.Size = new System.Drawing.Size(746, 336);
             this.splitContainer2.SplitterDistance = 68;
             this.splitContainer2.TabIndex = 24;
-            // 
-            // lbl_Type
-            // 
-            this.lbl_Type.AutoSize = true;
-            this.lbl_Type.Location = new System.Drawing.Point(144, 21);
-            this.lbl_Type.Name = "lbl_Type";
-            this.lbl_Type.Size = new System.Drawing.Size(31, 13);
-            this.lbl_Type.TabIndex = 7;
-            this.lbl_Type.Text = "Type";
             // 
             // panel1
             // 
@@ -607,25 +635,21 @@
             this.splitContainer4.SplitterDistance = 336;
             this.splitContainer4.TabIndex = 26;
             // 
-            // cms_Patron
+            // btn_filter
             // 
-            this.cms_Patron.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editPatronToolStripMenuItem,
-            this.deletePatronToolStripMenuItem});
-            this.cms_Patron.Name = "cms_Patron";
-            this.cms_Patron.Size = new System.Drawing.Size(146, 48);
+            this.btn_filter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_filter.Location = new System.Drawing.Point(582, 39);
+            this.btn_filter.Name = "btn_filter";
+            this.btn_filter.Size = new System.Drawing.Size(75, 23);
+            this.btn_filter.TabIndex = 22;
+            this.btn_filter.Text = "Filter";
+            this.btn_filter.UseVisualStyleBackColor = true;
             // 
-            // editPatronToolStripMenuItem
+            // viewDetailsToolStripMenuItem
             // 
-            this.editPatronToolStripMenuItem.Name = "editPatronToolStripMenuItem";
-            this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.editPatronToolStripMenuItem.Text = "Edit Patron";
-            // 
-            // deletePatronToolStripMenuItem
-            // 
-            this.deletePatronToolStripMenuItem.Name = "deletePatronToolStripMenuItem";
-            this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.deletePatronToolStripMenuItem.Text = "Delete Patron";
+            this.viewDetailsToolStripMenuItem.Name = "viewDetailsToolStripMenuItem";
+            this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.viewDetailsToolStripMenuItem.Text = "View Details";
             // 
             // MainForm
             // 
@@ -648,6 +672,7 @@
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.cms_Patron.ResumeLayout(false);
             this.gb_filteringfields.ResumeLayout(false);
             this.gb_filteringfields.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -661,7 +686,6 @@
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.ResumeLayout(false);
-            this.cms_Patron.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,7 +693,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_DateSelector;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -698,7 +722,7 @@
         private System.Windows.Forms.ColumnHeader chBookByPatron_Reserved;
         private System.Windows.Forms.Button btn_checkInOut;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_about;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -716,7 +740,7 @@
         private System.Windows.Forms.CheckBox cb_Media;
         private System.Windows.Forms.CheckBox cb_Books;
         private System.Windows.Forms.Label lbl_TargetAudience;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_TargetAudience;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label lbl_Type;
         private System.Windows.Forms.Panel panel1;
@@ -726,6 +750,8 @@
         private System.Windows.Forms.ContextMenuStrip cms_Patron;
         private System.Windows.Forms.ToolStripMenuItem editPatronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePatronToolStripMenuItem;
+        private System.Windows.Forms.Button btn_filter;
+        private System.Windows.Forms.ToolStripMenuItem viewDetailsToolStripMenuItem;
     }
 }
 
