@@ -59,9 +59,9 @@ namespace librarysim.Classes
 		
 		#region Books
 		public DataSet RetrieveBook(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                            string description, DateTime? checkedout)
 		{
-			return _database.BookRetrieve(bookID, patronID, type, title, author, description, checkedin, checkedout, reserved);
+			return _database.BookRetrieve(bookID, patronID, type, title, author, description, checkedout);
 		}
 		
         public void AddBook(string type, string title, string author, string description)
@@ -70,9 +70,9 @@ namespace librarysim.Classes
 		}
 
         public void UpdateBook(int bookID, int? patronID, string type, string title, string author,
-		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                string description, DateTime? checkedout)
 		{
-			_database.BookUpdate(bookID, patronID, type, title, author, description, checkedin, checkedout, reserved);
+			_database.BookUpdate(bookID, patronID, type, title, author, description, checkedout);
 		}
 		
         public void DeleteBook(int bookID)
@@ -83,9 +83,9 @@ namespace librarysim.Classes
 
 		#region Media
 		public DataSet RetrieveMedia(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                            string rating, DateTime? checkedout)
 		{
-			return _database.MediaRetrieve( mediaID, patronID, type, title, author, rating, checkedin, checkedout, reserved);
+			return _database.MediaRetrieve( mediaID, patronID, type, title, author, rating, checkedout);
 		}
 		
         public void AddMedia(string type, string title, string rating, string description)
@@ -94,9 +94,9 @@ namespace librarysim.Classes
 		}
 
         public void UpdateMedia(int mediaID, int? patronID, string type, string title, string rating,
-		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                string description, DateTime? checkedout)
 		{
-			_database.MediaUpdate(mediaID, patronID, type, title, rating, description, checkedin, checkedout, reserved);
+			_database.MediaUpdate(mediaID, patronID, type, title, rating, description, checkedout);
 		}
 		
         public void DeleteMedia(int mediaID)

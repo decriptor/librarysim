@@ -69,9 +69,7 @@ namespace librarysim.Backend
 						Title TEXT,
 						Author TEXT,
 						Description TEXT,
-						Checkedin TEXT,
-						Checkedout TEXT,
-						Reserved INTEGER
+						Checkedout TEXT
 				)");
 			}
 			if(!TableExists("Media")){
@@ -82,9 +80,7 @@ namespace librarysim.Backend
 						Title TEXT,
 						Rating TEXT,
 						Description TEXT,
-						Checkedin TEXT,
-						Checkedout TEXT,
-						Reserved INTEGER
+						Checkedout TEXT
 				)");
 			}
 		}
@@ -118,12 +114,10 @@ namespace librarysim.Backend
 			}
 			catch( SqliteException ex )
 			{
-				Console.WriteLine("EX1: " + ex.ToString());
 				throw ex;
 			}
 			catch( SqliteExecutionException ex )
 			{
-				Console.WriteLine("EX2: " + ex.ToString());
 				throw ex;
 			}
 		}
@@ -212,8 +206,5 @@ namespace librarysim.Backend
 				                             , "adult", "The Matrix", "R", "Fake Description"));
 			
 		}
-		
-		
-		
 	}
 }

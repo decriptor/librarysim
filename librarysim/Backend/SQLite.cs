@@ -172,15 +172,15 @@ namespace librarysim.Backend
         /// <param name="reserved"></param>
         /// <returns>book Data Set</returns>
 		public DataSet BookRetrieve(int? bookID, int? patronID, string type, string title, string author, 
-		                            string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                            string description, DateTime? checkedout)
 		{
 			this.Open();
 			DataSet bookDS = new DataSet();
 			try
             {
                 SqliteCommand cmd = connection.CreateCommand();
-				cmd.CommandText = String.Format("select * from Books");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Author = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
-				                           //  , bookID, patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+				cmd.CommandText = String.Format("select * from Books");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Author = \"{4}\" and description = \"{5}\" and Checkedout = \"{6}\"
+				                           //  , bookID, patronID, type, title, author, description, checkedout.ToString());
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(bookDS, "Books");
             }
@@ -211,14 +211,14 @@ namespace librarysim.Backend
 		}
 
         public void BookUpdate(int bookID, int? patronID, string type, string title, string author,
-		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                string description, DateTime? checkedout)
 		{
 			this.Open();
             try
             {
                 SqliteCommand cmd = connection.CreateCommand();
-                cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Author = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, author, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+                cmd.CommandText = String.Format("UPDATE Books SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Author = \"{3}\", Description = \"{4}\", Checkedout = \"{5}\""
+				                                , patronID, type, title, author, description, checkedout.ToString());
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
@@ -247,15 +247,15 @@ namespace librarysim.Backend
 
 		#region Media
 		public DataSet MediaRetrieve(int? mediaID, int? patronID, string type, string title, string author, 
-		                            string rating, DateTime? checkedin, DateTime? checkedout, bool? reserved )
+		                            string rating, DateTime? checkedout )
 		{
 			this.Open();
 			DataSet mediaDS = new DataSet();
 			try
             {
                 SqliteCommand cmd = connection.CreateCommand();
-				cmd.CommandText = String.Format("select * from Media");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Rating = \"{4}\" and description = \"{5}\" and Checkedin = \"{6}\" and Checkedout = \"{7}\" and Reserved = {8}"
-				                            // , mediaID, patronID, type, title, author, rating, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+				cmd.CommandText = String.Format("select * from Media");// where ID = {0} and Patron = {1} and Type = \"{2}\" and Title = \"{3}\" and Rating = \"{4}\" and description = \"{5}\" and Checkedout = \"{6}\"
+				                            // , mediaID, patronID, type, title, author, rating, checkedout.ToString());
 				SqliteDataAdapter DA = new SqliteDataAdapter(cmd);
 				DA.Fill(mediaDS, "Media");
             }
@@ -285,14 +285,14 @@ namespace librarysim.Backend
 		}
 
         public void MediaUpdate(int mediaID, int? patronID, string type, string title, string rating,
-		                string description, DateTime? checkedin, DateTime? checkedout, bool? reserved)
+		                string description, DateTime? checkedout)
 		{
 			this.Open();
             try
             {
                 SqliteCommand cmd = connection.CreateCommand();
-                cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Rating = \"{3}\", Description = \"{4}\", Checkedin = \"{5}\", Checkedout = \"{6}\", Reserved = {7} WHERE (ID = {8})"
-				                                , patronID, type, title, rating, description, checkedin.ToString(), checkedout.ToString(), Convert.ToInt32(reserved));
+                cmd.CommandText = String.Format("UPDATE Media SET Patron = {0}, Type = \"{1}\", Title = \"{2}\", Rating = \"{3}\", Description = \"{4}\", Checkedout = \"{5}\""
+                                                , patronID, type, title, rating, description, checkedout.ToString());
 				cmd.ExecuteNonQuery();
             }
             catch (SqliteExecutionException ex)
