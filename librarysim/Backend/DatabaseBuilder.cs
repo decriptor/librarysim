@@ -124,9 +124,9 @@ namespace librarysim.Backend
 		
 		private void GenerateFakeData()
 		{
-			CreatePatrons( 100 );
-			CreateBooks( 100 );
-			CreateMedia( 100 );
+			CreatePatrons( 0 );
+			CreateBooks( 0 );
+			CreateMedia( 0 );
 		}
 		
 		private void CreatePatrons( int count )
