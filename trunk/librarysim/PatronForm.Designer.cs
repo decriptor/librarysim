@@ -40,11 +40,13 @@
       this.dtpDOB = new System.Windows.Forms.DateTimePicker();
       this.txtAddress = new System.Windows.Forms.TextBox();
       this.cmbGender = new System.Windows.Forms.ComboBox();
+      this.cmbAge = new System.Windows.Forms.ComboBox();
+      this.lblAge = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // btnSave
       // 
-      this.btnSave.Location = new System.Drawing.Point(189, 153);
+      this.btnSave.Location = new System.Drawing.Point(188, 180);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(75, 23);
       this.btnSave.TabIndex = 5;
@@ -53,7 +55,7 @@
       // 
       // btnCancel
       // 
-      this.btnCancel.Location = new System.Drawing.Point(5, 153);
+      this.btnCancel.Location = new System.Drawing.Point(4, 180);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(75, 23);
       this.btnCancel.TabIndex = 6;
@@ -114,7 +116,7 @@
       // lblBirthday
       // 
       this.lblBirthday.AutoSize = true;
-      this.lblBirthday.Location = new System.Drawing.Point(13, 117);
+      this.lblBirthday.Location = new System.Drawing.Point(12, 144);
       this.lblBirthday.Name = "lblBirthday";
       this.lblBirthday.Size = new System.Drawing.Size(45, 13);
       this.lblBirthday.TabIndex = 2;
@@ -122,7 +124,7 @@
       // 
       // dtpDOB
       // 
-      this.dtpDOB.Location = new System.Drawing.Point(64, 114);
+      this.dtpDOB.Location = new System.Drawing.Point(63, 141);
       this.dtpDOB.Name = "dtpDOB";
       this.dtpDOB.Size = new System.Drawing.Size(200, 20);
       this.dtpDOB.TabIndex = 4;
@@ -146,12 +148,35 @@
       this.cmbGender.Size = new System.Drawing.Size(167, 21);
       this.cmbGender.TabIndex = 3;
       // 
+      // cmbAge
+      // 
+      this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbAge.FormattingEnabled = true;
+      this.cmbAge.Items.AddRange(new object[] {
+            "Adult",
+            "Child"});
+      this.cmbAge.Location = new System.Drawing.Point(96, 114);
+      this.cmbAge.Name = "cmbAge";
+      this.cmbAge.Size = new System.Drawing.Size(167, 21);
+      this.cmbAge.TabIndex = 8;
+      // 
+      // lblAge
+      // 
+      this.lblAge.AutoSize = true;
+      this.lblAge.Location = new System.Drawing.Point(12, 118);
+      this.lblAge.Name = "lblAge";
+      this.lblAge.Size = new System.Drawing.Size(26, 13);
+      this.lblAge.TabIndex = 7;
+      this.lblAge.Text = "Age";
+      // 
       // PatronForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(275, 185);
+      this.ClientSize = new System.Drawing.Size(275, 210);
       this.ControlBox = false;
+      this.Controls.Add(this.cmbAge);
+      this.Controls.Add(this.lblAge);
       this.Controls.Add(this.cmbGender);
       this.Controls.Add(this.dtpDOB);
       this.Controls.Add(this.lblBirthday);
@@ -186,5 +211,7 @@
     private System.Windows.Forms.DateTimePicker dtpDOB;
     private System.Windows.Forms.TextBox txtAddress;
     private System.Windows.Forms.ComboBox cmbGender;
+    private System.Windows.Forms.ComboBox cmbAge;
+    private System.Windows.Forms.Label lblAge;
   }
 }
