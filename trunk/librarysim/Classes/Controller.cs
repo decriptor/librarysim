@@ -257,24 +257,24 @@ namespace librarysim.Classes
 		
 		internal void LaunchPatronsDialog(Patrons p)
 		{
-      PatronForm pf = new PatronForm(p);
+			PatronForm pf = new PatronForm(p);
 			if (pf.ShowDialog() == DialogResult.OK)
 			{
 				//Update Patrons View  
-        RefreshPatrons();
+				RefreshPatrons();
 			}
 		}
-  
+		
 		internal void LaunchPatronCreateDialog()
 		{
-      PatronForm pf = new PatronForm();
-      if (pf.ShowDialog() == DialogResult.OK)
-      {
-        //Create Patron Dialog  
-        RefreshPatrons();
-      }
+			PatronForm pf = new PatronForm();
+			if (pf.ShowDialog() == DialogResult.OK)
+			{
+				//Create Patron Dialog  
+				RefreshPatrons();
+			}
 		}
-
+		
 		internal void LaunchBookCreateDialog()
 		{
 			//Form_CreateBook FCB = new Form_CreateBook();
@@ -301,7 +301,7 @@ namespace librarysim.Classes
 
 		internal void EditPatron( int patronID )
 		{
-      PatronForm FPE = new PatronForm();
+			PatronForm FPE = new PatronForm();
 			if (FPE.ShowDialog() == DialogResult.OK)
 			{
 				//Update Patron's Information
@@ -338,5 +338,25 @@ namespace librarysim.Classes
           data.DeletePatron(id);
           RefreshPatrons();
         }
-  }
+		
+		internal DataRow GetPatron( int patronID )
+		{
+			DataSet patronsDS;
+			
+			try
+			{
+                patronsDS = data.RetrievePatron(patronID, null);
+                if ((patronsDS.Tables.Count > 0) && (patronsDS.Tables["Patrons"].Rows.Count > 0))
+				{
+                    DataRow patronDR = patronsDS.Tables["Patrons"].Rows[0];
+					return patronDR;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			return null;
+		}
+	}
 }

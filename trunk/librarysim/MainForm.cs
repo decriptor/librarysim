@@ -15,7 +15,7 @@ namespace librarysim
     {
         #region Variables
         Controller MC;
-        int _selectedPatron = 0;
+        Patrons _selectedPatron;
         DateTime _currentDate;
         #endregion
 
@@ -128,9 +128,9 @@ namespace librarysim
             {
                 foreach (PatronsListViewItem patron in patrons)
                 {
-                    _selectedPatron = (patron as PatronsListViewItem).PatronID;
+                    _selectedPatron =  new Patrons(MC.GetPatron((patron as PatronsListViewItem).PatronID));
                     gb_PatronCheckedOut.Text = "Books and Media Checked Out by " + (patron as PatronsListViewItem).PatronName;
-                    MC.RefreshPatronCheckedOut(_selectedPatron);                    
+                    MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);                    
                 }
             }
         }
@@ -152,16 +152,16 @@ namespace librarysim
                     {
                         foreach (BooksListViewItem item in items)
                         {
-                            MC.CheckOutBook((item as BooksListViewItem).BooksID, _selectedPatron, _currentDate);
-                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                            MC.CheckOutBook((item as BooksListViewItem).BooksID, _selectedPatron.PatronID, _currentDate);
+                            MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
                         }
                     }
                     if (Selected is MediaListViewItem)
                     {
                         foreach (MediaListViewItem item in items)
                         {
-                            MC.CheckOutMedia((item as MediaListViewItem).MediaID, _selectedPatron, _currentDate);
-                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                            MC.CheckOutMedia((item as MediaListViewItem).MediaID, _selectedPatron.PatronID, _currentDate);
+                            MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
                         }
                     }
                 }
@@ -172,7 +172,10 @@ namespace librarysim
         {
             _currentDate = (sender as DateTimePicker).Value;
             MC.RefreshAllBooksMedia();
-            MC.RefreshPatronCheckedOut(_selectedPatron);
+			if(_selectedPatron != null)
+			{
+				MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
+			}
         }
 
         private void btn_CheckIn_Click(object sender, EventArgs e)
@@ -189,7 +192,7 @@ namespace librarysim
                         foreach (BooksListViewItem item in items)
                         {
                             MC.CheckInBook((item as BooksListViewItem).BooksID);
-                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                            MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
                         }
                     }
                     if (Selected is MediaListViewItem)
@@ -197,7 +200,7 @@ namespace librarysim
                         foreach (MediaListViewItem item in items)
                         {
                             MC.CheckInMedia((item as MediaListViewItem).MediaID);
-                            MC.RefreshPatronCheckedOut(_selectedPatron);
+                            MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
                         }
                     }
                 }
@@ -224,16 +227,16 @@ namespace librarysim
 
         private void editPatronToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
-          MC.LoadPatronDetails(_selectedPatron);
+          _selectedPatron = new Patrons(MC.GetPatron((lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID));
+          MC.LoadPatronDetails(_selectedPatron.PatronID);
         }
 
         private void deletePatronToolStripMenuItem_Click(object sender, EventArgs e)
         {
           if (MessageBox.Show("Really delete?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
           {
-            _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
-            MC.PatronDelete(_selectedPatron);
+            _selectedPatron = new Patrons(MC.GetPatron((lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID));
+            MC.PatronDelete(_selectedPatron.PatronID);
           }
         }
     
