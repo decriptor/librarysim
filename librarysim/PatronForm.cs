@@ -28,7 +28,7 @@ namespace librarysim
       txtPhoneNumber.Text = p.PhoneNumber;
       txtAddress.Text = p.Address;
       cmbGender.SelectedIndex = (p.Gender == "male") ? 0 : 1;
-      dtpDOB.Value = new DateTime(); // todo
+      //dtpDOB.Value = new DateTime(); // todo
     }
 
     private void btnCancel_Click(object sender, EventArgs e)

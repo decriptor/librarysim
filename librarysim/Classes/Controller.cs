@@ -257,12 +257,11 @@ namespace librarysim.Classes
 		
 		internal void LaunchPatronsDialog(Patrons p)
 		{
-            throw new NotImplementedException();
-			//Form_PatronsDialog PD =  new Form_PatronsDialog();
-			//if (PD.ShowDialog() == DialogResult.OK)
-			//{
+      PatronForm pf = new PatronForm(p);
+			if (pf.ShowDialog() == DialogResult.OK)
+			{
 				//Update Patrons View  //RefreshPatrons();
-			//}
+			}
 		}
   
 		internal void LaunchPatronCreateDialog()

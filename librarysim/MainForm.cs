@@ -226,7 +226,7 @@ namespace librarysim
         private void editPatronToolStripMenuItem_Click(object sender, EventArgs e)
         {
           _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
-          MC.EditPatron(_selectedPatron);
+          MC.LoadPatronDetails(_selectedPatron);
         }
 
         private void deletePatronToolStripMenuItem_Click(object sender, EventArgs e)
