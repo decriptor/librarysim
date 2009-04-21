@@ -18,12 +18,18 @@ namespace librarysim.Classes
 			{
 				//Build Initial Database if it doesn't exist
 				Backend.DatabaseBuilder dBuilder = new librarysim.Backend.DatabaseBuilder();
-        dBuilder.BuildDatabase("URI=file:" + dbLocation, true);
+        if (!dbLocation.StartsWith("URI=file:"))
+          dBuilder.BuildDatabase("URI=file:" + dbLocation, true);
+        else
+          dBuilder.BuildDatabase(dbLocation, true);
 			}
 			try
       {
 
-        _database = new SQLite("URI=file:" + dbLocation);
+        if (!dbLocation.StartsWith("URI=file:"))
+          _database = new SQLite("URI=file:" + dbLocation);
+        else
+          _database = new SQLite(dbLocation);
 			}
 			catch (SqliteException ex)
 			{
