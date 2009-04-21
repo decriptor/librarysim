@@ -64,7 +64,7 @@ namespace librarysim.Classes
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
-			checkedout = Convert.ToDateTime(booksDR[Tables.bookCheckedOut]);
+			//checkedout = Convert.ToDateTime(booksDR[Tables.bookCheckedOut]);
 		}
 	}
 	

@@ -26,10 +26,10 @@ namespace librarysim
       bookID = b.BooksID;
       txtPatronID.ReadOnly = false;
       txtPatronID.Text = b.PatronID.ToString(); // todo
-      cmbType.SelectedIndex = (b.Type == "Adult") ? 1 : 0; // todo
+      cmbType.SelectedIndex = (b.Type == "adult") ? 0 : 1; // todo
       txtTitle.Text = b.Title;
       txtDescription.Text = b.Description;
-      dtpCheckedOut.Value = new DateTime(); // todo
+      //dtpCheckedOut.Value = new DateTime(); // todo
     }
     
     private void btnCancel_Click(object sender, EventArgs e)

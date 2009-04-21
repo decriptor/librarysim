@@ -16,6 +16,7 @@ namespace librarysim
         #region Variables
         Controller MC;
         Patrons _selectedPatron;
+        Books _selectedBook;
         DateTime _currentDate;
         #endregion
 
@@ -231,8 +232,7 @@ namespace librarysim
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          BookForm bf = new BookForm();
-          bf.ShowDialog();
+          MC.LaunchBookCreateDialog();
         }
 
         private void editPatronToolStripMenuItem_Click(object sender, EventArgs e)
@@ -248,6 +248,12 @@ namespace librarysim
             _selectedPatron = new Patrons(MC.GetPatron((lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID));
             MC.PatronDelete(_selectedPatron.PatronID);
           }
+        }
+
+        private void editBookMediaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
+          MC.LoadBookDetails(_selectedBook.BooksID);
         }
     
 	}
