@@ -82,6 +82,7 @@ namespace librarysim.Classes
 		string author;
 		string description;
 		DateTime checkedout;
+		string dateTest;
 		#endregion
 		
 		#region Properties
@@ -129,7 +130,13 @@ namespace librarysim.Classes
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
-			//checkedout = DateTime.Parse(booksDR[Tables.bookCheckedOut].ToString());
+			dateTest = booksDR[Tables.bookCheckedOut].ToString();
+			Console.WriteLine("Date Test is: {0}", dateTest);
+			if(dateTest != string.Empty)
+			{
+				checkedout = DateTime.Parse(dateTest);
+			}
+			
 			SetOption();
 			BuildSubItems();
 		}
@@ -140,6 +147,15 @@ namespace librarysim.Classes
 			this.SubItems.Add(title);
 			this.SubItems.Add(description);
 			this.SubItems.Add(author);
+			this.SubItems.Add("");
+			if(dateTest == string.Empty)
+			{
+				this.SubItems.Add(string.Empty);
+			}
+			else
+			{
+				this.SubItems.Add(checkedout.ToString());
+			}
 		}
 		
 		private void SetOption()
