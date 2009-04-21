@@ -344,6 +344,12 @@ namespace librarysim.Classes
 			//}
 		}
 
+    internal void BookDelete(int id)
+    {
+      data.DeleteBook(id);
+      RefreshAllBooksMedia();
+    }
+
 		internal void LaunchHistoryViewer()
 		{
 			//Form_HistoryViewer FHV = new Form_HistoryViewer();

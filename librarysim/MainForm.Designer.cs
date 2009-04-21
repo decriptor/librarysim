@@ -278,6 +278,7 @@
           this.deleteBookMediaToolStripMenuItem.Name = "deleteBookMediaToolStripMenuItem";
           this.deleteBookMediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
           this.deleteBookMediaToolStripMenuItem.Text = "Delete";
+          this.deleteBookMediaToolStripMenuItem.Click += new System.EventHandler(this.deleteBookMediaToolStripMenuItem_Click);
           // 
           // chBook_patronID
           // 
