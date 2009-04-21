@@ -295,6 +295,15 @@ namespace librarysim.Classes
       }
     }
 
+    internal void LaunchConfigDialog()
+    {
+      ConfigEditor ce = new ConfigEditor(conf);
+      if (ce.ShowDialog() == DialogResult.OK)
+      {
+        //Update Config
+      }
+    }
+
     internal void LaunchBookDialog(Books b)
     {
       BookForm bf = new BookForm(b);

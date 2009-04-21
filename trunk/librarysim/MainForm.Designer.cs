@@ -45,9 +45,6 @@
           this.statusStrip1 = new System.Windows.Forms.StatusStrip();
           this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
           this.lsv_AllBooksMedia = new System.Windows.Forms.ListView();
-          this.cmsBookMedia = new System.Windows.Forms.ContextMenuStrip(this.components);
-          this.editBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-          this.deleteBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
           this.chBook_patronID = new System.Windows.Forms.ColumnHeader();
           this.chBook_type = new System.Windows.Forms.ColumnHeader();
           this.chBook_title = new System.Windows.Forms.ColumnHeader();
@@ -55,6 +52,9 @@
           this.chBook_description = new System.Windows.Forms.ColumnHeader();
           this.chBook_dueDate = new System.Windows.Forms.ColumnHeader();
           this.chBook_checkedOut = new System.Windows.Forms.ColumnHeader();
+          this.cmsBookMedia = new System.Windows.Forms.ContextMenuStrip(this.components);
+          this.editBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+          this.deleteBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
           this.btn_CheckIn = new System.Windows.Forms.Button();
           this.lsv_CheckedOutByPatron = new System.Windows.Forms.ListView();
           this.chBookByPatron_PatronID = new System.Windows.Forms.ColumnHeader();
@@ -223,13 +223,12 @@
           this.statusStrip1.Name = "statusStrip1";
           this.statusStrip1.Size = new System.Drawing.Size(1000, 22);
           this.statusStrip1.TabIndex = 2;
-          this.statusStrip1.Text = "statusStrip1";
           // 
           // toolStripStatusLabel1
           // 
           this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
           this.toolStripStatusLabel1.Size = new System.Drawing.Size(24, 17);
-          this.toolStripStatusLabel1.Text = "tsl_";
+          this.toolStripStatusLabel1.Text = "";
           // 
           // lsv_AllBooksMedia
           // 
@@ -257,28 +256,6 @@
           this.lsv_AllBooksMedia.TabIndex = 6;
           this.lsv_AllBooksMedia.UseCompatibleStateImageBehavior = false;
           this.lsv_AllBooksMedia.View = System.Windows.Forms.View.Details;
-          // 
-          // cmsBookMedia
-          // 
-          this.cmsBookMedia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editBookMediaToolStripMenuItem,
-            this.deleteBookMediaToolStripMenuItem});
-          this.cmsBookMedia.Name = "cms_Patron";
-          this.cmsBookMedia.Size = new System.Drawing.Size(153, 70);
-          // 
-          // editBookMediaToolStripMenuItem
-          // 
-          this.editBookMediaToolStripMenuItem.Name = "editBookMediaToolStripMenuItem";
-          this.editBookMediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-          this.editBookMediaToolStripMenuItem.Text = "Edit";
-          this.editBookMediaToolStripMenuItem.Click += new System.EventHandler(this.editBookMediaToolStripMenuItem_Click);
-          // 
-          // deleteBookMediaToolStripMenuItem
-          // 
-          this.deleteBookMediaToolStripMenuItem.Name = "deleteBookMediaToolStripMenuItem";
-          this.deleteBookMediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-          this.deleteBookMediaToolStripMenuItem.Text = "Delete";
-          this.deleteBookMediaToolStripMenuItem.Click += new System.EventHandler(this.deleteBookMediaToolStripMenuItem_Click);
           // 
           // chBook_patronID
           // 
@@ -313,6 +290,28 @@
           // 
           this.chBook_checkedOut.Text = "Checked Out";
           this.chBook_checkedOut.Width = 76;
+          // 
+          // cmsBookMedia
+          // 
+          this.cmsBookMedia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editBookMediaToolStripMenuItem,
+            this.deleteBookMediaToolStripMenuItem});
+          this.cmsBookMedia.Name = "cms_Patron";
+          this.cmsBookMedia.Size = new System.Drawing.Size(108, 48);
+          // 
+          // editBookMediaToolStripMenuItem
+          // 
+          this.editBookMediaToolStripMenuItem.Name = "editBookMediaToolStripMenuItem";
+          this.editBookMediaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+          this.editBookMediaToolStripMenuItem.Text = "Edit";
+          this.editBookMediaToolStripMenuItem.Click += new System.EventHandler(this.editBookMediaToolStripMenuItem_Click);
+          // 
+          // deleteBookMediaToolStripMenuItem
+          // 
+          this.deleteBookMediaToolStripMenuItem.Name = "deleteBookMediaToolStripMenuItem";
+          this.deleteBookMediaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+          this.deleteBookMediaToolStripMenuItem.Text = "Delete";
+          this.deleteBookMediaToolStripMenuItem.Click += new System.EventHandler(this.deleteBookMediaToolStripMenuItem_Click);
           // 
           // btn_CheckIn
           // 

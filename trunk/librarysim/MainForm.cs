@@ -111,8 +111,7 @@ namespace librarysim
 
         private void configToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigEditor ce = new ConfigEditor();
-            ce.ShowDialog();
+          MC.LaunchConfigDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,15 +251,22 @@ namespace librarysim
 
         private void editBookMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
-          MC.LoadBookDetails(_selectedBook.BooksID);
+          try
+          {
+            _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
+            MC.LoadBookDetails(_selectedBook.BooksID);
+          }
+          catch (Exception)
+          {
+          }
         }
 
         private void deleteBookMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
           if (MessageBox.Show("Really delete?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
           {
-            _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
+            //_selectedBook = new Books(lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID;
+            //_selectedBook = MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID);
             MC.BookDelete(_selectedBook.BooksID);
           }
         }
