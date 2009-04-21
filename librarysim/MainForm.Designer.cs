@@ -45,6 +45,9 @@
           this.statusStrip1 = new System.Windows.Forms.StatusStrip();
           this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
           this.lsv_AllBooksMedia = new System.Windows.Forms.ListView();
+          this.cmsBookMedia = new System.Windows.Forms.ContextMenuStrip(this.components);
+          this.editBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+          this.deleteBookMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
           this.chBook_patronID = new System.Windows.Forms.ColumnHeader();
           this.chBook_type = new System.Windows.Forms.ColumnHeader();
           this.chBook_title = new System.Windows.Forms.ColumnHeader();
@@ -88,6 +91,7 @@
           this.splitContainer4 = new System.Windows.Forms.SplitContainer();
           this.menuStrip1.SuspendLayout();
           this.statusStrip1.SuspendLayout();
+          this.cmsBookMedia.SuspendLayout();
           this.gb_Patrons.SuspendLayout();
           this.splitContainer1.Panel1.SuspendLayout();
           this.splitContainer1.Panel2.SuspendLayout();
@@ -238,6 +242,7 @@
             this.chBook_description,
             this.chBook_dueDate,
             this.chBook_checkedOut});
+          this.lsv_AllBooksMedia.ContextMenuStrip = this.cmsBookMedia;
           this.lsv_AllBooksMedia.Dock = System.Windows.Forms.DockStyle.Fill;
           this.lsv_AllBooksMedia.FullRowSelect = true;
           this.lsv_AllBooksMedia.GridLines = true;
@@ -252,6 +257,27 @@
           this.lsv_AllBooksMedia.TabIndex = 6;
           this.lsv_AllBooksMedia.UseCompatibleStateImageBehavior = false;
           this.lsv_AllBooksMedia.View = System.Windows.Forms.View.Details;
+          // 
+          // cmsBookMedia
+          // 
+          this.cmsBookMedia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editBookMediaToolStripMenuItem,
+            this.deleteBookMediaToolStripMenuItem});
+          this.cmsBookMedia.Name = "cms_Patron";
+          this.cmsBookMedia.Size = new System.Drawing.Size(153, 70);
+          // 
+          // editBookMediaToolStripMenuItem
+          // 
+          this.editBookMediaToolStripMenuItem.Name = "editBookMediaToolStripMenuItem";
+          this.editBookMediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.editBookMediaToolStripMenuItem.Text = "Edit";
+          this.editBookMediaToolStripMenuItem.Click += new System.EventHandler(this.editBookMediaToolStripMenuItem_Click);
+          // 
+          // deleteBookMediaToolStripMenuItem
+          // 
+          this.deleteBookMediaToolStripMenuItem.Name = "deleteBookMediaToolStripMenuItem";
+          this.deleteBookMediaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.deleteBookMediaToolStripMenuItem.Text = "Delete";
           // 
           // chBook_patronID
           // 
@@ -470,25 +496,25 @@
             this.viewDetailsToolStripMenuItem,
             this.deletePatronToolStripMenuItem});
           this.cms_Patron.Name = "cms_Patron";
-          this.cms_Patron.Size = new System.Drawing.Size(153, 92);
+          this.cms_Patron.Size = new System.Drawing.Size(146, 70);
           // 
           // editPatronToolStripMenuItem
           // 
           this.editPatronToolStripMenuItem.Name = "editPatronToolStripMenuItem";
-          this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.editPatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
           this.editPatronToolStripMenuItem.Text = "Edit Patron";
           this.editPatronToolStripMenuItem.Click += new System.EventHandler(this.editPatronToolStripMenuItem_Click);
           // 
           // viewDetailsToolStripMenuItem
           // 
           this.viewDetailsToolStripMenuItem.Name = "viewDetailsToolStripMenuItem";
-          this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.viewDetailsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
           this.viewDetailsToolStripMenuItem.Text = "View Details";
           // 
           // deletePatronToolStripMenuItem
           // 
           this.deletePatronToolStripMenuItem.Name = "deletePatronToolStripMenuItem";
-          this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+          this.deletePatronToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
           this.deletePatronToolStripMenuItem.Text = "Delete Patron";
           this.deletePatronToolStripMenuItem.Click += new System.EventHandler(this.deletePatronToolStripMenuItem_Click);
           // 
@@ -660,6 +686,7 @@
           this.menuStrip1.PerformLayout();
           this.statusStrip1.ResumeLayout(false);
           this.statusStrip1.PerformLayout();
+          this.cmsBookMedia.ResumeLayout(false);
           this.gb_Patrons.ResumeLayout(false);
           this.splitContainer1.Panel1.ResumeLayout(false);
           this.splitContainer1.Panel1.PerformLayout();
@@ -743,6 +770,9 @@
         private System.Windows.Forms.ToolStripMenuItem deletePatronToolStripMenuItem;
         private System.Windows.Forms.Button btn_filter;
         private System.Windows.Forms.ToolStripMenuItem viewDetailsToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsBookMedia;
+        private System.Windows.Forms.ToolStripMenuItem editBookMediaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteBookMediaToolStripMenuItem;
     }
 }
 

@@ -274,17 +274,68 @@ namespace librarysim.Classes
 				RefreshPatrons();
 			}
 		}
-		
-		internal void LaunchBookCreateDialog()
+
+    internal void LoadBookDetails(int bookID)
+    {
+      DataSet bookDS;
+      Books b;
+      try
+      {
+        bookDS = data.RetrieveBook(bookID, null);
+        if ((bookDS.Tables.Count > 0) && (bookDS.Tables["Books"].Rows.Count > 0))
+        {
+          DataRow bookDR = bookDS.Tables["Books"].Rows[0];
+          b = new Books(bookDR);
+          LaunchBookDialog(b);
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+    }
+
+    internal void LaunchBookDialog(Books b)
+    {
+      BookForm bf = new BookForm(b);
+      if (bf.ShowDialog() == DialogResult.OK)
+      {
+        //Update Patrons View  
+        RefreshPatrons();
+      }
+    }
+    
+    internal void LaunchBookCreateDialog()
 		{
-			//Form_CreateBook FCB = new Form_CreateBook();
-			//if (FCB.ShowDialog() == DialogResult.OK)
-			//{
-				//Create Book Dialog  //RefreshBooks();
-			//}
+      BookForm bf = new BookForm();
+			if (bf.ShowDialog() == DialogResult.OK)
+			{
+				//Create Book Dialog  
+        RefreshAllBooksMedia();
+			}
 		}
 
-		internal void LaunchMediaCreateDialog()
+    internal DataRow GetBook(int bookID)
+    {
+      DataSet bookDS;
+
+      try
+      {
+        bookDS = data.RetrieveBook(bookID, null);
+        if ((bookDS.Tables.Count > 0) && (bookDS.Tables["Books"].Rows.Count > 0))
+        {
+          DataRow bookDR = bookDS.Tables["Books"].Rows[0];
+          return bookDR;
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+      return null;
+    }
+    
+    internal void LaunchMediaCreateDialog()
 		{
 			//Form_MediaCreate FMC = new Form_MediaCreate();
 			//if (FMC.ShowDialog() == DialogResult.OK)
