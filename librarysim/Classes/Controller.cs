@@ -376,6 +376,7 @@ namespace librarysim.Classes
 
         internal void CheckOutBook(int bookID, int patronID, DateTime selectedDate)
         {
+			Console.WriteLine("DateTime = {0}", selectedDate);
             data.CheckOutBook(bookID, patronID, selectedDate);
         }
 

@@ -1,3 +1,9 @@
+2009-04-21  Stephen Shaw  <sshaw@decriptor.com>
+
+	* Books.cs: Added a date test and now add it to the list view.
+
+	* Controller.cs: test code
+
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
 	* Controller.cs: Changed _selectedPatron from just an int to a
