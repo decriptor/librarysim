@@ -83,6 +83,8 @@ namespace librarysim.Classes
 		string description;
 		DateTime checkedout;
 		string dateTest;
+		//Yeah Yeah, this is a complete crap way to do it
+		string str_checkedout = string.Empty;
 		#endregion
 		
 		#region Properties
@@ -120,6 +122,11 @@ namespace librarysim.Classes
 		{
 			get { return checkedout; }
 		}
+		
+		public String Str_CheckedOut
+		{
+			get { return str_checkedout; }
+		}
 		#endregion
 		
 		public BooksListViewItem( DataRow booksDR )
@@ -135,6 +142,7 @@ namespace librarysim.Classes
 			if(dateTest != string.Empty)
 			{
 				checkedout = DateTime.Parse(dateTest);
+				str_checkedout = checkedout.ToString();
 			}
 			
 			SetOption();
@@ -148,14 +156,7 @@ namespace librarysim.Classes
 			this.SubItems.Add(description);
 			this.SubItems.Add(author);
 			this.SubItems.Add("");
-			if(dateTest == string.Empty)
-			{
-				this.SubItems.Add(string.Empty);
-			}
-			else
-			{
-				this.SubItems.Add(checkedout.ToString());
-			}
+			this.SubItems.Add(str_checkedout);
 		}
 		
 		private void SetOption()
