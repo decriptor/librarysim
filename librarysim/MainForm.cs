@@ -152,6 +152,16 @@ namespace librarysim
                     {
                         foreach (BooksListViewItem item in items)
                         {
+                            if ( _selectedPatron.Age == "child" && item.Type == "adult" ) 
+                            {
+                                MessageBox.Show("Children cannot checkout Adult items. ");
+                                break;
+                            }
+                            else if ( item.Checkedout != null )
+                            {
+                                MessageBox.Show("Book: " + item.Title + " is already checked out.");
+                                break;
+                            }
                             MC.CheckOutBook((item as BooksListViewItem).BooksID, _selectedPatron.PatronID, _currentDate);
                             MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
                         }

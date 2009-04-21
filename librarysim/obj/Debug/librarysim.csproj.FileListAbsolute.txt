@@ -24,3 +24,19 @@ C:\Users\sshaw\librarysim\librarysim\obj\Debug\librarysim.Properties.Resources.r
 C:\Users\sshaw\librarysim\librarysim\obj\Debug\librarysim.csproj.GenerateResource.Cache
 C:\Users\sshaw\librarysim\librarysim\obj\Debug\librarysim.ConfigEditor.resources
 C:\Users\sshaw\librarysim\librarysim\obj\Debug\librarysim.MainForm.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\bin\Debug\librarysim.exe.config
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.exe
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.pdb
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\bin\Debug\sqlite3.dll
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\bin\Debug\librarysim.exe
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\bin\Debug\librarysim.pdb
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\bin\Debug\Mono.Data.Sqlite.dll
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.AboutBox.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.BookForm.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.ConfigEditor.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.MainForm.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.MediaForm.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.PatronForm.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.Properties.Resources.resources
+C:\Documents and Settings\Ryan\My Documents\Semester Project\librarysim\obj\Debug\librarysim.csproj.GenerateResource.Cache
