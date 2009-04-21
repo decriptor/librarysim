@@ -260,17 +260,19 @@ namespace librarysim.Classes
       PatronForm pf = new PatronForm(p);
 			if (pf.ShowDialog() == DialogResult.OK)
 			{
-				//Update Patrons View  //RefreshPatrons();
+				//Update Patrons View  
+        RefreshPatrons();
 			}
 		}
   
 		internal void LaunchPatronCreateDialog()
 		{
-			//Form_PatronCreate FPC = new Form_PatronCreate();
-			//if (FPC.ShowDialog() == DialogResult.OK)
-			//{
-				//Create Patron Dialog  //RefreshPatrons();
-			//}
+      PatronForm pf = new PatronForm();
+      if (pf.ShowDialog() == DialogResult.OK)
+      {
+        //Create Patron Dialog  
+        RefreshPatrons();
+      }
 		}
 
 		internal void LaunchBookCreateDialog()
