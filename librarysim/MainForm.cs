@@ -93,8 +93,7 @@ namespace librarysim
 
         private void patronToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          PatronForm pf = new PatronForm();
-          pf.ShowDialog();
+          MC.LaunchPatronCreateDialog();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -231,8 +230,11 @@ namespace librarysim
 
         private void deletePatronToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
-          MC.PatronDelete(_selectedPatron);
+          if (MessageBox.Show("Really delete?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+          {
+            _selectedPatron = (lsv_Patron.SelectedItems[0] as PatronsListViewItem).PatronID;
+            MC.PatronDelete(_selectedPatron);
+          }
         }
     
 	}
