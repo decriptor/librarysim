@@ -1,5 +1,10 @@
 2009-04-21  Stephen Shaw  <sshaw@decriptor.com>
 
+	* MainForm.cs: made checkout work again. This doesn't fix the
+	  issue with being able to check out the same book twice
+
+2009-04-21  Stephen Shaw  <sshaw@decriptor.com>
+
 	* MainForm.cs: Disabled the check out button until a patron is
 	  selected
 
