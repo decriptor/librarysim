@@ -25,9 +25,14 @@ namespace librarysim.Classes
 		
 		#region Database Settings
 
-		private string dbLocation = "URI=file:" + Path.Combine(
+		//private string dbLocation = "URI=file:" + Path.Combine(
+    //                                   Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+		//                               Path.Combine("librarysim", "librarysim.db"));
+
+    private string dbLocation = Path.Combine(
                                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-		                               Path.Combine("librarysim", "librarysim.db"));
+                                   Path.Combine("librarysim", "librarysim.db"));
+
 		#endregion
 		
 		#region Properties

@@ -26,7 +26,7 @@ namespace librarysim.Backend
 		{
 			try
 			{
-				connection = new SqliteConnection(db);
+        connection = new SqliteConnection("URI=file:" + db);
 				connection.Open();
 			}
 			catch( SqliteException ex )
