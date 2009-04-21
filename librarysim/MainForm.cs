@@ -265,9 +265,15 @@ namespace librarysim
         {
           if (MessageBox.Show("Really delete?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
           {
-            //_selectedBook = new Books(lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID;
-            //_selectedBook = MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID);
-            MC.BookDelete(_selectedBook.BooksID);
+            try
+            {
+              _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
+              MC.BookDelete(_selectedBook.BooksID);
+            }
+            catch (Exception)
+            { 
+              // somethign went wrong
+            }
           }
         }
     
