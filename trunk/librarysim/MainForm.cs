@@ -49,6 +49,7 @@ namespace librarysim
 
         private void BuildGUIComponents()
         {
+			btn_checkInOut.Enabled = false;
 			dtp_DateSelector.Value = DateTime.Now;
             cb_TargetAudience.Items.Add("all");
             cb_TargetAudience.Items.Add("adult");
@@ -122,6 +123,7 @@ namespace librarysim
 
         private void lsv_Patron_SelectedIndexChanged(object sender, EventArgs e)
         {
+			btn_checkInOut.Enabled = true;
             ListView.SelectedListViewItemCollection patrons = lsv_Patron.SelectedItems;
 
             if ((patrons != null) && (patrons.Count == 1))
