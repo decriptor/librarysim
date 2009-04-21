@@ -255,6 +255,15 @@ namespace librarysim
           _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
           MC.LoadBookDetails(_selectedBook.BooksID);
         }
+
+        private void deleteBookMediaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          if (MessageBox.Show("Really delete?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+          {
+            _selectedBook = new Books(MC.GetBook((lsv_AllBooksMedia.SelectedItems[0] as BooksListViewItem).BooksID));
+            MC.BookDelete(_selectedBook.BooksID);
+          }
+        }
     
 	}
 }
