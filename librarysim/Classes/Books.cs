@@ -59,8 +59,12 @@ namespace librarysim.Classes
 		public Books( DataRow booksDR )
 		{
 			booksID = Convert.ToInt32(booksDR[Tables.bookID]);
-			patronID = Convert.ToInt32(booksDR[Tables.bookPatronID]);
-			type = booksDR[Tables.bookType].ToString();
+      try
+      {
+        patronID = Convert.ToInt32(booksDR[Tables.bookPatronID]);
+      }
+      catch (Exception) { }
+      type = booksDR[Tables.bookType].ToString();
 			title = booksDR[Tables.bookTitle].ToString();
 			author = booksDR[Tables.bookAuthor].ToString();
 			description = booksDR[Tables.bookDescription].ToString();
