@@ -18,6 +18,7 @@ namespace librarysim
     {
       InitializeComponent();
       cmbGender.SelectedIndex = 0;
+      cmbAge.SelectedIndex = 0;
     }
 
     public PatronForm(Patrons p)
@@ -28,6 +29,7 @@ namespace librarysim
       txtPhoneNumber.Text = p.PhoneNumber;
       txtAddress.Text = p.Address;
       cmbGender.SelectedIndex = (p.Gender == "male") ? 0 : 1;
+      cmbAge.SelectedIndex = (p.Age == "adult") ? 0 : 1;
       //dtpDOB.Value = new DateTime(); // todo
     }
 
