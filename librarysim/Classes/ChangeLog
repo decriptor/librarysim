@@ -1,5 +1,10 @@
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
 
+	* Controller.cs: Changed _selectedPatron from just an int to a
+	  Patron object
+
+2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
+
 	* Controller.cs: fixed a typo
 
 2009-04-20  Stephen Shaw  <sshaw@decriptor.com>
