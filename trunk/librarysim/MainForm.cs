@@ -158,14 +158,15 @@ namespace librarysim
                             {
                                 MessageBox.Show("Children cannot checkout Adult items. ");
                             }
-                            //else if ( item.Checkedout != DateTime.Parse(string.Empty) )
-                            //{
-                            //    MessageBox.Show("Book: " + item.Title + " is already checked out.");
-                            //}
+                            else if ( item.Str_CheckedOut != string.Empty )
+                            {
+                                MessageBox.Show("Book: " + item.Title + " is already checked out.");
+                            }
 							else
 							{
 								MC.CheckOutBook((item as BooksListViewItem).BooksID, _selectedPatron.PatronID, _currentDate);
 								MC.RefreshPatronCheckedOut(_selectedPatron.PatronID);
+								MC.RefreshAllBooksMedia();
 							}
 						}
                     }
