@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "librarysim", "librarysim\librarysim.csproj", "{B09371DD-FDA4-43C1-B3A4-51A42841E65D}"
 EndProject
 Global
@@ -14,11 +16,14 @@ Global
 		{B09371DD-FDA4-43C1-B3A4-51A42841E65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B09371DD-FDA4-43C1-B3A4-51A42841E65D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FB987BA-502E-472B-B96F-76A4DDA299FD}
+	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		version = 0.1
 		StartupItem = librarysim\librarysim.csproj
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
